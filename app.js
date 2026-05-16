@@ -109,6 +109,9 @@ function bindModal() {
     state.tableNumber = input.value.trim() || '';
     document.getElementById('table-modal').classList.add('hidden');
     document.getElementById('main').classList.remove('hidden');
+    const el = document.documentElement;
+    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+    if (req) req.call(el).catch(() => {});
     initApp();
   };
 
