@@ -1,0 +1,185 @@
+/*
+ * ─────────────────────────────────────────────────────────────
+ *  GREEN NEKO — MENU DATA
+ *  Edit this file to manage your menu.
+ *
+ *  Each item has:
+ *    id          → unique number (don't repeat)
+ *    name        → display name
+ *    category    → must match one of the categories array
+ *    price       → number  e.g. 12.90
+ *    description → short description (keep under 100 chars)
+ *    calories    → number
+ *    spicy       → 0 = not spicy, 1 = mild, 2 = hot, 3 = 🔥🔥🔥
+ *    vegetarian  → true / false
+ *    tags        → any combo of: "new", "popular", "chef's special", "vegan"
+ *    color       → fallback card color while image loads (dark hex)
+ *    image       → full URL or relative path e.g. "images/chicken-poke.jpg"
+ * ─────────────────────────────────────────────────────────────
+ */
+window.MENU_DATA = {
+  cafe: {
+    name:     'Green Neko',
+    tagline:  'Poké & Boba Bar',
+    whatsapp: '+1234567890',   // ← CHANGE THIS to your WhatsApp number
+    currency: '$'
+  },
+
+  categories: ['All', 'Breakfast', 'Poke Bowls', 'Ramen', 'Boba Tea', 'Coffee', 'Bakery'],
+
+  items: [
+
+    /* ── BREAKFAST ───────────────────────────────────────── */
+    {
+      id: 1, name: 'Sunrise Pancake Stack', category: 'Breakfast',
+      price: 12.90, calories: 520, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#2d1500',
+      description: 'Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries',
+      image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 2, name: 'Smashed Avo Toast', category: 'Breakfast',
+      price: 14.90, calories: 380, spicy: 1, vegetarian: true,
+      tags: [], color: '#152300',
+      description: 'Sourdough, smashed avocado, poached egg, chili flakes, microgreens',
+      image: 'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 3, name: 'Neko Morning Bowl', category: 'Breakfast',
+      price: 15.90, calories: 420, spicy: 0, vegetarian: false,
+      tags: ['new'], color: '#251800',
+      description: 'Soft scrambled eggs, smoked salmon, quinoa, baby spinach, lemon vinaigrette',
+      image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+
+    /* ── POKE BOWLS ──────────────────────────────────────── */
+    {
+      id: 4, name: 'Chicken Poke Bowl', category: 'Poke Bowls',
+      price: 15.90, calories: 560, spicy: 0, vegetarian: false,
+      tags: ['popular'], color: '#0a1e30',
+      description: 'Grilled chicken, sushi rice, edamame, cucumber, sesame dressing, crispy nori',
+      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 5, name: 'Spicy Shrimp Poke', category: 'Poke Bowls',
+      price: 17.90, calories: 620, spicy: 2, vegetarian: false,
+      tags: [], color: '#1e0a00',
+      description: 'Tempura shrimp, mango, avocado, spicy mayo, tobiko, pickled ginger',
+      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 6, name: 'Green Garden Poke', category: 'Poke Bowls',
+      price: 14.90, calories: 440, spicy: 0, vegetarian: true,
+      tags: ['vegan'], color: '#0a2010',
+      description: 'Marinated tofu, roasted beet, avocado, brown rice, pickled radish, ginger dressing',
+      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+
+    /* ── RAMEN ───────────────────────────────────────────── */
+    {
+      id: 7, name: 'Pan Grill Ramen', category: 'Ramen',
+      price: 18.90, calories: 780, spicy: 1, vegetarian: false,
+      tags: ['popular', "chef's special"], color: '#250800',
+      description: 'Char-grilled pork belly, rich tonkotsu broth, soft-boiled egg, nori, bamboo shoots',
+      image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 8, name: 'Silken Tofu Ramen', category: 'Ramen',
+      price: 16.90, calories: 480, spicy: 0, vegetarian: true,
+      tags: [], color: '#1a1000',
+      description: 'Silken tofu, shiitake mushrooms, bok choy, white miso broth, sesame oil',
+      image: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 9, name: 'Fire Chicken Ramen', category: 'Ramen',
+      price: 17.90, calories: 700, spicy: 3, vegetarian: false,
+      tags: ['spicy'], color: '#300500',
+      description: 'Crispy chicken thigh, gochujang broth, sweet corn, spring onion, chili oil',
+      image: 'https://images.unsplash.com/photo-1552611052-33e04de081de?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+
+    /* ── BOBA TEA ─────────────────────────────────────────── */
+    {
+      id: 10, name: 'Strawberry Boba', category: 'Boba Tea',
+      price: 7.90, calories: 290, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#2a0818',
+      description: 'Fresh strawberry milk tea, black tapioca pearls, lightly sweetened',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 11, name: 'Mango Boba', category: 'Boba Tea',
+      price: 7.90, calories: 270, spicy: 0, vegetarian: true,
+      tags: [], color: '#2a1500',
+      description: 'Tropical mango tea, coconut jelly, tapioca pearls, hint of lime',
+      image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 12, name: 'Matcha Boba', category: 'Boba Tea',
+      price: 8.90, calories: 310, spicy: 0, vegetarian: true,
+      tags: ['new'], color: '#0a200a',
+      description: 'Premium ceremonial matcha, steamed oat milk, brown sugar tapioca pearls',
+      image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 13, name: 'Taro Milk Tea', category: 'Boba Tea',
+      price: 7.90, calories: 300, spicy: 0, vegetarian: true,
+      tags: [], color: '#1a0a28',
+      description: 'Creamy taro root milk tea, classic tapioca pearls, lightly sweetened',
+      image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+
+    /* ── COFFEE ──────────────────────────────────────────── */
+    {
+      id: 14, name: 'Neko Signature Latte', category: 'Coffee',
+      price: 6.90, calories: 130, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#150900',
+      description: 'House blend double espresso, steamed whole milk, signature cat latte art',
+      image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 15, name: 'Matcha Latte', category: 'Coffee',
+      price: 7.90, calories: 190, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#0a1a08',
+      description: 'Ceremonial grade matcha, steamed oat milk, light touch of honey',
+      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 16, name: 'Cold Brew', category: 'Coffee',
+      price: 6.50, calories: 10, spicy: 0, vegetarian: true,
+      tags: [], color: '#100800',
+      description: '18-hour cold steeped, ultra smooth and bold, served over crystal clear ice',
+      image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 17, name: 'Dirty Matcha', category: 'Coffee',
+      price: 8.50, calories: 150, spicy: 0, vegetarian: true,
+      tags: ['new'], color: '#0a1500',
+      description: 'Double espresso shot pulled over iced ceremonial matcha and oat milk',
+      image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+
+    /* ── BAKERY ──────────────────────────────────────────── */
+    {
+      id: 18, name: 'Butter Croissant', category: 'Bakery',
+      price: 5.50, calories: 290, spicy: 0, vegetarian: true,
+      tags: [], color: '#201000',
+      description: 'Classic French-style, 72-hour laminated dough, baked golden fresh each morning',
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 19, name: 'Matcha Cheesecake', category: 'Bakery',
+      price: 9.90, calories: 410, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#0f1a05',
+      description: 'Silky baked matcha cheesecake, graham cracker crust, white chocolate drizzle',
+      image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=900&fit=crop&auto=format&q=80'
+    },
+    {
+      id: 20, name: 'Neko Sugar Cookie', category: 'Bakery',
+      price: 4.50, calories: 190, spicy: 0, vegetarian: true,
+      tags: ['popular'], color: '#1e1000',
+      description: 'Signature cat-shaped butter cookie with hand-piped matcha royal icing',
+      image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&h=900&fit=crop&auto=format&q=80'
+    }
+
+  ]
+};
