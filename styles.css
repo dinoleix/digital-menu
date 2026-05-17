@@ -505,19 +505,24 @@ input  { font-family: inherit; }
 }
 .cal-toggle:active { transform: scale(0.95); }
 
-/* ─── Action Bar ─────────────────────────────────────────── */
+/* ─── Action Bar (draggable floating widget) ─────────────── */
 .action-bar {
-  height: var(--action-h);
-  padding: 8px 16px;
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+  gap: 0;
+  z-index: 20;
   pointer-events: all;
-  z-index: 10;
-  position: relative;
   background: transparent;
+  cursor: grab;
+  touch-action: none;
 }
+.action-bar.dragging { cursor: grabbing; }
 
 .qty-wrap {
   display: flex;

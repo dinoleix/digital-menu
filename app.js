@@ -657,6 +657,33 @@ function sendWhatsAppOrder() {
 function bindActionBar() {
   document.getElementById('qty-minus').addEventListener('click', () => adjustQty(-1));
   document.getElementById('qty-plus').addEventListener('click',  () => adjustQty(1));
+
+  const el = document.getElementById('action-bar');
+  let startX, startY, origLeft, origTop, active = false;
+
+  el.addEventListener('pointerdown', e => {
+    if (e.target.closest('button')) return;
+    const rect = el.getBoundingClientRect();
+    startX = e.clientX; startY = e.clientY;
+    origLeft = rect.left; origTop = rect.top;
+    active = true;
+    el.style.transform = 'none';
+    el.style.left   = origLeft + 'px';
+    el.style.top    = origTop  + 'px';
+    el.style.bottom = 'auto';
+    el.setPointerCapture(e.pointerId);
+    el.classList.add('dragging');
+  });
+
+  el.addEventListener('pointermove', e => {
+    if (!active) return;
+    const w = el.offsetWidth, h = el.offsetHeight;
+    el.style.left = clamp(origLeft + e.clientX - startX, 8, window.innerWidth  - w - 8) + 'px';
+    el.style.top  = clamp(origTop  + e.clientY - startY, 8, window.innerHeight - h - 8) + 'px';
+  });
+
+  el.addEventListener('pointerup',     () => { active = false; el.classList.remove('dragging'); });
+  el.addEventListener('pointercancel', () => { active = false; el.classList.remove('dragging'); });
 }
 
 function adjustQty(delta) {
