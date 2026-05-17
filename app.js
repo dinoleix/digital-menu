@@ -32,9 +32,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.body.innerHTML = '<p style="color:#fff;padding:32px;font-family:sans-serif">Error: could not load menu.json.</p>';
     return;
   }
-  state.allItems = data.items;
-  state.filtered = [...data.items];
-  state.config   = data.cafe;
+
+  // Support new schema (data.menu + data["café"]) and legacy (data.items + data.cafe)
+  let allItems;
+  if (data.menu) {
+    allItems = Object.values(data.menu).flat();
+    state.config = data['café'] || data.cafe || {};
+  } else {
+    allItems = data.items || [];
+    state.config = data.cafe || {};
+  }
+  state.allItems = allItems;
+  state.filtered = [...allItems];
 
   registerSW();
   initInstallBanner();
@@ -251,17 +260,26 @@ function buildCard(item, pos) {
   card.dataset.itemId = item.id;
   applyStackTransform(card, pos, false);
 
-  const spicyHtml = item.spicy > 0 ? `<span class="badge badge-spicy">${'🌶'.repeat(item.spicy)}</span>` : '';
-  const vegHtml   = item.vegetarian ? `<span class="badge badge-veg">🌿</span>` : '';
-  const newHtml   = item.tags?.includes('new')           ? `<span class="badge badge-new">✦ NEW</span>` : '';
-  const popHtml   = item.tags?.includes('popular')       ? `<span class="badge badge-popular">⭐ Popular</span>` : '';
-  const chefHtml  = item.tags?.includes("chef's special")? `<span class="badge badge-popular">👨‍🍳 Chef's Pick</span>` : '';
+  // Normalize fields — support new schema (imageUrl, colorCode, boolean spicy) and legacy
+  const image      = item.imageUrl || item.image || '';
+  const color      = item.colorCode || item.color || '#1a1a1a';
+  const spicyLevel = typeof item.spicy === 'boolean' ? (item.spicy ? 1 : 0) : (item.spicy || 0);
+  const hasCalories   = item.calories != null;
+  const n             = item.nutrition || {};
+  const hasNutrition  = hasCalories || Object.values(n).some(v => v != null);
+  const priceStr      = item.price != null ? `₹${item.price.toFixed(2)}` : 'See menu';
 
-  // Fallback gradient color from menu.json item.color field
-  const fallbackColor = item.color || '#1a1a1a';
+  const spicyHtml = spicyLevel > 0 ? `<span class="badge badge-spicy">${'🌶'.repeat(spicyLevel)}</span>` : '';
+  const vegHtml   = item.vegetarian ? `<span class="badge badge-veg">🌿</span>` : '';
+  const newHtml   = item.tags?.includes('new')            ? `<span class="badge badge-new">✦ NEW</span>` : '';
+  const popHtml   = item.tags?.includes('popular')        ? `<span class="badge badge-popular">⭐ Popular</span>` : '';
+  const chefHtml  = item.tags?.includes("chef's special") ? `<span class="badge badge-popular">👨‍🍳 Chef's Pick</span>` : '';
+  const calBtnHtml = hasNutrition
+    ? `<button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>`
+    : '';
 
   card.innerHTML = `
-    <div class="card-bg" style="background-color:${escAttr(fallbackColor)};background-image:url('${escAttr(item.image)}')"></div>
+    <div class="card-bg" style="background-color:${escAttr(color)};background-image:url('${escAttr(image)}')"></div>
     <div class="card-gradient"></div>
 
     <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
@@ -276,41 +294,54 @@ function buildCard(item, pos) {
       <div class="card-name">${escHtml(item.name)}</div>
       <div class="card-description">${escHtml(item.description)}</div>
       <div class="card-meta">
-        <span class="card-price">₹${item.price.toFixed(2)}</span>
-        <button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>
+        <span class="card-price">${priceStr}</span>
+        ${calBtnHtml}
       </div>
     </div>
   `;
 
   // Gracefully handle broken images — just shows the fallback color
   const bg = card.querySelector('.card-bg');
-  const probe = new Image();
-  probe.onerror = () => { bg.style.backgroundImage = 'none'; };
-  probe.src = item.image;
+  if (image) {
+    const probe = new Image();
+    probe.onerror = () => { bg.style.backgroundImage = 'none'; };
+    probe.src = image;
+  } else {
+    bg.style.backgroundImage = 'none';
+  }
 
-  // Nutrition panel toggle
-  const panel = card.querySelector('.nutrition-panel');
-  const n = item.nutrition || {};
-  const rows = [
-    ['🔥', 'Calories',      `${item.calories} kcal`],
-    ['💪', 'Protein',       n.protein],
-    ['🍰', 'Carbohydrates', n.carbs],
-    ['🧈', 'Fat',           n.fat],
-    ['🌿', 'Fiber',         n.fiber],
-    ['🧂', 'Sodium',        n.sodium],
-    ['❤️', 'Cholesterol',  n.cholesterol],
-  ].filter(r => r[2]);
-  panel.innerHTML = `
-    <div class="nutrition-title">Nutrition Facts</div>
-    ${rows.map(([icon, label, val]) =>
-      `<div class="nutrition-row"><span>${icon} ${label}</span><span>${val}</span></div>`
-    ).join('')}
-    <p class="nutrition-hint">Tap anywhere to close</p>
-  `;
-
-  card.querySelector('.cal-toggle').addEventListener('pointerdown', e => e.stopPropagation());
-  card.querySelector('.cal-toggle').addEventListener('click', () => panel.classList.toggle('hidden'));
-  panel.addEventListener('click', () => panel.classList.add('hidden'));
+  // Nutrition panel — only wired up when there's data
+  if (hasNutrition) {
+    const panel = card.querySelector('.nutrition-panel');
+    const fmtVal = (val, key) => {
+      if (val == null) return null;
+      if (typeof val === 'string') return val;
+      const units = { protein: 'g', carbs: 'g', fat: 'g', fiber: 'g', sodium: 'mg', cholesterol: 'mg' };
+      return `${val}${units[key] || ''}`;
+    };
+    const rows = [
+      ['🔥', 'Calories',      hasCalories ? `${item.calories} kcal` : null],
+      ['💪', 'Protein',       fmtVal(n.protein, 'protein')],
+      ['🍰', 'Carbohydrates', fmtVal(n.carbs, 'carbs')],
+      ['🧈', 'Fat',           fmtVal(n.fat, 'fat')],
+      ['🌿', 'Fiber',         fmtVal(n.fiber, 'fiber')],
+      ['🧂', 'Sodium',        fmtVal(n.sodium, 'sodium')],
+      ['❤️', 'Cholesterol',  fmtVal(n.cholesterol, 'cholesterol')],
+    ].filter(r => r[2]);
+    panel.innerHTML = `
+      <div class="nutrition-title">Nutrition Facts</div>
+      ${rows.map(([icon, label, val]) =>
+        `<div class="nutrition-row"><span>${icon} ${label}</span><span>${val}</span></div>`
+      ).join('')}
+      <p class="nutrition-hint">Tap anywhere to close</p>
+    `;
+    const calToggle = card.querySelector('.cal-toggle');
+    if (calToggle) {
+      calToggle.addEventListener('pointerdown', e => e.stopPropagation());
+      calToggle.addEventListener('click', () => panel.classList.toggle('hidden'));
+    }
+    panel.addEventListener('click', () => panel.classList.add('hidden'));
+  }
 
   return card;
 }
@@ -409,8 +440,8 @@ function springBack(card) {
 
 /* ─── Execute Swipe ──────────────────────────────────────── */
 function executeSwipe(cardEl, direction) {
-  const itemId = parseInt(cardEl.dataset.itemId);
-  const item   = state.filtered.find(i => i.id === itemId);
+  const itemId = cardEl.dataset.itemId;
+  const item   = state.filtered.find(i => String(i.id) === itemId);
   if (!item) return;
 
   state.history.push({ item, direction, qty: 1 });
@@ -550,7 +581,7 @@ function addToCart(item, qty) {
   if (existing) {
     existing.quantity += qty;
   } else {
-    state.cart.push({ id: item.id, name: item.name, price: item.price, image: item.image, quantity: qty });
+    state.cart.push({ id: item.id, name: item.name, price: item.price, image: item.imageUrl || item.image || '', quantity: qty });
   }
   updateCartBadge();
   showToast(`💚 ${qty > 1 ? qty + '× ' : ''}${item.name} added`);
@@ -611,7 +642,7 @@ function renderCartItems() {
       <img class="cart-item-img" src="${escAttr(c.image)}" alt="${escAttr(c.name)}" loading="lazy" />
       <div class="cart-item-info">
         <div class="cart-item-name">${escHtml(c.name)}</div>
-        <div class="cart-item-price">₹${(c.price * c.quantity).toFixed(2)}</div>
+        <div class="cart-item-price">${c.price != null ? `₹${(c.price * c.quantity).toFixed(2)}` : 'See menu'}</div>
       </div>
       <div class="cart-item-qty">
         <button class="cart-qty-btn" data-action="dec" data-id="${c.id}">−</button>
@@ -623,9 +654,9 @@ function renderCartItems() {
 
   container.querySelectorAll('.cart-qty-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id  = parseInt(btn.dataset.id);
+      const id  = btn.dataset.id;
       const inc = btn.dataset.action === 'inc';
-      const entry = state.cart.find(c => c.id === id);
+      const entry = state.cart.find(c => String(c.id) === id);
       if (!entry) return;
       if (inc) {
         entry.quantity++;
@@ -638,7 +669,7 @@ function renderCartItems() {
     });
   });
 
-  const total = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
+  const total = state.cart.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
   totalEl.textContent = `₹${total.toFixed(2)}`;
 }
 
@@ -646,7 +677,7 @@ function renderCartItems() {
 function showCounterView() {
   if (state.cart.length === 0) { showToast('Your cart is empty!'); return; }
 
-  const total = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
+  const total = state.cart.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
   const table = state.tableNumber ? `Table ${state.tableNumber}` : 'Walk-in';
 
   document.getElementById('counter-table').textContent = table;
@@ -655,7 +686,7 @@ function showCounterView() {
     <div class="counter-item">
       <span class="counter-item-qty">${c.quantity}×</span>
       <span class="counter-item-name">${escHtml(c.name)}</span>
-      <span class="counter-item-price">₹${(c.price * c.quantity).toFixed(2)}</span>
+      <span class="counter-item-price">${c.price != null ? `₹${(c.price * c.quantity).toFixed(2)}` : 'See menu'}</span>
     </div>
   `).join('');
 
