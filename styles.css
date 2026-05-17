@@ -191,7 +191,7 @@ input  { font-family: inherit; }
   gap: 8px;
 }
 
-.brand-icon { font-size: 22px; }
+.brand-icon { width: 36px; height: 36px; object-fit: contain; }
 .brand-name {
   font-size: 18px;
   font-weight: 700;
@@ -435,7 +435,7 @@ input  { font-family: inherit; }
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px 20px 22px;
+  padding: 16px 20px calc(var(--swipe-h) + 16px);
   pointer-events: none;
 }
 
