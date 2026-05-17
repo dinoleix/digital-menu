@@ -182,9 +182,7 @@ input  { font-family: inherit; }
   position: relative;
   z-index: 10;
   pointer-events: all;
-  background: rgba(10,10,10,0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
 }
 
 .header-brand {
