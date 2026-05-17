@@ -20,12 +20,18 @@ const TY_STEPS     = [0, 18, 36];
 const STACK_STEPS  = SCALE_STEPS; // alias used in applyStackTransform
 
 /* ─── Boot ───────────────────────────────────────────────── */
-window.addEventListener('DOMContentLoaded', () => {
-  if (!window.MENU_DATA) {
-    document.body.innerHTML = '<p style="color:#fff;padding:32px;font-family:sans-serif">Error: data.js not loaded.</p>';
+window.addEventListener('DOMContentLoaded', async () => {
+  let data;
+  try {
+    const res = await fetch('menu.json');
+    data = await res.json();
+  } catch(e) {
+    data = window.MENU_DATA; // fallback to data.js when served as file://
+  }
+  if (!data) {
+    document.body.innerHTML = '<p style="color:#fff;padding:32px;font-family:sans-serif">Error: could not load menu.json.</p>';
     return;
   }
-  const data = window.MENU_DATA;
   state.allItems = data.items;
   state.filtered = [...data.items];
   state.config   = data.cafe;
