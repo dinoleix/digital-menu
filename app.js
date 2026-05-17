@@ -657,7 +657,6 @@ function sendWhatsAppOrder() {
 function bindActionBar() {
   document.getElementById('qty-minus').addEventListener('click', () => adjustQty(-1));
   document.getElementById('qty-plus').addEventListener('click',  () => adjustQty(1));
-  document.getElementById('add-btn').addEventListener('click',   addCurrentToCart);
 }
 
 function adjustQty(delta) {

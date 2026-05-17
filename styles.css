@@ -245,9 +245,7 @@ input  { font-family: inherit; }
   position: relative;
   z-index: 10;
   pointer-events: all;
-  background: rgba(10,10,10,0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
 }
 
 /* Left + right edge fade — hints at more tabs */
@@ -262,11 +260,11 @@ input  { font-family: inherit; }
 }
 .categories-wrap::before {
   left: 0;
-  background: linear-gradient(to right, rgba(10,10,10,0.35) 20%, transparent);
+  background: linear-gradient(to right, rgba(0,0,0,0.4) 20%, transparent);
 }
 .categories-wrap::after {
   right: 0;
-  background: linear-gradient(to left, rgba(10,10,10,0.35) 20%, transparent);
+  background: linear-gradient(to left, rgba(0,0,0,0.4) 20%, transparent);
 }
 
 .categories {
@@ -550,21 +548,6 @@ input  { font-family: inherit; }
   font-weight: 700;
 }
 
-.add-btn {
-  flex: 1;
-  height: 52px;
-  background: var(--green);
-  color: #000;
-  font-size: 15px;
-  font-weight: 700;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: transform .15s, opacity .15s;
-}
-.add-btn:active { transform: scale(0.97); opacity: .9; }
 
 /* ─── Swipe Buttons ──────────────────────────────────────── */
 .swipe-buttons {
