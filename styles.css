@@ -517,9 +517,7 @@ input  { font-family: inherit; }
   pointer-events: all;
   z-index: 10;
   position: relative;
-  background: rgba(10,10,10,0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
 }
 
 .qty-wrap {
@@ -580,9 +578,7 @@ input  { font-family: inherit; }
   pointer-events: all;
   z-index: 10;
   position: relative;
-  background: rgba(10,10,10,0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
 }
 
 .swipe-action-btn {
