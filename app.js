@@ -268,6 +268,8 @@ function buildCard(item, pos) {
 
     <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
 
+    <div class="nutrition-panel hidden"></div>
+
     <div class="like-indicator">LIKE<br>💚</div>
     <div class="nope-indicator">NOPE<br>✕</div>
 
@@ -276,8 +278,8 @@ function buildCard(item, pos) {
       <div class="card-name">${escHtml(item.name)}</div>
       <div class="card-description">${escHtml(item.description)}</div>
       <div class="card-meta">
-        <span class="card-price">$${item.price.toFixed(2)}</span>
-        <button class="cal-toggle" data-cal="${item.calories}">🔥 <span class="cal-text">Calories</span></button>
+        <span class="card-price">₹${item.price.toFixed(2)}</span>
+        <button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>
       </div>
     </div>
   `;
@@ -288,15 +290,29 @@ function buildCard(item, pos) {
   probe.onerror = () => { bg.style.backgroundImage = 'none'; };
   probe.src = item.image;
 
-  // Calorie toggle (stop propagation so it won't trigger drag)
+  // Nutrition panel toggle
+  const panel = card.querySelector('.nutrition-panel');
+  const n = item.nutrition || {};
+  const rows = [
+    ['🔥', 'Calories',      `${item.calories} kcal`],
+    ['💪', 'Protein',       n.protein],
+    ['🍰', 'Carbohydrates', n.carbs],
+    ['🧈', 'Fat',           n.fat],
+    ['🌿', 'Fiber',         n.fiber],
+    ['🧂', 'Sodium',        n.sodium],
+    ['❤️', 'Cholesterol',  n.cholesterol],
+  ].filter(r => r[2]);
+  panel.innerHTML = `
+    <div class="nutrition-title">Nutrition Facts</div>
+    ${rows.map(([icon, label, val]) =>
+      `<div class="nutrition-row"><span>${icon} ${label}</span><span>${val}</span></div>`
+    ).join('')}
+    <p class="nutrition-hint">Tap anywhere to close</p>
+  `;
+
   card.querySelector('.cal-toggle').addEventListener('pointerdown', e => e.stopPropagation());
-  card.querySelector('.cal-toggle').addEventListener('click', e => {
-    const btn = e.currentTarget;
-    const showing = btn.dataset.showing === 'true';
-    btn.querySelector('.cal-text').textContent = showing ? 'Calories' : `${item.calories} kcal`;
-    btn.dataset.showing = String(!showing);
-    btn.classList.toggle('revealed', !showing);
-  });
+  card.querySelector('.cal-toggle').addEventListener('click', () => panel.classList.toggle('hidden'));
+  panel.addEventListener('click', () => panel.classList.add('hidden'));
 
   return card;
 }

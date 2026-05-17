@@ -495,6 +495,53 @@ input  { font-family: inherit; }
 }
 .cal-toggle:active { transform: scale(0.95); }
 
+/* ─── Nutrition Panel ────────────────────────────────────── */
+.nutrition-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 32px 28px;
+  gap: 0;
+  pointer-events: all;
+  animation: fadeIn .2s ease;
+}
+
+.nutrition-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  color: var(--green);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.nutrition-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+}
+.nutrition-row:last-of-type { border-bottom: none; }
+.nutrition-row span:last-child { font-weight: 700; color: #fff; }
+
+.nutrition-hint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+}
+
 /* ─── Action Bar (draggable floating widget) ─────────────── */
 .action-bar {
   position: fixed;
