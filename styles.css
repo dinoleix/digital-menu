@@ -508,9 +508,9 @@ input  { font-family: inherit; }
 /* ─── Action Bar (draggable floating widget) ─────────────── */
 .action-bar {
   position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
   height: auto;
   padding: 0;
   display: flex;
