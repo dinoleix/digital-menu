@@ -85,6 +85,7 @@ function initInstallBanner() {
       });
     }
     banner.classList.remove('hidden');
+    setTimeout(hideBanner, 5000);
   }
 
   dismiss.addEventListener('click', hideBanner);
@@ -597,7 +598,7 @@ function renderCartItems() {
         <div style="font-size:40px;margin-bottom:12px;">🛒</div>
         Your cart is empty.<br>Swipe right on items you'd like!
       </div>`;
-    totalEl.textContent = '$0.00';
+    totalEl.textContent = '₹0.00';
     return;
   }
 

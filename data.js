@@ -22,7 +22,7 @@ window.MENU_DATA = {
     name:     'Green Neko',
     tagline:  'Poké & Boba Bar',
     whatsapp: '+1234567890',   // ← CHANGE THIS to your WhatsApp number
-    currency: '$'
+    currency: '₹'
   },
 
   categories: ['All', 'Breakfast', 'Poke Bowls', 'Ramen', 'Boba Tea', 'Coffee', 'Bakery'],
