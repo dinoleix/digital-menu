@@ -605,7 +605,7 @@ function renderCartItems() {
       <img class="cart-item-img" src="${escAttr(c.image)}" alt="${escAttr(c.name)}" loading="lazy" />
       <div class="cart-item-info">
         <div class="cart-item-name">${escHtml(c.name)}</div>
-        <div class="cart-item-price">$${(c.price * c.quantity).toFixed(2)}</div>
+        <div class="cart-item-price">₹${(c.price * c.quantity).toFixed(2)}</div>
       </div>
       <div class="cart-item-qty">
         <button class="cart-qty-btn" data-action="dec" data-id="${c.id}">−</button>
@@ -633,7 +633,7 @@ function renderCartItems() {
   });
 
   const total = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
-  totalEl.textContent = `$${total.toFixed(2)}`;
+  totalEl.textContent = `₹${total.toFixed(2)}`;
 }
 
 /* ─── WhatsApp Order ──────────────────────────────────────── */
@@ -641,7 +641,7 @@ function sendWhatsAppOrder() {
   if (state.cart.length === 0) { showToast('Your cart is empty!'); return; }
 
   const lines = state.cart.map(c =>
-    `${c.quantity}× ${c.name} — $${(c.price * c.quantity).toFixed(2)}`
+    `${c.quantity}× ${c.name} — ₹${(c.price * c.quantity).toFixed(2)}`
   );
   const total  = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
   const table  = state.tableNumber ? `Table: ${state.tableNumber}` : 'Walk-in';
