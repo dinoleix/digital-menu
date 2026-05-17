@@ -265,8 +265,7 @@ function buildCard(item, pos) {
     <div class="card-bg" style="background-color:${escAttr(fallbackColor)};background-image:url('${escAttr(item.image)}')"></div>
     <div class="card-gradient"></div>
 
-    <div class="card-top-badges">${newHtml}${chefHtml}${popHtml}</div>
-    <div class="card-side-badges">${vegHtml}${spicyHtml}</div>
+    <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
 
     <div class="like-indicator">LIKE<br>💚</div>
     <div class="nope-indicator">NOPE<br>✕</div>

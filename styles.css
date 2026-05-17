@@ -364,23 +364,15 @@ input  { font-family: inherit; }
   pointer-events: none;
 }
 
-/* Top badges (new, popular) */
-.card-top-badges {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: flex;
-  gap: 6px;
-}
-
-/* Side badges (veg, spicy) */
+/* All badges — stacked vertically at middle-right */
 .card-side-badges {
   position: absolute;
-  top: 16px;
+  top: 50%;
   right: 16px;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   align-items: flex-end;
 }
 
