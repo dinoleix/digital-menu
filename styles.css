@@ -542,55 +542,6 @@ input  { font-family: inherit; }
   color: rgba(255,255,255,0.3);
 }
 
-/* ─── Action Bar (draggable floating widget) ─────────────── */
-.action-bar {
-  position: fixed;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-  height: auto;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  z-index: 20;
-  pointer-events: all;
-  background: transparent;
-  cursor: grab;
-  touch-action: none;
-}
-.action-bar.dragging { cursor: grabbing; }
-
-.qty-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: 50px;
-  overflow: hidden;
-}
-
-.qty-btn {
-  width: 44px;
-  height: 44px;
-  font-size: 20px;
-  font-weight: 300;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .15s;
-}
-.qty-btn:active { background: rgba(255,255,255,0.08); }
-
-.qty-display {
-  min-width: 36px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-}
-
 
 /* ─── Swipe Buttons ──────────────────────────────────────── */
 .swipe-buttons {

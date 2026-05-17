@@ -7,7 +7,6 @@ const state = {
   currentIndex:  0,
   cart:          [],   // [{id, name, price, image, quantity}]
   category:      'All',
-  cardQty:       1,
   tableNumber:   '',
   history:       [],   // [{item, direction}] for undo
   config:        {},
@@ -125,7 +124,6 @@ function bindModal() {
 function initApp() {
   renderCategories();
   renderStack();
-  bindActionBar();
   bindSwipeButtons();
   bindCartUI();
   initCategoryDrag();
@@ -200,9 +198,6 @@ function setCategory(cat) {
   if (cat === state.category) return;
   state.category     = cat;
   state.currentIndex = 0;
-  state.cardQty      = 1;
-  updateQtyDisplay();
-
   state.filtered = cat === 'All'
     ? [...state.allItems]
     : state.allItems.filter(i => i.category === cat);
@@ -220,7 +215,6 @@ function setCategory(cat) {
 function renderStack() {
   const stack      = document.getElementById('card-stack');
   const emptyState = document.getElementById('empty-state');
-  const actionBar  = document.getElementById('action-bar');
   const swipeBtns  = document.getElementById('swipe-buttons');
   const remaining  = state.filtered.length - state.currentIndex;
 
@@ -415,11 +409,11 @@ function executeSwipe(cardEl, direction) {
   const item   = state.filtered.find(i => i.id === itemId);
   if (!item) return;
 
-  state.history.push({ item, direction, qty: state.cardQty });
+  state.history.push({ item, direction, qty: 1 });
   if (state.history.length > 15) state.history.shift();
 
   if (direction === 'right') {
-    addToCart(item, state.cardQty);
+    addToCart(item, 1);
   }
 
   // Fly off screen
@@ -433,8 +427,6 @@ function executeSwipe(cardEl, direction) {
   cardEl.style.pointerEvents = 'none';
 
   state.currentIndex++;
-  state.cardQty = 1;
-  updateQtyDisplay();
 
   setTimeout(() => {
     cardEl.remove();
@@ -505,9 +497,6 @@ function undoLast() {
   }
 
   state.currentIndex--;
-  state.cardQty = last.qty;
-  updateQtyDisplay();
-
   // Remove the current top card (we're going back)
   const stack  = document.getElementById('card-stack');
   const topOld = getTopCard();
@@ -540,8 +529,6 @@ function undoLast() {
   setTimeout(() => attachDrag(restoredCard), 460);
   showToast('↩ Brought back');
 
-  // Ensure action bar visible
-  document.getElementById('action-bar').classList.remove('hidden');
   document.getElementById('swipe-buttons').classList.remove('hidden');
   document.getElementById('empty-state').classList.add('hidden');
 }
@@ -549,9 +536,6 @@ function undoLast() {
 /* ─── Restart / Browse Again ─────────────────────────────── */
 function restartDeck() {
   state.currentIndex = 0;
-  state.cardQty      = 1;
-  updateQtyDisplay();
-
   document.getElementById('card-stack').innerHTML = '';
   renderStack();
 }
@@ -670,46 +654,6 @@ function sendWhatsAppOrder() {
 }
 
 /* ─── Quantity Controls ───────────────────────────────────── */
-function bindActionBar() {
-  document.getElementById('qty-minus').addEventListener('click', () => adjustQty(-1));
-  document.getElementById('qty-plus').addEventListener('click',  () => adjustQty(1));
-
-  const el = document.getElementById('action-bar');
-  let startX, startY, origLeft, origTop, active = false;
-
-  el.addEventListener('pointerdown', e => {
-    if (e.target.closest('button')) return;
-    const rect = el.getBoundingClientRect();
-    startX = e.clientX; startY = e.clientY;
-    origLeft = rect.left; origTop = rect.top;
-    active = true;
-    el.style.transform = 'none';
-    el.style.left   = origLeft + 'px';
-    el.style.top    = origTop  + 'px';
-    el.style.bottom = 'auto';
-    el.setPointerCapture(e.pointerId);
-    el.classList.add('dragging');
-  });
-
-  el.addEventListener('pointermove', e => {
-    if (!active) return;
-    const w = el.offsetWidth, h = el.offsetHeight;
-    el.style.left = clamp(origLeft + e.clientX - startX, 8, window.innerWidth  - w - 8) + 'px';
-    el.style.top  = clamp(origTop  + e.clientY - startY, 8, window.innerHeight - h - 8) + 'px';
-  });
-
-  el.addEventListener('pointerup',     () => { active = false; el.classList.remove('dragging'); });
-  el.addEventListener('pointercancel', () => { active = false; el.classList.remove('dragging'); });
-}
-
-function adjustQty(delta) {
-  state.cardQty = Math.max(1, Math.min(20, state.cardQty + delta));
-  updateQtyDisplay();
-}
-
-function updateQtyDisplay() {
-  document.getElementById('qty-display').textContent = state.cardQty;
-}
 
 /* ─── Swipe Hint Buttons ─────────────────────────────────── */
 function bindSwipeButtons() {
