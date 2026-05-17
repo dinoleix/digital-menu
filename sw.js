@@ -1,4 +1,4 @@
-const CACHE = 'greenneko-v1';
+const CACHE = 'greenneko-v2';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './data.js', './manifest.json'];
 
 self.addEventListener('install', e => {
