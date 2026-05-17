@@ -220,13 +220,11 @@ function renderStack() {
 
   if (remaining <= 0) {
     emptyState.classList.remove('hidden');
-    actionBar.classList.add('hidden');
     swipeBtns.classList.add('hidden');
     return;
   }
 
   emptyState.classList.add('hidden');
-  actionBar.classList.remove('hidden');
   swipeBtns.classList.remove('hidden');
 
   // Render cards back-to-front so last in DOM = visually on top
