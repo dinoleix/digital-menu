@@ -35,6 +35,7 @@ window.MENU_DATA = {
       price: 12.90, calories: 520, spicy: 0, vegetarian: true,
       tags: ['popular'], color: '#2d1500',
       description: 'Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries',
+      nutrition: { protein: '10g', carbs: '38g', fat: '25g', fiber: '1g', sodium: '180mg', cholesterol: '210mg' },
       image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=900&fit=crop&auto=format&q=80'
     },
     {
