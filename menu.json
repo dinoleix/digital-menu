@@ -3,7 +3,7 @@
     "name": "Green Neko",
     "tagline": "Poké & Boba Bar",
     "whatsapp": "+1234567890",
-    "currency": "$",
+    "currency": "₹",
     "primaryColor": "#4ade80"
   },
   "categories": ["All", "Breakfast", "Poke Bowls", "Ramen", "Boba Tea", "Coffee", "Bakery"],
@@ -13,7 +13,7 @@
       "name": "Sunrise Pancake Stack",
       "category": "Breakfast",
       "price": 12.90,
-      "description": "Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries",
+      "description": "Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berriesFluffy buttermilk pancakes, Canadian maple syrup, fresh summer berriesFluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries",
       "calories": 520,
       "spicy": 0,
       "vegetarian": true,
