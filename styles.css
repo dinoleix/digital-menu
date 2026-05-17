@@ -168,6 +168,7 @@ input  { font-family: inherit; }
   flex-direction: column;
   overflow: hidden;
   min-height: 0;     /* lets flex children shrink below their natural size */
+  pointer-events: none; /* pass touches through transparent areas to the card */
 }
 
 /* ─── Header ─────────────────────────────────────────────── */
@@ -180,6 +181,10 @@ input  { font-family: inherit; }
   flex-shrink: 0;
   position: relative;
   z-index: 10;
+  pointer-events: all;
+  background: rgba(10,10,10,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .header-brand {
@@ -239,6 +244,10 @@ input  { font-family: inherit; }
   flex-shrink: 0;
   position: relative;
   z-index: 10;
+  pointer-events: all;
+  background: rgba(10,10,10,0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Left + right edge fade — hints at more tabs */
@@ -253,11 +262,11 @@ input  { font-family: inherit; }
 }
 .categories-wrap::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg) 20%, transparent);
+  background: linear-gradient(to right, rgba(10,10,10,0.35) 20%, transparent);
 }
 .categories-wrap::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg) 20%, transparent);
+  background: linear-gradient(to left, rgba(10,10,10,0.35) 20%, transparent);
 }
 
 .categories {
@@ -301,21 +310,24 @@ input  { font-family: inherit; }
 .card-area {
   flex: 1;
   position: relative;
-  overflow: hidden;
-  padding: 8px 16px 0;
+  overflow: visible;
+  padding: 0;
+  pointer-events: none;
+  background: transparent;
 }
 
 /* ─── Card Stack ─────────────────────────────────────────── */
 .card-stack {
-  position: absolute;
-  inset: 8px 16px 0;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
 }
 
 /* ─── Card ───────────────────────────────────────────────── */
 .card {
   position: absolute;
   inset: 0;
-  border-radius: var(--card-radius);
+  border-radius: 0;
   overflow: hidden;
   will-change: transform;
   touch-action: none;
@@ -502,6 +514,12 @@ input  { font-family: inherit; }
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  pointer-events: all;
+  z-index: 10;
+  position: relative;
+  background: rgba(10,10,10,0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .qty-wrap {
@@ -559,6 +577,12 @@ input  { font-family: inherit; }
   justify-content: center;
   gap: 20px;
   flex-shrink: 0;
+  pointer-events: all;
+  z-index: 10;
+  position: relative;
+  background: rgba(10,10,10,0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .swipe-action-btn {
@@ -602,6 +626,7 @@ input  { font-family: inherit; }
   text-align: center;
   gap: 12px;
   padding: 32px;
+  pointer-events: all;
 }
 
 .empty-emoji { font-size: 56px; margin-bottom: 4px; }
