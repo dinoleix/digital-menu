@@ -636,19 +636,29 @@ function renderCartItems() {
   totalEl.textContent = `₹${total.toFixed(2)}`;
 }
 
-/* ─── WhatsApp Order ──────────────────────────────────────── */
-function sendWhatsAppOrder() {
+/* ─── Counter View ────────────────────────────────────────── */
+function showCounterView() {
   if (state.cart.length === 0) { showToast('Your cart is empty!'); return; }
 
-  const lines = state.cart.map(c =>
-    `${c.quantity}× ${c.name} — ₹${(c.price * c.quantity).toFixed(2)}`
-  );
-  const total  = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
-  const table  = state.tableNumber ? `Table: ${state.tableNumber}` : 'Walk-in';
-  const msg    = `🐱 *Green Neko Order*\n${table}\n\n${lines.join('\n')}\n\n*Total: $${total.toFixed(2)}*`;
-  const number = state.config.whatsapp || '';
+  const total = state.cart.reduce((s, c) => s + c.price * c.quantity, 0);
+  const table = state.tableNumber ? `Table ${state.tableNumber}` : 'Walk-in';
 
-  window.open(`https://wa.me/${number.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`, '_blank');
+  document.getElementById('counter-table').textContent = table;
+  document.getElementById('counter-total').textContent = `₹${total.toFixed(2)}`;
+  document.getElementById('counter-items').innerHTML = state.cart.map(c => `
+    <div class="counter-item">
+      <span class="counter-item-qty">${c.quantity}×</span>
+      <span class="counter-item-name">${escHtml(c.name)}</span>
+      <span class="counter-item-price">₹${(c.price * c.quantity).toFixed(2)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('counter-overlay').classList.remove('hidden');
+  closeCart();
+}
+
+function hideCounterView() {
+  document.getElementById('counter-overlay').classList.add('hidden');
 }
 
 /* ─── Quantity Controls ───────────────────────────────────── */
@@ -664,7 +674,8 @@ function bindSwipeButtons() {
 function bindCartUI() {
   document.getElementById('cart-btn').addEventListener('click', openCart);
   document.getElementById('close-cart-btn').addEventListener('click', closeCart);
-  document.getElementById('whatsapp-btn').addEventListener('click', sendWhatsAppOrder);
+  document.getElementById('counter-btn').addEventListener('click', showCounterView);
+  document.getElementById('counter-close').addEventListener('click', hideCounterView);
   document.getElementById('view-cart-empty-btn').addEventListener('click', openCart);
   document.getElementById('restart-btn').addEventListener('click', restartDeck);
 

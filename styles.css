@@ -795,11 +795,11 @@ input  { font-family: inherit; }
   color: var(--green);
 }
 
-.whatsapp-btn {
+.counter-btn {
   width: 100%;
   padding: 16px;
-  background: #25D366;
-  color: #fff;
+  background: var(--green);
+  color: #000;
   font-size: 15px;
   font-weight: 700;
   border-radius: 50px;
@@ -810,7 +810,125 @@ input  { font-family: inherit; }
   margin-bottom: 10px;
   transition: transform .15s, opacity .15s;
 }
-.whatsapp-btn:active { transform: scale(0.97); opacity: .9; }
+.counter-btn:active { transform: scale(0.97); opacity: .9; }
+
+/* ─── Counter Overlay ────────────────────────────────────── */
+.counter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  animation: fadeIn .3s ease;
+}
+
+.counter-card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.counter-logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  color: var(--green);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.counter-table {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.counter-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 8px;
+}
+
+.counter-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.counter-item-qty {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green);
+  min-width: 32px;
+}
+
+.counter-item-name {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.counter-item-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-sub);
+}
+
+.counter-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0 12px;
+}
+
+.counter-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.counter-total-amount {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -1px;
+}
+
+.counter-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.counter-close-btn {
+  width: 100%;
+  padding: 14px;
+  color: var(--text-sub);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  transition: border-color .2s, color .2s;
+}
+.counter-close-btn:active { transform: scale(0.97); }
 
 .close-cart-btn {
   width: 100%;
