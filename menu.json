@@ -1,273 +1,1163 @@
 {
-  "cafe": {
+  "café": {
     "name": "Green Neko",
-    "tagline": "Poké & Boba Bar",
-    "whatsapp": "+1234567890",
-    "currency": "₹",
-    "primaryColor": "#4ade80"
+    "location": "Hyderabad, India",
+    "currency": "INR",
+    "website": "https://greenneko.com"
   },
-  "categories": ["All", "Breakfast", "Poke Bowls", "Ramen", "Boba Tea", "Coffee", "Bakery"],
-  "items": [
-    {
-      "id": 1,
-      "name": "Sunrise Pancake Stack",
-      "category": "Breakfast",
-      "price": 12.90,
-      "description": "Fluffy buttermilk pancakes, Canadian maple syrup, fresh summer berries",
-      "calories": 520,
-      "nutrition": { "protein": "10g", "carbs": "38g", "fat": "25g", "fiber": "1g", "sodium": "180mg", "cholesterol": "210mg" },
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#2d1500",
-      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 2,
-      "name": "Smashed Avo Toast",
-      "category": "Breakfast",
-      "price": 14.90,
-      "description": "Sourdough, smashed avocado, poached egg, chili flakes, microgreens",
-      "calories": 380,
-      "spicy": 1,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#152300",
-      "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 3,
-      "name": "Neko Morning Bowl",
-      "category": "Breakfast",
-      "price": 15.90,
-      "description": "Soft scrambled eggs, smoked salmon, quinoa, baby spinach, lemon vinaigrette",
-      "calories": 420,
-      "spicy": 0,
-      "vegetarian": false,
-      "tags": ["new"],
-      "color": "#251800",
-      "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 4,
-      "name": "Chicken Poke Bowl",
-      "category": "Poke Bowls",
-      "price": 15.90,
-      "description": "Grilled chicken, sushi rice, edamame, cucumber, sesame dressing, crispy nori",
-      "calories": 560,
-      "spicy": 0,
-      "vegetarian": false,
-      "tags": ["popular"],
-      "color": "#0a1e30",
-      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 5,
-      "name": "Spicy Shrimp Poke",
-      "category": "Poke Bowls",
-      "price": 17.90,
-      "description": "Tempura shrimp, mango, avocado, spicy mayo, tobiko, pickled ginger",
-      "calories": 620,
-      "spicy": 2,
-      "vegetarian": false,
-      "tags": [],
-      "color": "#1e0a00",
-      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 6,
-      "name": "Green Garden Poke",
-      "category": "Poke Bowls",
-      "price": 14.90,
-      "description": "Marinated tofu, roasted beet, avocado, brown rice, pickled radish, ginger dressing",
-      "calories": 440,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["vegan"],
-      "color": "#0a2010",
-      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 7,
-      "name": "Pan Grill Ramen",
-      "category": "Ramen",
-      "price": 18.90,
-      "description": "Char-grilled pork belly, rich tonkotsu broth, soft-boiled egg, nori, bamboo shoots",
-      "calories": 780,
-      "spicy": 1,
-      "vegetarian": false,
-      "tags": ["popular", "chef's special"],
-      "color": "#250800",
-      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 8,
-      "name": "Silken Tofu Ramen",
-      "category": "Ramen",
-      "price": 16.90,
-      "description": "Silken tofu, shiitake mushrooms, bok choy, white miso broth, sesame oil",
-      "calories": 480,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#1a1000",
-      "image": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 9,
-      "name": "Fire Chicken Ramen",
-      "category": "Ramen",
-      "price": 17.90,
-      "description": "Crispy chicken thigh, gochujang broth, sweet corn, spring onion, chili oil",
-      "calories": 700,
-      "spicy": 3,
-      "vegetarian": false,
-      "tags": ["spicy"],
-      "color": "#300500",
-      "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 10,
-      "name": "Strawberry Boba",
-      "category": "Boba Tea",
-      "price": 7.90,
-      "description": "Fresh strawberry milk tea, black tapioca pearls, lightly sweetened",
-      "calories": 290,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#2a0818",
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 11,
-      "name": "Mango Boba",
-      "category": "Boba Tea",
-      "price": 7.90,
-      "description": "Tropical mango tea, coconut jelly, tapioca pearls, hint of lime",
-      "calories": 270,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#2a1500",
-      "image": "https://images.unsplash.com/photo-1546173159-315724a31696?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 12,
-      "name": "Matcha Boba",
-      "category": "Boba Tea",
-      "price": 8.90,
-      "description": "Premium ceremonial matcha, steamed oat milk, brown sugar tapioca pearls",
-      "calories": 310,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["new"],
-      "color": "#0a200a",
-      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 13,
-      "name": "Taro Milk Tea",
-      "category": "Boba Tea",
-      "price": 7.90,
-      "description": "Creamy taro root milk tea, classic tapioca pearls, lightly sweetened",
-      "calories": 300,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#1a0a28",
-      "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 14,
-      "name": "Neko Signature Latte",
-      "category": "Coffee",
-      "price": 6.90,
-      "description": "House blend double espresso, steamed whole milk, signature cat latte art",
-      "calories": 130,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#150900",
-      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 15,
-      "name": "Matcha Latte",
-      "category": "Coffee",
-      "price": 7.90,
-      "description": "Ceremonial grade matcha, steamed oat milk, light touch of honey",
-      "calories": 190,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#0a1a08",
-      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 16,
-      "name": "Cold Brew",
-      "category": "Coffee",
-      "price": 6.50,
-      "description": "18-hour cold steeped, ultra smooth and bold, served over crystal clear ice",
-      "calories": 10,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#100800",
-      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 17,
-      "name": "Dirty Matcha",
-      "category": "Coffee",
-      "price": 8.50,
-      "description": "Double espresso shot pulled over iced ceremonial matcha and oat milk",
-      "calories": 150,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["new"],
-      "color": "#0a1500",
-      "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 18,
-      "name": "Butter Croissant",
-      "category": "Bakery",
-      "price": 5.50,
-      "description": "Classic French-style, 72-hour laminated dough, baked golden fresh each morning",
-      "calories": 290,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": [],
-      "color": "#201000",
-      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 19,
-      "name": "Matcha Cheesecake",
-      "category": "Bakery",
-      "price": 9.90,
-      "description": "Silky baked matcha cheesecake, graham cracker crust, white chocolate drizzle",
-      "calories": 410,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#0f1a05",
-      "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=900&fit=crop&auto=format&q=80"
-    },
-    {
-      "id": 20,
-      "name": "Neko Sugar Cookie",
-      "category": "Bakery",
-      "price": 4.50,
-      "description": "Signature cat-shaped butter cookie with hand-piped matcha royal icing",
-      "calories": 190,
-      "spicy": 0,
-      "vegetarian": true,
-      "tags": ["popular"],
-      "color": "#1e1000",
-      "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&h=900&fit=crop&auto=format&q=80"
-    }
-  ]
+  "menu": {
+    "breakfast": [
+      {
+        "id": "breakfast_001",
+        "name": "Avocado Toast (Non Veg)",
+        "category": "Breakfast",
+        "price": 480,
+        "description": "A rich and creamy open toast made with buttery sourdough, smashed avocado, cherry tomatoes, feta cheese, and ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "toast",
+          "avocado",
+          "breakfast"
+        ],
+        "colorCode": "#6B4423",
+        "imageUrl": "Menuimages/avocado-toast-non-veg.jpg",
+        "imageName": "avocado-toast-non-veg.jpg"
+      },
+      {
+        "id": "breakfast_002",
+        "name": "Cloud Toast Loaded",
+        "category": "Breakfast",
+        "price": 360,
+        "description": "Soft, pillowy milk bread dipped in a rich egg–milk batter, ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "toast",
+          "eggs",
+          "breakfast"
+        ],
+        "colorCode": "#F5DEB3",
+        "imageUrl": "https://greenneko.com/menu/menu_images/cloud-toast-loaded.png",
+        "imageName": "cloud-toast-loaded.png"
+      },
+      {
+        "id": "breakfast_003",
+        "name": "NEKO SOUFFLÉ PANCAKE",
+        "category": "Breakfast",
+        "price": 410,
+        "description": "Light, fluffy, and irresistibly soft — our signature Japanese-style pancake served with rich cream cheese, velvety whipped ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "pancakes",
+          "breakfast",
+          "soufflé"
+        ],
+        "colorCode": "#FFE4B5",
+        "imageUrl": "Menuimages/neko-soufflé-pancake.jpg",
+        "imageName": "neko-soufflé-pancake.jpg"
+      },
+      {
+        "id": "breakfast_004",
+        "name": "Acai Bowl (Peanut butter)",
+        "category": "Breakfast",
+        "price": 410,
+        "description": "A refreshing, antioxidant-rich super bowl made with pure açaí, fresh fruits, and peanut butter",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "acai",
+          "bowl",
+          "breakfast",
+          "healthy"
+        ],
+        "colorCode": "#8B008B",
+        "imageUrl": "Menuimages/acai-bowl-peanut-butter.jpg",
+        "imageName": "acai-bowl-peanut-butter.jpg"
+      },
+      {
+        "id": "breakfast_005",
+        "name": "Acai Bowl (Yogurt)",
+        "category": "Breakfast",
+        "price": 410,
+        "description": "A refreshing, antioxidant-rich super bowl made with pure açaí, fresh fruits, and yogurt — a ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "acai",
+          "bowl",
+          "breakfast"
+        ],
+        "colorCode": "#8B008B",
+        "imageUrl": "https://greenneko.com/menu/menu_images/acai-bowl-yogurt.png",
+        "imageName": "acai-bowl-yogurt.png"
+      }
+    ],
+    "ramen": [
+      {
+        "id": "ramen_001",
+        "name": "PAN-GRILLED CHICKEN RAMEN (Thick or Thin broth)",
+        "category": "Ramen",
+        "price": 520,
+        "description": "Juicy, pan-grilled chicken thigh glazed in sweet teriyaki sauce served atop springy ramen noodles and a light, umami-rich thin broth. Each bowl is layered with vibrant toppings — palak, sweet corn, bamboo shoot pickle, mushrooms, and spring onion — and finished with an ajitama egg, nori, and a drizzle of garlic, onion, and chicken oils. A satisfying fusion of smoky, savory, and slightly sweet flavors that bring comfort in every spoonful.",
+        "calories": 710,
+        "nutrition": {
+          "protein": 42,
+          "carbs": 55,
+          "fat": 30,
+          "fiber": 4,
+          "sodium": 2100,
+          "cholesterol": 280
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "ramen",
+          "chicken",
+          "asian",
+          "noodles"
+        ],
+        "colorCode": "#D2691E",
+        "imageUrl": "Menuimages/pan-grilled-chicken-ramen-thick-or-thin-broth.jpg",
+        "imageName": "pan-grilled-chicken-ramen-thick-or-thin-broth.jpg"
+      },
+      {
+        "id": "ramen_002",
+        "name": "SPICY CHICKEN RAMEN (Thick or Thin Broth)",
+        "category": "Ramen",
+        "price": 520,
+        "description": "Tender chicken breast paired with fresh ramen noodles, simmered in a light yet flavorful spicy chicken broth. The bowl ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "ramen",
+          "chicken",
+          "spicy",
+          "asian"
+        ],
+        "colorCode": "#FF4500",
+        "imageUrl": "Menuimages/spicy-chicken-ramen-thick-or-think-broth-.jpg",
+        "imageName": "spicy-chicken-ramen-thick-or-think-broth-.jpg"
+      },
+      {
+        "id": "ramen_003",
+        "name": "TOFU RAMEN (VEG BROTH)",
+        "category": "Ramen",
+        "price": 520,
+        "description": "Silky tofu cubes nestled in a creamy, plant-based broth made with oat milk, peanut butter, and kombu-shiitake ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "ramen",
+          "tofu",
+          "vegan",
+          "asian"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": "Menuimages/tofu-ramen-veg-broth.jpg",
+        "imageName": "tofu-ramen-veg-broth.jpg"
+      }
+    ],
+    "pokeBowls": [
+      {
+        "id": "poke_001",
+        "name": "SHRIMP POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 550,
+        "description": "Juicy, marinated shrimp served with a vibrant mix of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and served on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
+        "calories": 510,
+        "nutrition": {
+          "protein": 36,
+          "carbs": 50,
+          "fat": 16,
+          "fiber": 8,
+          "sodium": 640,
+          "cholesterol": 145
+        },
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "poke",
+          "shrimp",
+          "sushi",
+          "seafood"
+        ],
+        "colorCode": "#FF6347",
+        "imageUrl": "https://greenneko.com/menu/menu_images/shrimp-poke-bowl.png",
+        "imageName": "shrimp-poke-bowl.png"
+      },
+      {
+        "id": "poke_002",
+        "name": "CHICKEN POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 410,
+        "description": "Tender teriyaki-glazed chicken served over a bed of seasoned Japanese rice, topped with a colorful medley of purple cabbage, cucumber, carrot, pickled radish, and creamy avocado. Enhanced with edamame beans, sweet corn, seaweed salad, crispy fried onion and garlic, and a sprinkle of sesame seeds. Finished with a light dressing that ties together freshness, crunch, and umami in every bite.",
+        "calories": 680,
+        "nutrition": {
+          "protein": 40,
+          "carbs": 65,
+          "fat": 24,
+          "fiber": 6,
+          "sodium": 1500,
+          "cholesterol": 110
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "poke",
+          "chicken",
+          "asian",
+          "bowl"
+        ],
+        "colorCode": "#CD853F",
+        "imageUrl": "Menuimages/chicken-poke-bowl.jpg",
+        "imageName": "chicken-poke-bowl.jpg"
+      },
+      {
+        "id": "poke_003",
+        "name": "TUNA POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 500,
+        "description": "Fresh, marinated tuna served with a colorful mix of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and paired with rice, quinoa, or cauliflower rice (keto-friendly).",
+        "calories": 520,
+        "nutrition": {
+          "protein": 34,
+          "carbs": 50,
+          "fat": 18,
+          "fiber": 8,
+          "sodium": 600,
+          "cholesterol": 65
+        },
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "poke",
+          "tuna",
+          "sushi",
+          "seafood"
+        ],
+        "colorCode": "#FF8C00",
+        "imageUrl": "Menuimages/tuna-poke-bowl.jpg",
+        "imageName": "tuna-poke-bowl.jpg"
+      },
+      {
+        "id": "poke_004",
+        "name": "SALMON POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 780,
+        "description": "Pan-seared salmon marinated in soy sauce, served with fresh veggies, creamy avocado, and furikake on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
+        "calories": 540,
+        "nutrition": {
+          "protein": 32,
+          "carbs": 52,
+          "fat": 20,
+          "fiber": 8,
+          "sodium": 620,
+          "cholesterol": 75
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "poke",
+          "salmon",
+          "sushi",
+          "seafood"
+        ],
+        "colorCode": "#FF7F50",
+        "imageUrl": "Menuimages/salmon-poke-bowl.jpg",
+        "imageName": "salmon-poke-bowl.jpg"
+      },
+      {
+        "id": "poke_005",
+        "name": "PANEER POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 470,
+        "description": "A wholesome vegetarian delight featuring marinated paneer served with fresh, crunchy vegetables and creamy avocado — topped with furikake and paired with rice, quinoa, or cauliflower rice (keto-friendly).",
+        "calories": 520,
+        "nutrition": {
+          "protein": 30,
+          "carbs": 50,
+          "fat": 18,
+          "fiber": 8,
+          "sodium": 600,
+          "cholesterol": 40
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "poke",
+          "paneer",
+          "vegetarian",
+          "bowl"
+        ],
+        "colorCode": "#FFA500",
+        "imageUrl": "Menuimages/paneer-poke-bowl.jpg",
+        "imageName": "paneer-poke-bowl.jpg"
+      },
+      {
+        "id": "poke_006",
+        "name": "TOFU POKE BOWL",
+        "category": "Poke Bowls",
+        "price": 430,
+        "description": "A wholesome, plant-based bowl featuring marinated tofu served with a colorful blend of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and served on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
+        "calories": 480,
+        "nutrition": {
+          "protein": 28,
+          "carbs": 52,
+          "fat": 14,
+          "fiber": 9,
+          "sodium": 580,
+          "cholesterol": 0
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "poke",
+          "tofu",
+          "vegan",
+          "bowl"
+        ],
+        "colorCode": "#BDB76B",
+        "imageUrl": "Menuimages/tofu-poke-bowl.jpg",
+        "imageName": "tofu-poke-bowl.jpg"
+      }
+    ],
+    "appetizers": [
+      {
+        "id": "appetizer_001",
+        "name": "Takoyaki – Japanese Octopus Balls",
+        "category": "Appetizers",
+        "price": 390,
+        "description": "A savory Japanese street delight made with tender octopus pieces, crispy golden batter, a hint of dashi, and finished with light soy, spring onions, and crunchy crumbs — crispy outside, soft and flavorful inside.",
+        "calories": 420,
+        "nutrition": {
+          "protein": 21,
+          "carbs": 37,
+          "fat": 20,
+          "fiber": 2,
+          "sodium": 620,
+          "cholesterol": 190
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "japanese",
+          "octopus",
+          "fried"
+        ],
+        "colorCode": "#8B4513",
+        "imageUrl": "Menuimages/takoyaki-japanese-octopus-balls.jpg",
+        "imageName": "takoyaki-japanese-octopus-balls.jpg"
+      },
+      {
+        "id": "appetizer_002",
+        "name": "Baked Sweet & Spicy Wings",
+        "category": "Appetizers",
+        "price": 340,
+        "description": "Oven-baked chicken wings tossed in a bold blend of gochujang chili paste, tomato sauce, garlic, and sesame ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "wings",
+          "crispy",
+          "asian"
+        ],
+        "colorCode": "#A0522D",
+        "imageUrl": "https://greenneko.com/menu/menu_images/baked-sweet-spicy-wings.png",
+        "imageName": "baked-sweet-spicy-wings.png"
+      },
+      {
+        "id": "appetizer_003",
+        "name": "Chicken Katsu Finger",
+        "category": "Appetizers",
+        "price": 300,
+        "description": "Crispy golden chicken fingers coated in seasoned breadcrumbs, fried to perfection, and served with tangy katsu sauce ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "fried",
+          "japanese"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": "Menuimages/chicken-katsu-finger.jpg",
+        "imageName": "chicken-katsu-finger.jpg"
+      },
+      {
+        "id": "appetizer_004",
+        "name": "Shrimp Tempura",
+        "category": "Appetizers",
+        "price": 320,
+        "description": "Crispy, golden-battered shrimp fried to perfection — light, airy, and paired with a refreshing ponzu dipping sauce. A Japanese classic that's crunchy on the outside and tender inside.",
+        "calories": 290,
+        "nutrition": {
+          "protein": 14,
+          "carbs": 22,
+          "fat": 16,
+          "fiber": null,
+          "sodium": 410,
+          "cholesterol": 105
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "shrimp",
+          "tempura",
+          "seafood"
+        ],
+        "colorCode": "#FF6B9D",
+        "imageUrl": "Menuimages/shrimp-tempura.jpg",
+        "imageName": "shrimp-tempura.jpg"
+      },
+      {
+        "id": "appetizer_005",
+        "name": "Chicken Karaage",
+        "category": "Appetizers",
+        "price": 330,
+        "description": "A Japanese classic — tender chicken marinated with soy, ginger, and garlic, lightly coated and fried to ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "japanese",
+          "fried"
+        ],
+        "colorCode": "#B8860B",
+        "imageUrl": "Menuimages/chicken-karaage.jpg",
+        "imageName": "chicken-karaage.jpg"
+      },
+      {
+        "id": "appetizer_006",
+        "name": "King Oyster, Enoki Mushroom & Lotus Root Tempura",
+        "category": "Appetizers",
+        "price": 320,
+        "description": "A crispy and light Japanese-style tempura made with king oyster mushrooms, delicate enoki, and crunchy lotus root ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "vegetable",
+          "tempura",
+          "japanese"
+        ],
+        "colorCode": "#90EE90",
+        "imageUrl": "Menuimages/king-oyster-enoki-mushroom-lotus-root-tempura.jpg",
+        "imageName": "king-oyster-enoki-mushroom-lotus-root-tempura.jpg"
+      },
+      {
+        "id": "appetizer_007",
+        "name": "Paneer Katsu Finger",
+        "category": "Appetizers",
+        "price": 390,
+        "description": "Crispy golden fingers of paneer coated in seasoned breadcrumbs and served with tangy katsu sauce — a ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "paneer",
+          "fried",
+          "vegetarian"
+        ],
+        "colorCode": "#FFA500",
+        "imageUrl": "Menuimages/paneer-katsu-finger.jpg",
+        "imageName": "paneer-katsu-finger.jpg"
+      },
+      {
+        "id": "appetizer_008",
+        "name": "Teriyaki Tofu",
+        "category": "Appetizers",
+        "price": 300,
+        "description": "Pan-seared tofu glazed in a rich, savory-sweet teriyaki sauce and sprinkled with toasted sesame seeds — a ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "tofu",
+          "vegan",
+          "teriyaki"
+        ],
+        "colorCode": "#BDB76B",
+        "imageUrl": "https://greenneko.com/menu/menu_images/teriyaki-tofu.png",
+        "imageName": "teriyaki-tofu.png"
+      },
+      {
+        "id": "appetizer_009",
+        "name": "Teriyaki Paneer",
+        "category": "Appetizers",
+        "price": 350,
+        "description": "Tender paneer cubes coated in a glossy teriyaki glaze and sprinkled with sesame seeds — a delightful ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "paneer",
+          "vegetarian",
+          "teriyaki"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/teriyaki-paneer.jpg",
+        "imageName": "teriyaki-paneer.jpg"
+      },
+      {
+        "id": "appetizer_010",
+        "name": "Chicken Teriyaki",
+        "category": "Appetizers",
+        "price": 300,
+        "description": "Introducing our savory and delicious Chicken Teriyaki, a classic Japanese dish that's sure to satisfy your cravings for a ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "teriyaki",
+          "japanese"
+        ],
+        "colorCode": "#CD853F",
+        "imageUrl": "Menuimages/chicken-teriyaki.jpg",
+        "imageName": "chicken-teriyaki.jpg"
+      },
+      {
+        "id": "appetizer_011",
+        "name": "Tofu Katsu Finger",
+        "category": "Appetizers",
+        "price": 320,
+        "description": "Crispy golden tofu fingers coated in seasoned breadcrumbs and fried to perfection, served with tangy katsu sauce ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "tofu",
+          "fried",
+          "vegan"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": "Menuimages/tofu-katsu-finger.jpg",
+        "imageName": "tofu-katsu-finger.jpg"
+      }
+    ],
+    "donburi": [
+      {
+        "id": "donburi_001",
+        "name": "Spicy Chicken with Egg Rice Bowl",
+        "category": "Donburi",
+        "price": 370,
+        "description": "A hearty bowl of fluffy steamed rice topped with tender, spicy chicken breast, sautéed with garlic, onion, beans, and fiery bird's eye chilies. Finished with a soft ajitama egg and a sprinkle of spring onions, and served alongside a comforting miso soup with tofu, mushrooms, and bok choy.",
+        "calories": 590,
+        "nutrition": {
+          "protein": 38,
+          "carbs": 50,
+          "fat": 24,
+          "fiber": 3,
+          "sodium": 820,
+          "cholesterol": 140
+        },
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "donburi",
+          "chicken",
+          "rice",
+          "japanese"
+        ],
+        "colorCode": "#8B4513",
+        "imageUrl": "Menuimages/spicy-chicken-with-egg-rice-bowl.jpg",
+        "imageName": "spicy-chicken-with-egg-rice-bowl.jpg"
+      },
+      {
+        "id": "donburi_002",
+        "name": "Tofu Teriyaki Rice Bowl",
+        "category": "Donburi",
+        "price": 350,
+        "description": "Golden pan-seared tofu glazed in rich teriyaki sauce, served over a bed of steamed rice with sautéed beans, garlic, onion, bird's eye chili, and spring onions. Accompanied by a warm miso soup with tofu, mushrooms, and bok choy — a comforting balance of sweetness, spice, and umami.",
+        "calories": 510,
+        "nutrition": {
+          "protein": 22,
+          "carbs": 55,
+          "fat": 22,
+          "fiber": 4,
+          "sodium": 780,
+          "cholesterol": 0
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "donburi",
+          "tofu",
+          "rice",
+          "vegan"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": "Menuimages/tofu-teriyaki-rice-bowl.jpg",
+        "imageName": "tofu-teriyaki-rice-bowl.jpg"
+      },
+      {
+        "id": "donburi_003",
+        "name": "Egg Omelette and Vegetable Rice Bowl",
+        "category": "Donburi",
+        "price": 300,
+        "description": "Fluffy golden omelette layered over fragrant rice stir-fried with garlic, onion, red capsicum, beans, mushrooms, and bok choy — finished with a drizzle of savory sauce, a touch of butter, and a sprinkle of sesame seeds and spring onions. Served with a warm, comforting bowl of miso soup with tofu, mushrooms, and bok choy.",
+        "calories": 540,
+        "nutrition": {
+          "protein": 20,
+          "carbs": 52,
+          "fat": 26,
+          "fiber": 4,
+          "sodium": 760,
+          "cholesterol": 190
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "donburi",
+          "egg",
+          "rice",
+          "vegetarian"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/egg-omelette-and-vegetable-rice-bowl.jpg",
+        "imageName": "egg-omelette-and-vegetable-rice-bowl.jpg"
+      }
+    ],
+    "teaDesserts": [
+      {
+        "id": "dessert_001",
+        "name": "Bubble Waffle",
+        "category": "Tea & Desserts",
+        "price": 290,
+        "description": "Introducing our newest addition to the menu: the delectable bubble waffle! Made fresh to order, our bubble waffle is ...",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "dessert",
+          "waffle",
+          "sweet"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/bubble-waffle.jpg",
+        "imageName": "bubble-waffle.jpg"
+      },
+      {
+        "id": "dessert_002",
+        "name": "Matcha Tea and Latte",
+        "category": "Tea & Desserts",
+        "price": 100,
+        "description": "Matcha Tea and Latte",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "matcha",
+          "latte"
+        ],
+        "colorCode": "#228B22",
+        "imageUrl": "https://greenneko.com/menu/menu_images/matcha-tea-latte.png",
+        "imageName": "matcha-tea-latte.png"
+      },
+      {
+        "id": "dessert_003",
+        "name": "Cookies",
+        "category": "Tea & Desserts",
+        "price": null,
+        "description": "Cookies",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "dessert",
+          "cookies"
+        ],
+        "colorCode": "#D2691E",
+        "imageUrl": "https://greenneko.com/menu/menu_images/cookies.png",
+        "imageName": "cookies.png"
+      }
+    ],
+    "bobaTea": [
+      {
+        "id": "boba_001",
+        "name": "Thai Tea Boba",
+        "category": "Boba Tea",
+        "price": 260,
+        "description": "Thai Tea Boba",
+        "calories": 210,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "thai",
+          "iced",
+          "sweet"
+        ],
+        "colorCode": "#FF8C00",
+        "imageUrl": "Menuimages/thai-tea-boba.jpg",
+        "imageName": "thai-tea-boba.jpg"
+      },
+      {
+        "id": "boba_002",
+        "name": "Vietnamese Coffee Milk Boba",
+        "category": "Boba Tea",
+        "price": 280,
+        "description": "Vietnamese Coffee Milk Boba",
+        "calories": 230,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "coffee",
+          "vietnamese"
+        ],
+        "colorCode": "#8B4513",
+        "imageUrl": "Menuimages/vietnamese-coffee-milk-boba.jpg",
+        "imageName": "vietnamese-coffee-milk-boba.jpg"
+      },
+      {
+        "id": "boba_003",
+        "name": "MATCHA TEA BOBA",
+        "category": "Boba Tea",
+        "price": 290,
+        "description": "MATCHA TEA BOBA",
+        "calories": 200,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "matcha",
+          "green"
+        ],
+        "colorCode": "#228B22",
+        "imageUrl": "Menuimages/matcha-tea-boba.jpg",
+        "imageName": "matcha-tea-boba.jpg"
+      },
+      {
+        "id": "boba_004",
+        "name": "Brown Sugar Milk Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Brown Sugar Milk Boba",
+        "calories": 230,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "brown sugar",
+          "milk"
+        ],
+        "colorCode": "#8B4513",
+        "imageUrl": "Menuimages/brown-sugar-milk-boba.jpg",
+        "imageName": "brown-sugar-milk-boba.jpg"
+      },
+      {
+        "id": "boba_005",
+        "name": "Caramel Milk Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Caramel Milk Boba",
+        "calories": 235,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "caramel",
+          "milk"
+        ],
+        "colorCode": "#CD853F",
+        "imageUrl": "Menuimages/caramel-milk-boba.jpg",
+        "imageName": "caramel-milk-boba.jpg"
+      },
+      {
+        "id": "boba_006",
+        "name": "Chocolate Milk Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Chocolate Milk Boba",
+        "calories": 240,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "chocolate",
+          "milk"
+        ],
+        "colorCode": "#8B4513",
+        "imageUrl": "Menuimages/chocolate-milk-boba.jpg",
+        "imageName": "chocolate-milk-boba.jpg"
+      },
+      {
+        "id": "boba_007",
+        "name": "Strawberry Milk Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Strawberry Milk Boba",
+        "calories": 200,
+        "nutrition": {
+          "protein": 4,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "strawberry",
+          "milk"
+        ],
+        "colorCode": "#FF69B4",
+        "imageUrl": "Menuimages/strawberry-milk-boba.jpg",
+        "imageName": "strawberry-milk-boba.jpg"
+      },
+      {
+        "id": "boba_008",
+        "name": "MANGO BOBA MILK",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "MANGO BOBA MILK",
+        "calories": 180,
+        "nutrition": {
+          "protein": 4,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "mango",
+          "milk"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/mango-boba-milk.jpg",
+        "imageName": "mango-boba-milk.jpg"
+      },
+      {
+        "id": "boba_009",
+        "name": "BLUEBERRY BOBA MILK TEA",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "BLUEBERRY BOBA MILK TEA",
+        "calories": 190,
+        "nutrition": {
+          "protein": 4,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "blueberry",
+          "milk"
+        ],
+        "colorCode": "#4169E1",
+        "imageUrl": "Menuimages/blueberry-boba-milk-tea.jpg",
+        "imageName": "blueberry-boba-milk-tea.jpg"
+      },
+      {
+        "id": "boba_010",
+        "name": "Passion Fruit Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Passion Fruit Green Tea Popping Boba",
+        "calories": 190,
+        "nutrition": {
+          "protein": 2,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "passion fruit",
+          "green tea"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/passion-fruit-green-tea-popping-boba.jpg",
+        "imageName": "passion-fruit-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_011",
+        "name": "Lychee Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Lychee Green Tea Popping Boba",
+        "calories": 185,
+        "nutrition": {
+          "protein": 2,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "lychee",
+          "green tea"
+        ],
+        "colorCode": "#FFB6C1",
+        "imageUrl": "Menuimages/lychee-green-tea-popping-boba.jpg",
+        "imageName": "lychee-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_012",
+        "name": "Strawberry Matcha Tea Boba",
+        "category": "Boba Tea",
+        "price": 290,
+        "description": "Strawberry Matcha Tea Boba",
+        "calories": 225,
+        "nutrition": {
+          "protein": 5,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "strawberry",
+          "matcha"
+        ],
+        "colorCode": "#FF69B4",
+        "imageUrl": "Menuimages/strawberry-matcha-tea-boba.jpg",
+        "imageName": "strawberry-matcha-tea-boba.jpg"
+      },
+      {
+        "id": "boba_013",
+        "name": "Strawberry Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Strawberry Green Tea Popping Boba",
+        "calories": 220,
+        "nutrition": {
+          "protein": 4,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "strawberry",
+          "green tea"
+        ],
+        "colorCode": "#FF69B4",
+        "imageUrl": "Menuimages/strawberry-green-tea-popping-boba.jpg",
+        "imageName": "strawberry-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_014",
+        "name": "Mango Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Mango Green Tea Popping Boba",
+        "calories": 210,
+        "nutrition": {
+          "protein": 3,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "mango",
+          "green tea"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/mango-green-tea-popping-boba.jpg",
+        "imageName": "mango-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_015",
+        "name": "Peach Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Peach Green Tea Popping Boba",
+        "calories": 180,
+        "nutrition": {
+          "protein": 2,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "peach",
+          "green tea"
+        ],
+        "colorCode": "#FFDAB9",
+        "imageUrl": "Menuimages/peach-green-tea-popping-boba.jpg",
+        "imageName": "peach-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_016",
+        "name": "Passion Fruit & Peach Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Passion Fruit & Peach Green Tea Popping Boba",
+        "calories": 195,
+        "nutrition": {
+          "protein": 2,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "passion fruit",
+          "peach"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/passion-fruit-peach-green-tea-popping-boba.jpg",
+        "imageName": "passion-fruit-peach-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_017",
+        "name": "Mango Matcha Green Tea Popping Boba",
+        "category": "Boba Tea",
+        "price": 290,
+        "description": "Mango Matcha Green Tea Popping Boba",
+        "calories": 215,
+        "nutrition": {
+          "protein": 3,
+          "carbs": null,
+          "fat": null,
+          "fiber": null,
+          "sodium": null,
+          "cholesterol": null
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "mango",
+          "matcha"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": "Menuimages/mango-matcha-green-tea-popping-boba.jpg",
+        "imageName": "mango-matcha-green-tea-popping-boba.jpg"
+      }
+    ]
+  }
 }
