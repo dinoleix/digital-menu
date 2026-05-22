@@ -410,6 +410,7 @@ function attachDrag(card) {
     dragging = false;
 
     const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
 
     card.querySelector('.like-indicator').style.opacity = 0;
     card.querySelector('.nope-indicator').style.opacity = 0;
@@ -417,6 +418,7 @@ function attachDrag(card) {
     if (Math.abs(dx) >= SWIPE_THRESH) {
       executeSwipe(card, dx > 0 ? 'right' : 'left');
     } else {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) peekCard(card);
       springBack(card);
     }
   }
@@ -425,6 +427,14 @@ function attachDrag(card) {
   card.addEventListener('pointermove', onMove, { passive: false });
   card.addEventListener('pointerup',   onEnd);
   card.addEventListener('pointercancel', () => { dragging = false; springBack(card); });
+}
+
+function peekCard(card) {
+  const panel = card.querySelector('.nutrition-panel');
+  if (panel && !panel.classList.contains('hidden')) return;
+  card.classList.add('card--peek');
+  clearTimeout(card._peekTimer);
+  card._peekTimer = setTimeout(() => card.classList.remove('card--peek'), 3000);
 }
 
 function springBack(card) {

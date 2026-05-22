@@ -362,7 +362,19 @@ input  { font-family: inherit; }
     transparent 100%
   );
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
+
+/* Peek mode: hide all overlays so the image is fully visible */
+.card--peek .card-gradient,
+.card--peek .card-side-badges,
+.card--peek .card-info {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.card-side-badges { transition: opacity 0.3s ease; }
+.card-info        { transition: opacity 0.3s ease; }
 
 /* All badges — stacked vertically at middle-right */
 .card-side-badges {
