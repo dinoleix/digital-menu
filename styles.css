@@ -458,6 +458,8 @@ input  { font-family: inherit; }
   letter-spacing: -.5px;
   line-height: 1.1;
   margin-bottom: 8px;
+  pointer-events: all;
+  cursor: pointer;
 }
 
 .card-description {
@@ -470,6 +472,8 @@ input  { font-family: inherit; }
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  pointer-events: all;
+  cursor: pointer;
 }
 
 .card-meta {
@@ -552,6 +556,42 @@ input  { font-family: inherit; }
   text-align: center;
   font-size: 11px;
   color: rgba(255,255,255,0.3);
+}
+
+/* Full description overlay */
+.desc-panel {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,5,5,0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 32px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 10;
+}
+.desc-panel.hidden { display: none; }
+.desc-panel-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -.4px;
+  margin-bottom: 16px;
+}
+.desc-panel-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+  flex: 1;
+}
+.desc-panel-hint {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: .03em;
 }
 
 

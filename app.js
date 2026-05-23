@@ -286,6 +286,12 @@ function buildCard(item, pos) {
 
     <div class="nutrition-panel hidden"></div>
 
+    <div class="desc-panel hidden">
+      <div class="desc-panel-name">${escHtml(item.name)}</div>
+      <div class="desc-panel-text">${escHtml(item.description)}</div>
+      <p class="desc-panel-hint">Tap to close</p>
+    </div>
+
     <div class="like-indicator">LIKE<br>💚</div>
     <div class="nope-indicator">NOPE<br>✕</div>
 
@@ -299,6 +305,16 @@ function buildCard(item, pos) {
       </div>
     </div>
   `;
+
+  // Full description panel — open on name/description tap, close on panel tap
+  const descPanel = card.querySelector('.desc-panel');
+  const openDesc  = e => { e.stopPropagation(); descPanel.classList.remove('hidden'); };
+  card.querySelector('.card-name').addEventListener('click', openDesc);
+  card.querySelector('.card-description').addEventListener('click', openDesc);
+  // Prevent the drag handler from firing when tapping name/description
+  card.querySelector('.card-name').addEventListener('pointerdown', e => e.stopPropagation());
+  card.querySelector('.card-description').addEventListener('pointerdown', e => e.stopPropagation());
+  descPanel.addEventListener('click', () => descPanel.classList.add('hidden'));
 
   // Gracefully handle broken images — just shows the fallback color
   const bg = card.querySelector('.card-bg');
