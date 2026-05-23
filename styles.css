@@ -558,36 +558,39 @@ input  { font-family: inherit; }
   color: rgba(255,255,255,0.3);
 }
 
-/* Full description overlay */
+/* Full description panel — anchored to bottom, grows upward to fit text */
 .desc-panel {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 78%;
   background: rgba(5,5,5,0.93);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  padding: 32px 24px 28px;
+  padding: 20px 24px 28px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   z-index: 10;
+  border-radius: 20px 20px 0 0;
 }
 .desc-panel.hidden { display: none; }
 .desc-panel-name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   color: #fff;
   line-height: 1.2;
   letter-spacing: -.4px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .desc-panel-text {
   font-size: 14px;
   line-height: 1.7;
   color: rgba(255,255,255,0.82);
-  flex: 1;
 }
 .desc-panel-hint {
-  margin-top: 24px;
+  margin-top: 20px;
   text-align: center;
   font-size: 11px;
   color: rgba(255,255,255,0.3);
