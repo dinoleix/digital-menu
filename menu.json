@@ -11,7 +11,7 @@
         "id": "breakfast_001",
         "name": "Avocado Toast (Non Veg)",
         "category": "Breakfast",
-        "price": 480,
+        "price": 420,
         "description": "A rich and creamy open toast made with buttery sourdough, smashed avocado, cherry tomatoes, feta cheese, and a perfectly fried egg. Finished with a drizzle of olive oil, a pinch of chili flakes, and fresh microgreens — a wholesome, flavour-packed breakfast that's as beautiful as it is satisfying.",
         "calories": null,
         "nutrition": null,
@@ -28,29 +28,29 @@
       },
       {
         "id": "breakfast_002",
-        "name": "Cloud Toast Loaded",
+        "name": "French Toast Cloud with Fruits, Berry Compote & Whipped Cream Cheese",
         "category": "Breakfast",
         "price": 360,
-        "description": "Soft, pillowy milk bread dipped in a rich egg–milk batter, pan-fried to a golden, custard-like finish, and loaded with streaky bacon, a fried egg, melted cheese, and a drizzle of maple syrup. A decadent sweet-and-savory breakfast that lives up to its name in every cloud-soft bite.",
+        "description": "Thick, pillowy slices of milk bread soaked in a rich egg-cream batter and pan-fried to a golden, custard-like finish — served with a vibrant berry compote, fresh seasonal fruits, and a generous dollop of whipped cream cheese. A beautifully indulgent breakfast that balances tart, sweet, and creamy in every bite.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
-        "vegetarian": false,
+        "vegetarian": true,
         "tags": [
           "toast",
-          "eggs",
+          "french toast",
           "breakfast"
         ],
         "colorCode": "#F5DEB3",
-        "imageUrl": "https://greenneko.com/menu/menu_images/cloud-toast-loaded.png",
-        "imageName": "cloud-toast-loaded.png"
+        "imageUrl": null,
+        "imageName": null
       },
       {
         "id": "breakfast_003",
-        "name": "NEKO SOUFFLÉ PANCAKE",
+        "name": "Cream Cheese Soufflé Pancake",
         "category": "Breakfast",
-        "price": 410,
-        "description": "Light, fluffy, and irresistibly soft — our signature Japanese-style soufflé pancake served with rich cream cheese, velvety whipped butter, and a generous drizzle of maple syrup. Made fresh to order and rising tall with a gentle wobble, each stack delivers that iconic melt-in-your-mouth texture that makes every bite truly unforgettable.",
+        "price": 420,
+        "description": "Light, fluffy, and irresistibly soft — our Japanese-style soufflé pancake served with rich cream cheese, velvety whipped butter, and a generous drizzle of maple syrup. Made fresh to order and rising tall with a gentle wobble, each stack delivers that iconic melt-in-your-mouth texture that makes every bite truly unforgettable.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
@@ -69,7 +69,7 @@
         "name": "Acai Bowl (Peanut butter)",
         "category": "Breakfast",
         "price": 410,
-        "description": "A refreshing, antioxidant-rich super bowl made with pure açaí, fresh fruits, and peanut butter",
+        "description": "A refreshing, antioxidant-rich super bowl made with pure açaí, fresh fruits, and peanut butter — crowned with crunchy granola, banana slices, and fresh seasonal berries. A nourishing power bowl that keeps you going all day.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
@@ -102,6 +102,65 @@
         "colorCode": "#8B008B",
         "imageUrl": "https://greenneko.com/menu/menu_images/acai-bowl-yogurt.png",
         "imageName": "acai-bowl-yogurt.png"
+      },
+      {
+        "id": "breakfast_006",
+        "name": "Matcha Soufflé Pancake",
+        "category": "Breakfast",
+        "price": 490,
+        "description": "Cloud-light Japanese soufflé pancakes infused with vibrant ceremonial grade matcha — tall, airy, and delicately earthy. Topped with matcha cream, whipped butter, and a drizzle of maple syrup. Made fresh to order with that signature gentle wobble that makes each bite feel like a celebration.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "pancakes",
+          "breakfast",
+          "soufflé",
+          "matcha"
+        ],
+        "colorCode": "#4CAF50",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "breakfast_007",
+        "name": "Chocolate Soufflé Pancake",
+        "category": "Breakfast",
+        "price": 470,
+        "description": "Airy, melt-in-your-mouth Japanese soufflé pancakes infused with rich cocoa — topped with chocolate sauce, whipped cream, and fresh berries. A chocolate lover's dream that arrives standing tall and delivers pure indulgence in every cloud-soft bite.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "pancakes",
+          "breakfast",
+          "soufflé",
+          "chocolate"
+        ],
+        "colorCode": "#4A2C0A",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "breakfast_008",
+        "name": "French Toast Cloud (Plain)",
+        "category": "Breakfast",
+        "price": 260,
+        "description": "Thick, pillowy slices of milk bread soaked in a rich egg-cream batter and pan-fried to a golden, custard-like finish — soft and wobbly inside with a lightly caramelised crust. Simple, pure, and perfectly comforting.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "toast",
+          "french toast",
+          "breakfast"
+        ],
+        "colorCode": "#F5DEB3",
+        "imageUrl": null,
+        "imageName": null
       }
     ],
     "ramen": [
@@ -109,7 +168,7 @@
         "id": "ramen_001",
         "name": "PAN-GRILLED CHICKEN RAMEN (Thick or Thin broth)",
         "category": "Ramen",
-        "price": 520,
+        "price": 530,
         "description": "Juicy, pan-grilled chicken thigh glazed in sweet teriyaki sauce served atop springy ramen noodles and a light, umami-rich thin broth. Each bowl is layered with vibrant toppings — palak, sweet corn, bamboo shoot pickle, mushrooms, and spring onion — and finished with an ajitama egg, nori, and a drizzle of garlic, onion, and chicken oils. A satisfying fusion of smoky, savory, and slightly sweet flavors that bring comfort in every spoonful.",
         "calories": 710,
         "nutrition": {
@@ -120,6 +179,8 @@
           "sodium": 2100,
           "cholesterol": 280
         },
+        "contains": "Chicken thigh, ramen noodles, thin broth, sweet teriyaki sauce, tare, palak, mushroom, bamboo shoot pickle & sauce, sweet corn, spring onion, ajitama egg, nori, chicken powder, garlic oil, onion oil, and chilli crisp.",
+        "allergens": "Gluten, Soy, Egg, Sesame (from oil), Possible traces of shellfish (in sauces)",
         "spicy": false,
         "vegetarian": false,
         "tags": [
@@ -137,9 +198,18 @@
         "name": "SPICY CHICKEN RAMEN (Thick or Thin Broth)",
         "category": "Ramen",
         "price": 520,
-        "description": "Tender chicken breast paired with fresh ramen noodles, simmered in a light yet flavourful spicy chicken broth. The bowl is crowned with palak, sweet corn, bamboo shoot pickle, mushrooms, and spring onion, then finished with an ajitama egg, nori, and a drizzle of chili oil. Bold, fiery, and deeply satisfying — choose your broth thick or thin.",
-        "calories": null,
-        "nutrition": null,
+        "description": "Tender chicken breast paired with fresh ramen noodles, simmered in a light yet flavorful spicy chicken broth. The bowl bursts with aroma from garlic, onion, and chicken oils, enriched with tare and kombu-shiitake liquid for deep umami. Topped with ajitama egg, sweet corn, palak, bamboo shoot pickle, mushrooms, and nori — it's a comforting balance of heat, savoriness, and texture in every bite.",
+        "calories": 620,
+        "nutrition": {
+          "protein": 38,
+          "carbs": 54,
+          "fat": 22,
+          "fiber": 4,
+          "sodium": 2300,
+          "cholesterol": 250
+        },
+        "contains": "Chicken breast, ramen noodles, thin spicy chicken broth, chilli paste, tare, ajitama egg, palak, mushroom, bamboo shoot pickle & sauce, sweet corn, spring onion, garlic oil, onion oil, chicken oil, and nori.",
+        "allergens": "Gluten, Soy, Egg, Sesame (from oil), Possible traces of shellfish (in sauces)",
         "spicy": true,
         "vegetarian": false,
         "tags": [
@@ -157,9 +227,18 @@
         "name": "TOFU RAMEN (VEG BROTH)",
         "category": "Ramen",
         "price": 520,
-        "description": "Silky tofu cubes nestled in a creamy, plant-based broth made with oat milk, peanut butter, and kombu-shiitake dashi — rich, nutty, and deeply umami. Topped with palak, sweet corn, bamboo shoot pickle, mushrooms, spring onion, nori, and a drizzle of sesame oil. A soul-warming bowl that proves plant-based can be truly indulgent.",
-        "calories": null,
-        "nutrition": null,
+        "description": "Silky tofu cubes nestled in a creamy, plant-based broth made with oat milk, peanut butter, and kombu-shiitake liquid. The ramen is layered with earthy mushrooms, palak, sweet corn, bamboo shoot pickle, and spring onion — then drizzled with aromatic garlic and onion oils for extra depth. Finished with vegan butter, chilli paste, and crisp nori, this bowl offers a rich, nutty, and spicy harmony that's both comforting and wholesome.",
+        "calories": 590,
+        "nutrition": {
+          "protein": 26,
+          "carbs": 50,
+          "fat": 30,
+          "fiber": 5,
+          "sodium": 1900,
+          "cholesterol": 0
+        },
+        "contains": "Tofu, ramen noodles, vegetable broth, oat milk, peanut butter, vegan butter, tare, palak, mushroom, bamboo shoot pickle & sauce, sweet corn, spring onion, garlic oil, onion oil, and chilli crisp.",
+        "allergens": "Gluten, Soy, Peanut, Sesame (from oil)",
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -171,6 +250,67 @@
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/tofu-ramen-veg-broth.jpg",
         "imageName": "tofu-ramen-veg-broth.jpg"
+      },
+      {
+        "id": "ramen_004",
+        "name": "Chicken Tantanmen Ramen",
+        "category": "Ramen",
+        "price": 650,
+        "description": "A rich, bold bowl of tantanmen-style ramen featuring a creamy sesame-chili broth, tender chicken, springy ramen noodles, and fragrant toppings. Inspired by classic Sichuan dan dan noodles with a Japanese-style chicken twist — nutty, spicy, and deeply satisfying in every spoonful.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "ramen",
+          "chicken",
+          "tantanmen",
+          "spicy"
+        ],
+        "colorCode": "#CC3300",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "ramen_005",
+        "name": "Tofu Tantanmen Ramen",
+        "category": "Ramen",
+        "price": 650,
+        "description": "A plant-based take on the classic tantanmen — a rich sesame-chili broth with silky tofu, springy ramen noodles, and vibrant toppings. Deeply nutty, subtly spicy, and soul-warming from first sip to last. A bowl that shows plant-based ramen can be just as bold and satisfying.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": true,
+        "vegetarian": true,
+        "tags": [
+          "ramen",
+          "tofu",
+          "tantanmen",
+          "vegan",
+          "spicy"
+        ],
+        "colorCode": "#CC5500",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "ramen_006",
+        "name": "Naruto Ramen",
+        "category": "Ramen",
+        "price": 650,
+        "description": "Named after the beloved anime, this special ramen bowl features a rich, umami-packed broth crowned with the iconic naruto fish cake, nori, ajitama egg, bamboo shoot, mushrooms, and spring onions. A fan-favourite bowl reimagined in our kitchen — bold, comforting, and full of character.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "ramen",
+          "naruto",
+          "asian",
+          "noodles"
+        ],
+        "colorCode": "#FF69B4",
+        "imageUrl": null,
+        "imageName": null
       }
     ],
     "pokeBowls": [
@@ -178,7 +318,7 @@
         "id": "poke_001",
         "name": "SHRIMP POKE BOWL",
         "category": "Poke Bowls",
-        "price": 550,
+        "price": 590,
         "description": "Juicy, marinated shrimp served with a vibrant mix of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and served on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
         "calories": 510,
         "nutrition": {
@@ -205,7 +345,7 @@
         "id": "poke_002",
         "name": "CHICKEN POKE BOWL",
         "category": "Poke Bowls",
-        "price": 410,
+        "price": 450,
         "description": "Tender teriyaki-glazed chicken served over a bed of seasoned Japanese rice, topped with a colorful medley of purple cabbage, cucumber, carrot, pickled radish, and creamy avocado. Enhanced with edamame beans, sweet corn, seaweed salad, crispy fried onion and garlic, and a sprinkle of sesame seeds. Finished with a light dressing that ties together freshness, crunch, and umami in every bite.",
         "calories": 680,
         "nutrition": {
@@ -232,7 +372,7 @@
         "id": "poke_003",
         "name": "TUNA POKE BOWL",
         "category": "Poke Bowls",
-        "price": 500,
+        "price": 560,
         "description": "Fresh, marinated tuna served with a colorful mix of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and paired with rice, quinoa, or cauliflower rice (keto-friendly).",
         "calories": 520,
         "nutrition": {
@@ -259,7 +399,7 @@
         "id": "poke_004",
         "name": "SALMON POKE BOWL",
         "category": "Poke Bowls",
-        "price": 780,
+        "price": 830,
         "description": "Pan-seared salmon marinated in soy sauce, served with fresh veggies, creamy avocado, and furikake on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
         "calories": 540,
         "nutrition": {
@@ -286,7 +426,7 @@
         "id": "poke_005",
         "name": "PANEER POKE BOWL",
         "category": "Poke Bowls",
-        "price": 470,
+        "price": 510,
         "description": "A wholesome vegetarian delight featuring marinated paneer served with fresh, crunchy vegetables and creamy avocado — topped with furikake and paired with rice, quinoa, or cauliflower rice (keto-friendly).",
         "calories": 520,
         "nutrition": {
@@ -313,7 +453,7 @@
         "id": "poke_006",
         "name": "TOFU POKE BOWL",
         "category": "Poke Bowls",
-        "price": 430,
+        "price": 470,
         "description": "A wholesome, plant-based bowl featuring marinated tofu served with a colorful blend of purple cabbage, cucumber, carrot, pickled radish, pickled ginger, avocado, sweet corn, edamame, fried onion, fried garlic, and seaweed salad — topped with furikake and served on a bed of rice, quinoa, or cauliflower rice (keto-friendly).",
         "calories": 480,
         "nutrition": {
@@ -342,7 +482,7 @@
         "id": "appetizer_001",
         "name": "Takoyaki – Japanese Octopus Balls",
         "category": "Appetizers",
-        "price": 390,
+        "price": 410,
         "description": "A savory Japanese street delight made with tender octopus pieces, crispy golden batter, a hint of dashi, and finished with light soy, spring onions, and crunchy crumbs — crispy outside, soft and flavorful inside.",
         "calories": 420,
         "nutrition": {
@@ -407,10 +547,10 @@
       },
       {
         "id": "appetizer_004",
-        "name": "Shrimp Tempura",
+        "name": "Prawn Tempura",
         "category": "Appetizers",
-        "price": 320,
-        "description": "Crispy, golden-battered shrimp fried to perfection — light, airy, and paired with a refreshing ponzu dipping sauce. A Japanese classic that's crunchy on the outside and tender inside.",
+        "price": 350,
+        "description": "Crispy, golden-battered prawns fried to perfection — light, airy, and paired with a refreshing ponzu dipping sauce. A Japanese classic that's crunchy on the outside and tender inside.",
         "calories": 290,
         "nutrition": {
           "protein": 14,
@@ -424,7 +564,7 @@
         "vegetarian": false,
         "tags": [
           "appetizer",
-          "shrimp",
+          "prawn",
           "tempura",
           "seafood"
         ],
@@ -436,7 +576,7 @@
         "id": "appetizer_005",
         "name": "Chicken Karaage",
         "category": "Appetizers",
-        "price": 330,
+        "price": 350,
         "description": "A Japanese classic — tender chicken marinated with soy, ginger, and garlic, lightly coated and fried to a perfect golden crisp. Juicy on the inside with an irresistibly crunchy exterior, served with Japanese mayo and a wedge of lemon. Simple, bold, and endlessly craveable.",
         "calories": null,
         "nutrition": null,
@@ -454,10 +594,10 @@
       },
       {
         "id": "appetizer_006",
-        "name": "King Oyster, Enoki Mushroom & Lotus Root Tempura",
+        "name": "Seasonal Vegetable Tempura",
         "category": "Appetizers",
         "price": 320,
-        "description": "A crispy and light Japanese-style tempura made with king oyster mushrooms, delicate enoki, and crunchy lotus root — each piece coated in an airy batter and fried to a pale golden crisp. Served with a refreshing ponzu dipping sauce. An elegant vegetarian starter that celebrates the best of Japanese cooking.",
+        "description": "A crispy and light Japanese-style tempura made with seasonal vegetables — each piece coated in an airy batter and fried to a pale golden crisp. Served with a refreshing ponzu dipping sauce. An elegant vegetarian starter that celebrates the best of Japanese cooking.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
@@ -536,7 +676,7 @@
         "id": "appetizer_010",
         "name": "Chicken Teriyaki",
         "category": "Appetizers",
-        "price": 300,
+        "price": 330,
         "description": "Our savory and delicious Chicken Teriyaki — a Japanese classic done right. Tender chicken thigh glazed in a rich, house-made teriyaki sauce, pan-grilled to caramelised perfection and finished with toasted sesame seeds and spring onions. Simple, elegant, and deeply satisfying in every bite.",
         "calories": null,
         "nutrition": null,
@@ -571,14 +711,154 @@
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/tofu-katsu-finger.jpg",
         "imageName": "tofu-katsu-finger.jpg"
+      },
+      {
+        "id": "appetizer_012",
+        "name": "Chicken Gyoza / Dumplings",
+        "category": "Appetizers",
+        "price": 260,
+        "description": "Handcrafted crescent-shaped dumplings filled with seasoned chicken and vegetables — pan-fried to a golden crisp on one side and steamed to tender perfection on the other. Served with a light ponzu dipping sauce. A Japanese street food classic that's impossible to stop at just one.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "gyoza",
+          "japanese"
+        ],
+        "colorCode": "#D2691E",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_013",
+        "name": "Katsu Chicken Sando / Sandwich",
+        "category": "Appetizers",
+        "price": 350,
+        "description": "Crispy katsu-fried chicken breast nestled in soft, pillowy milk bread with shredded cabbage, Japanese mayo, and tangy katsu sauce — a satisfying Japanese-style sandwich that delivers the perfect contrast of crunch and softness in every bite.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "sando",
+          "sandwich"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_014",
+        "name": "Chicken Onigiri / Riceball",
+        "category": "Appetizers",
+        "price": 270,
+        "description": "Handmade Japanese rice balls filled with seasoned chicken and wrapped in crisp nori — compact, flavourful, and perfectly balanced. A wholesome snack or light bite rooted in Japanese everyday cooking.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "onigiri",
+          "japanese"
+        ],
+        "colorCode": "#F5F5DC",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_015",
+        "name": "Tamago Sando / Egg Sandwich",
+        "category": "Appetizers",
+        "price": 350,
+        "description": "Soft, creamy Japanese egg salad generously sandwiched between pillowy milk bread — simple, comforting, and utterly irresistible. A beloved Tokyo convenience-store classic elevated with care and the finest ingredients.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "egg",
+          "sandwich",
+          "sando"
+        ],
+        "colorCode": "#FFFACD",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_016",
+        "name": "Cheese & Mushroom Gyoza",
+        "category": "Appetizers",
+        "price": 260,
+        "description": "Pan-fried dumplings filled with creamy cheese and earthy mushrooms — golden and crisp on the outside, gooey and flavourful within. A vegetarian gyoza that surprises and delights with every bite.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "gyoza",
+          "vegetarian",
+          "cheese"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_017",
+        "name": "Paneer Onigiri / Riceball",
+        "category": "Appetizers",
+        "price": 270,
+        "description": "Handcrafted Japanese-style rice balls filled with spiced paneer and wrapped in nori — a fusion of Japanese snacking culture and Indian cottage cheese. A light, flavourful bite that works perfectly as a starter or on-the-go snack.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "paneer",
+          "onigiri",
+          "vegetarian"
+        ],
+        "colorCode": "#F5F5DC",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_018",
+        "name": "Katsu Tofu Sando / Sandwich",
+        "category": "Appetizers",
+        "price": 350,
+        "description": "Crispy katsu-fried tofu slabs nestled in soft milk bread with shredded cabbage, Japanese mayo, and tangy katsu sauce — a plant-based twist on the beloved Japanese sando. Satisfyingly crunchy, creamy, and full of umami in every bite.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "appetizer",
+          "tofu",
+          "sando",
+          "vegan"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": null,
+        "imageName": null
       }
     ],
     "donburi": [
       {
         "id": "donburi_001",
-        "name": "Spicy Chicken with Egg Rice Bowl",
+        "name": "Spicy Chicken Don / Rice Bowl",
         "category": "Donburi",
-        "price": 370,
+        "price": 420,
         "description": "A hearty bowl of fluffy steamed rice topped with tender, spicy chicken breast, sautéed with garlic, onion, beans, and fiery bird's eye chilies. Finished with a soft ajitama egg and a sprinkle of spring onions, and served alongside a comforting miso soup with tofu, mushrooms, and bok choy.",
         "calories": 590,
         "nutrition": {
@@ -603,9 +883,9 @@
       },
       {
         "id": "donburi_002",
-        "name": "Tofu Teriyaki Rice Bowl",
+        "name": "Tofu Teriyaki Don / Rice Bowl",
         "category": "Donburi",
-        "price": 350,
+        "price": 400,
         "description": "Golden pan-seared tofu glazed in rich teriyaki sauce, served over a bed of steamed rice with sautéed beans, garlic, onion, bird's eye chili, and spring onions. Accompanied by a warm miso soup with tofu, mushrooms, and bok choy — a comforting balance of sweetness, spice, and umami.",
         "calories": 510,
         "nutrition": {
@@ -630,9 +910,9 @@
       },
       {
         "id": "donburi_003",
-        "name": "Egg Omelette and Vegetable Rice Bowl",
+        "name": "Egg & Vegetable Don / Rice Bowl",
         "category": "Donburi",
-        "price": 300,
+        "price": 340,
         "description": "Fluffy golden omelette layered over fragrant rice stir-fried with garlic, onion, red capsicum, beans, mushrooms, and bok choy — finished with a drizzle of savory sauce, a touch of butter, and a sprinkle of sesame seeds and spring onions. Served with a warm, comforting bowl of miso soup with tofu, mushrooms, and bok choy.",
         "calories": 540,
         "nutrition": {
@@ -654,6 +934,26 @@
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/egg-omelette-and-vegetable-rice-bowl.jpg",
         "imageName": "egg-omelette-and-vegetable-rice-bowl.jpg"
+      },
+      {
+        "id": "donburi_004",
+        "name": "Chicken Teriyaki Don / Rice Bowl",
+        "category": "Donburi",
+        "price": 440,
+        "description": "Tender pan-grilled chicken glazed in our house-made teriyaki sauce, served over fluffy steamed rice with sautéed vegetables, spring onions, and toasted sesame seeds. Accompanied by a warm bowl of miso soup with tofu, mushrooms, and bok choy — a simple, satisfying Japanese classic.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": false,
+        "tags": [
+          "donburi",
+          "chicken",
+          "teriyaki",
+          "rice"
+        ],
+        "colorCode": "#CD853F",
+        "imageUrl": null,
+        "imageName": null
       }
     ],
     "teaDesserts": [
@@ -661,12 +961,12 @@
         "id": "dessert_001",
         "name": "Bubble Waffle",
         "category": "Tea & Desserts",
-        "price": 290,
-        "description": "Introducing our delectable bubble waffle — made fresh to order with a light, airy batter that bakes into iconic golden bubbles, crispy on the outside and fluffy within. Served warm with your choice of toppings, it's a sweet treat that's as fun to eat as it is beautiful to look at.",
+        "price": 280,
+        "description": "Made fresh to order with a light, airy batter that bakes into iconic golden bubbles — crispy on the outside and fluffy within. Choose your sauce (caramel or chocolate) and add an ice cream topping (vanilla, chocolate, or strawberry) for +₹70. A sweet treat as fun to eat as it is beautiful.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
-        "vegetarian": true,
+        "vegetarian": false,
         "tags": [
           "dessert",
           "waffle",
@@ -678,25 +978,6 @@
       },
       {
         "id": "dessert_002",
-        "name": "Matcha Tea and Latte",
-        "category": "Tea & Desserts",
-        "price": 100,
-        "description": "Matcha Tea and Latte",
-        "calories": null,
-        "nutrition": null,
-        "spicy": false,
-        "vegetarian": true,
-        "tags": [
-          "tea",
-          "matcha",
-          "latte"
-        ],
-        "colorCode": "#228B22",
-        "imageUrl": "https://greenneko.com/menu/menu_images/matcha-tea-latte.png",
-        "imageName": "matcha-tea-latte.png"
-      },
-      {
-        "id": "dessert_003",
         "name": "Cookies",
         "category": "Tea & Desserts",
         "price": null,
@@ -720,7 +1001,7 @@
         "name": "Thai Tea Boba",
         "category": "Boba Tea",
         "price": 260,
-        "description": "Thai Tea Boba",
+        "description": "Aromatic Thai tea brewed with warming spices and blended with condensed milk, topped with chewy tapioca pearls — sweet, bold, and distinctively orange. A creamy, indulgent boba classic.",
         "calories": 210,
         "nutrition": {
           "protein": 5,
@@ -744,10 +1025,10 @@
       },
       {
         "id": "boba_002",
-        "name": "Vietnamese Coffee Milk Boba",
+        "name": "Vietnamese Coffee Boba",
         "category": "Boba Tea",
         "price": 280,
-        "description": "Vietnamese Coffee Milk Boba",
+        "description": "Drip-brewed Vietnamese Robusta coffee blended with sweet condensed milk and served with chewy tapioca pearls over ice — rich, bold, and deeply satisfying. A coffee-lover's boba dream.",
         "calories": 230,
         "nutrition": {
           "protein": 5,
@@ -770,10 +1051,10 @@
       },
       {
         "id": "boba_003",
-        "name": "MATCHA TEA BOBA",
+        "name": "Matcha Tea Boba",
         "category": "Boba Tea",
         "price": 290,
-        "description": "MATCHA TEA BOBA",
+        "description": "Premium ceremonial grade matcha whisked with milk and served over ice with chewy tapioca pearls — earthy, creamy, and naturally energising. A refined boba for the matcha devoted.",
         "calories": 200,
         "nutrition": {
           "protein": 5,
@@ -799,7 +1080,7 @@
         "name": "Brown Sugar Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Brown Sugar Milk Boba",
+        "description": "Creamy milk tea swirled with rich brown sugar syrup and loaded with chewy tapioca pearls — sweet, indulgent, and deeply comforting. A timeless boba favourite.",
         "calories": 230,
         "nutrition": {
           "protein": 5,
@@ -825,7 +1106,7 @@
         "name": "Caramel Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Caramel Milk Boba",
+        "description": "Smooth milk tea infused with golden caramel and served with chewy tapioca pearls over ice — buttery, sweet, and irresistibly creamy.",
         "calories": 235,
         "nutrition": {
           "protein": 5,
@@ -851,7 +1132,7 @@
         "name": "Chocolate Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Chocolate Milk Boba",
+        "description": "Rich chocolate blended with creamy milk and served over ice with chewy tapioca pearls — a decadent, dessert-like boba that satisfies every chocolate craving.",
         "calories": 240,
         "nutrition": {
           "protein": 5,
@@ -877,7 +1158,7 @@
         "name": "Strawberry Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Strawberry Milk Boba",
+        "description": "Fresh strawberry flavours blended with creamy milk and served with chewy tapioca pearls over ice — fruity, sweet, and beautifully pink.",
         "calories": 200,
         "nutrition": {
           "protein": 4,
@@ -900,10 +1181,10 @@
       },
       {
         "id": "boba_008",
-        "name": "MANGO BOBA MILK",
+        "name": "Mango Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "MANGO BOBA MILK",
+        "description": "Tropical mango blended with smooth milk and served with chewy tapioca pearls over ice — bright, fruity, and refreshingly sweet.",
         "calories": 180,
         "nutrition": {
           "protein": 4,
@@ -926,10 +1207,10 @@
       },
       {
         "id": "boba_009",
-        "name": "BLUEBERRY BOBA MILK TEA",
+        "name": "Blueberry Milk Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "BLUEBERRY BOBA MILK TEA",
+        "description": "Juicy blueberry flavours swirled into creamy milk and served over ice with chewy tapioca pearls — subtly tart, sweet, and a beautiful deep purple hue.",
         "calories": 190,
         "nutrition": {
           "protein": 4,
@@ -952,10 +1233,10 @@
       },
       {
         "id": "boba_010",
-        "name": "Passion Fruit Green Tea Popping Boba",
+        "name": "Passion Fruit Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Passion Fruit Green Tea Popping Boba",
+        "description": "Refreshing green tea with tangy passion fruit popping boba pearls — each one bursting with tropical flavour in every sip. Light, energising, and vibrantly fruity.",
         "calories": 190,
         "nutrition": {
           "protein": 2,
@@ -978,10 +1259,10 @@
       },
       {
         "id": "boba_011",
-        "name": "Lychee Green Tea Popping Boba",
+        "name": "Lychee Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Lychee Green Tea Popping Boba",
+        "description": "Delicate green tea with fragrant lychee popping boba — each pearl bursting with the floral sweetness of fresh lychee. Light, refreshing, and subtly exotic.",
         "calories": 185,
         "nutrition": {
           "protein": 2,
@@ -1006,8 +1287,8 @@
         "id": "boba_012",
         "name": "Strawberry Matcha Tea Boba",
         "category": "Boba Tea",
-        "price": 290,
-        "description": "Strawberry Matcha Tea Boba",
+        "price": 315,
+        "description": "A stunning layered drink of premium matcha and fresh strawberry flavours with chewy tapioca pearls — the perfect sweet-earthy combination in a glass.",
         "calories": 225,
         "nutrition": {
           "protein": 5,
@@ -1030,10 +1311,10 @@
       },
       {
         "id": "boba_013",
-        "name": "Strawberry Green Tea Popping Boba",
+        "name": "Strawberry Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Strawberry Green Tea Popping Boba",
+        "description": "Crisp green tea paired with strawberry popping boba pearls that burst with fresh berry flavour — fruity, refreshing, and irresistibly fun to drink.",
         "calories": 220,
         "nutrition": {
           "protein": 4,
@@ -1056,10 +1337,10 @@
       },
       {
         "id": "boba_014",
-        "name": "Mango Green Tea Popping Boba",
+        "name": "Mango Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Mango Green Tea Popping Boba",
+        "description": "Light green tea with tropical mango popping boba pearls that burst with sweet, sun-ripened flavour — refreshing, fruity, and endlessly enjoyable.",
         "calories": 210,
         "nutrition": {
           "protein": 3,
@@ -1082,10 +1363,10 @@
       },
       {
         "id": "boba_015",
-        "name": "Peach Green Tea Popping Boba",
+        "name": "Peach Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Peach Green Tea Popping Boba",
+        "description": "Delicate green tea with sweet peach popping boba pearls — each one bursting with a gentle, orchard-fresh flavour. Light, summery, and irresistibly refreshing.",
         "calories": 180,
         "nutrition": {
           "protein": 2,
@@ -1108,10 +1389,10 @@
       },
       {
         "id": "boba_016",
-        "name": "Passion Fruit & Peach Green Tea Popping Boba",
+        "name": "Passion Fruit & Peach Popping Boba",
         "category": "Boba Tea",
         "price": 250,
-        "description": "Passion Fruit & Peach Green Tea Popping Boba",
+        "description": "A vibrant green tea base loaded with passion fruit and peach popping boba — two tropical flavours that burst together in every sip for a refreshingly fruity experience.",
         "calories": 195,
         "nutrition": {
           "protein": 2,
@@ -1134,10 +1415,10 @@
       },
       {
         "id": "boba_017",
-        "name": "Mango Matcha Green Tea Popping Boba",
+        "name": "Mango Matcha Popping Boba",
         "category": "Boba Tea",
         "price": 290,
-        "description": "Mango Matcha Green Tea Popping Boba",
+        "description": "Premium matcha meets tropical mango popping boba in this vibrant, flavour-packed drink — earthy, fruity, and utterly refreshing. A uniquely satisfying combination that works beautifully together.",
         "calories": 215,
         "nutrition": {
           "protein": 3,
@@ -1157,6 +1438,566 @@
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-matcha-green-tea-popping-boba.jpg",
         "imageName": "mango-matcha-green-tea-popping-boba.jpg"
+      },
+      {
+        "id": "boba_018",
+        "name": "Taro Milk Boba",
+        "category": "Boba Tea",
+        "price": 260,
+        "description": "Creamy taro blended with smooth milk and served over ice with chewy tapioca pearls — subtly sweet, nutty, and unmistakably purple. A boba shop classic with a beautiful colour and comforting flavour.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "taro",
+          "milk"
+        ],
+        "colorCode": "#9370DB",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "boba_019",
+        "name": "Raspberry Popping Boba",
+        "category": "Boba Tea",
+        "price": 250,
+        "description": "Crisp green tea with tangy raspberry popping boba pearls that burst with bright berry flavour — refreshing, tart, and vibrantly fruity in every sip.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "boba tea",
+          "raspberry",
+          "green tea"
+        ],
+        "colorCode": "#DC143C",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "boba_020",
+        "name": "Peachy Fuzz",
+        "category": "Boba Tea",
+        "price": 199,
+        "description": "A sparkling, fruit-forward soda bursting with vibrant peach flavour — light, effervescent, and refreshingly sweet. The perfect thirst-quencher served ice cold.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "fruity soda",
+          "peach",
+          "sparkling"
+        ],
+        "colorCode": "#FFDAB9",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "boba_021",
+        "name": "Blush Fuzz",
+        "category": "Boba Tea",
+        "price": 199,
+        "description": "A sparkling blush-coloured fruity soda — light, effervescent, and beautifully refreshing. A delightful fizzy sipper served ice cold.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "fruity soda",
+          "sparkling"
+        ],
+        "colorCode": "#FFB6C1",
+        "imageUrl": null,
+        "imageName": null
+      }
+    ],
+    "coffee": [
+      {
+        "id": "coffee_001",
+        "name": "Espresso (Single Shot)",
+        "category": "Coffee",
+        "price": 140,
+        "description": "A pure, concentrated single shot (40ml) of rich espresso pulled from premium coffee beans — bold, full-bodied, and intensely aromatic. The foundation of all great coffee.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "espresso"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_002",
+        "name": "Espresso (Double Shot)",
+        "category": "Coffee",
+        "price": 170,
+        "description": "A double shot (80ml) of premium espresso — twice the depth, twice the richness. Bold, full-bodied, and perfectly concentrated for those who take their coffee seriously.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "espresso"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_003",
+        "name": "Vietnamese Coffee",
+        "category": "Coffee",
+        "price": 180,
+        "description": "Drip-brewed Robusta coffee mixed with sweetened condensed milk — rich, intensely bold, and deeply satisfying. A Vietnamese classic that's sweet, strong, and uniquely indulgent.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "vietnamese"
+        ],
+        "colorCode": "#6B3A2A",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_004",
+        "name": "Americano",
+        "category": "Coffee",
+        "price": 190,
+        "description": "Espresso diluted with hot water to create a smooth, full-flavoured black coffee — clean, bold, and gently bitter. Simple, elegant, and endlessly drinkable.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "black coffee"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_005",
+        "name": "Cappuccino",
+        "category": "Coffee",
+        "price": 210,
+        "description": "A classic Italian espresso topped with equal parts velvety steamed milk and thick, airy foam — balanced, comforting, and beautifully crafted in every cup.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "milk"
+        ],
+        "colorCode": "#A0522D",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_006",
+        "name": "Latte",
+        "category": "Coffee",
+        "price": 210,
+        "description": "Smooth espresso blended with a generous pour of steamed milk and a light layer of foam — creamy, mellow, and the perfect everyday coffee companion.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "milk"
+        ],
+        "colorCode": "#C4A882",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_007",
+        "name": "Mocha",
+        "category": "Coffee",
+        "price": 250,
+        "description": "A decadent blend of espresso, rich chocolate sauce, and steamed milk — a perfect harmony of coffee and cocoa finished with a light foam. Indulgent, warming, and impossible to resist.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "hot",
+          "chocolate",
+          "milk"
+        ],
+        "colorCode": "#4A2C0A",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_008",
+        "name": "Iced Espresso (Single Shot)",
+        "category": "Coffee",
+        "price": 160,
+        "description": "A single shot (100ml) of premium espresso served over ice — bold, refreshing, and perfectly chilled. Pure coffee intensity with an icy edge.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "espresso"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_009",
+        "name": "Iced Espresso (Double Shot)",
+        "category": "Coffee",
+        "price": 190,
+        "description": "A double shot (140ml) of premium espresso poured over ice — concentrated, bold, and ice-cold. For those who need their coffee strong and fast.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "espresso"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_010",
+        "name": "Iced Vietnamese Coffee",
+        "category": "Coffee",
+        "price": 230,
+        "description": "Chilled drip-brewed Robusta coffee with sweet condensed milk poured over ice — rich, bold, and deeply refreshing. The iconic Vietnamese cà phê sữa đá, served cold and perfect.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "vietnamese"
+        ],
+        "colorCode": "#6B3A2A",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_011",
+        "name": "Iced Americano",
+        "category": "Coffee",
+        "price": 230,
+        "description": "Crisp, chilled espresso shots poured over ice with cold water — clean, bold, and endlessly refreshing. The perfect iced black coffee for a warm day.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "black coffee"
+        ],
+        "colorCode": "#3B1D08",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_012",
+        "name": "Iced Cappuccino",
+        "category": "Coffee",
+        "price": 260,
+        "description": "Espresso combined with cold frothed milk served over ice — light, refreshing, and beautifully indulgent. The chilled cousin of the classic cappuccino.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "milk"
+        ],
+        "colorCode": "#A0522D",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_013",
+        "name": "Iced Latte",
+        "category": "Coffee",
+        "price": 260,
+        "description": "Creamy espresso and cold milk poured over ice — smooth, mellow, and endlessly satisfying. A café staple that never disappoints.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "milk"
+        ],
+        "colorCode": "#C4A882",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_014",
+        "name": "Iced Mocha",
+        "category": "Coffee",
+        "price": 290,
+        "description": "Espresso, rich chocolate sauce, and cold milk over ice — a chilled, chocolatey coffee treat that's indulgent and refreshing all at once.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "chocolate",
+          "milk"
+        ],
+        "colorCode": "#4A2C0A",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_015",
+        "name": "Iced Orange Coffee",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Freshly squeezed orange juice combined with espresso over ice — bright, citrusy, and boldly energising. A surprising combination that works beautifully together.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "orange",
+          "specials"
+        ],
+        "colorCode": "#FF8C00",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_016",
+        "name": "Iced Lime Coffee",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Freshly squeezed lime juice with espresso over ice — tangy, refreshing, and uniquely bold. A zesty coffee experience that wakes up your senses.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "lime",
+          "specials"
+        ],
+        "colorCode": "#9ACD32",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_017",
+        "name": "Iced Coffee with French Vanilla",
+        "category": "Coffee",
+        "price": 250,
+        "description": "Smooth espresso over ice with a rich French vanilla flavour — sweet, creamy, and perfectly balanced. A classic flavoured iced coffee that feels like a treat.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "coffee",
+          "iced",
+          "vanilla",
+          "specials"
+        ],
+        "colorCode": "#FFFACD",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_018",
+        "name": "Matcha Latte",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Premium ceremonial grade matcha whisked to perfection with steamed milk — earthy, smooth, and vibrant. Available hot or iced, it's a nourishing and deeply satisfying alternative to coffee.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "matcha",
+          "tea",
+          "latte"
+        ],
+        "colorCode": "#228B22",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_019",
+        "name": "Matcha Iced Tea",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Premium matcha dissolved in cold water and served over ice — clean, refreshing, and subtly earthy. A lighter, dairy-free way to enjoy the depth of ceremonial matcha.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "matcha",
+          "tea",
+          "iced"
+        ],
+        "colorCode": "#32CD32",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_020",
+        "name": "Strawberry Matcha Latte",
+        "category": "Coffee",
+        "price": 285,
+        "description": "Premium matcha layered with fresh strawberry flavours and milk over ice — a beautiful sweet-earthy combination that's as stunning to look at as it is to drink.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "matcha",
+          "tea",
+          "strawberry",
+          "iced"
+        ],
+        "colorCode": "#FF69B4",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_021",
+        "name": "Mango Matcha",
+        "category": "Coffee",
+        "price": 260,
+        "description": "Premium matcha blended with tropical mango over ice — vibrant, fruity, and refreshingly unique. The perfect balance of earthy green tea and sweet mango.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "matcha",
+          "tea",
+          "mango",
+          "iced"
+        ],
+        "colorCode": "#FFD700",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_022",
+        "name": "Thai Tea Latte",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Aromatic Thai tea brewed with warming spices and blended with creamy milk — sweet, bold, and distinctively orange. Available hot or iced for the classic Thai tea experience.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "thai",
+          "latte"
+        ],
+        "colorCode": "#FF8C00",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_023",
+        "name": "Sumac Berry Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "A warming herbal brew featuring sumac and berry — tangy, antioxidant-rich, and beautifully tart. A unique and healthful tea available hot or iced.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "berry"
+        ],
+        "colorCode": "#8B0000",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_024",
+        "name": "Fruity Roselle Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "Hibiscus roselle tea — vibrant, tart, and naturally caffeine-free. Deeply ruby-red and packed with antioxidants, it's as beautiful as it is refreshing. Served hot or iced.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "hibiscus",
+          "caffeine-free"
+        ],
+        "colorCode": "#DC143C",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "coffee_025",
+        "name": "Forbidden Rice Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "A unique tea brewed with black glutinous rice — nutty, earthy, and packed with antioxidants. Subtly sweet with a distinctive deep purple hue. Served hot or iced.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "rice tea"
+        ],
+        "colorCode": "#4B0082",
+        "imageUrl": null,
+        "imageName": null
       }
     ]
   }
