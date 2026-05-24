@@ -343,8 +343,9 @@ input  { font-family: inherit; }
   transition: transform .4s ease;
   animation: shimmer 2s ease-in-out infinite;
 }
-/* Stop shimmer once image has loaded (bg-image replaces it) */
-.card-bg[style*="url("] { animation: none; }
+/* Stop shimmer once image has loaded, or when there is no image */
+.card-bg[style*="url("],
+.card-bg.no-image { animation: none; }
 
 @keyframes shimmer {
   0%, 100% { opacity: 1; }

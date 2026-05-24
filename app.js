@@ -279,7 +279,7 @@ function buildCard(item, pos) {
     : '';
 
   card.innerHTML = `
-    <div class="card-bg" style="background-color:${escAttr(color)};background-image:url('${escAttr(image)}')"></div>
+    <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
 
     <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
@@ -316,14 +316,15 @@ function buildCard(item, pos) {
   card.querySelector('.card-description').addEventListener('pointerdown', e => e.stopPropagation());
   descPanel.addEventListener('click', () => descPanel.classList.add('hidden'));
 
-  // Gracefully handle broken images — just shows the fallback color
+  // Load image via probe: shimmer runs until load, stops on success, no-image class on failure/absent
   const bg = card.querySelector('.card-bg');
   if (image) {
     const probe = new Image();
-    probe.onerror = () => { bg.style.backgroundImage = 'none'; };
+    probe.onload  = () => { bg.style.backgroundImage = `url('${image}')`; };
+    probe.onerror = () => { bg.classList.add('no-image'); };
     probe.src = image;
   } else {
-    bg.style.backgroundImage = 'none';
+    bg.classList.add('no-image');
   }
 
   // Nutrition panel — only wired up when there's data
@@ -450,7 +451,7 @@ function peekCard(card) {
   if (panel && !panel.classList.contains('hidden')) return;
   card.classList.add('card--peek');
   clearTimeout(card._peekTimer);
-  card._peekTimer = setTimeout(() => card.classList.remove('card--peek'), 3000);
+  card._peekTimer = setTimeout(() => card.classList.remove('card--peek'), 1000);
 }
 
 function springBack(card) {
