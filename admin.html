@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Neko — Admin</title>
+<style>
+  /* ── Reset & Base ──────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:       #0f0f0f;
+    --surface:  #1a1a1a;
+    --card:     #222222;
+    --border:   rgba(255,255,255,0.08);
+    --green:    #4ade80;
+    --red:      #f87171;
+    --yellow:   #fbbf24;
+    --blue:     #60a5fa;
+    --text:     #f0f0f0;
+    --muted:    rgba(255,255,255,0.45);
+    --radius:   10px;
+  }
+  html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  /* ── Layout ────────────────────────────────────── */
+  #app { display: flex; flex-direction: column; height: 100%; }
+
+  header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 0 20px; height: 56px;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  header h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.3px; flex: 1; }
+  header h1 span { color: var(--green); }
+
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  /* ── Sidebar ───────────────────────────────────── */
+  #sidebar {
+    width: 340px; flex-shrink: 0;
+    display: flex; flex-direction: column;
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .sidebar-top {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 10px;
+    flex-shrink: 0;
+  }
+  .search-row { display: flex; gap: 8px; }
+  #search {
+    flex: 1; padding: 8px 12px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); font-size: 13px; outline: none;
+  }
+  #search:focus { border-color: var(--green); }
+
+  .filter-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .cat-chip {
+    padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--muted); cursor: pointer; transition: all .15s;
+    white-space: nowrap;
+  }
+  .cat-chip.active, .cat-chip:hover { background: var(--green); color: #000; border-color: var(--green); }
+
+  .completeness-legend {
+    display: flex; gap: 12px; font-size: 11px; color: var(--muted); padding: 0 2px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+  .dot.green  { background: var(--green); }
+  .dot.yellow { background: var(--yellow); }
+  .dot.red    { background: var(--red); }
+
+  #item-list { flex: 1; overflow-y: auto; padding: 8px 0; }
+
+  .item-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px; cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: background .12s;
+  }
+  .item-row:hover { background: rgba(255,255,255,0.04); }
+  .item-row.active { background: rgba(74,222,128,0.08); border-left-color: var(--green); }
+
+  .item-thumb {
+    width: 40px; height: 40px; border-radius: 8px; object-fit: cover;
+    background: var(--card); flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .item-thumb-placeholder {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--card); flex-shrink: 0;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--muted);
+  }
+
+  .item-info { flex: 1; min-width: 0; }
+  .item-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item-meta { display: flex; gap: 6px; margin-top: 3px; align-items: center; }
+  .item-cat  { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .item-price { font-size: 11px; color: var(--green); font-weight: 600; }
+
+  .status-dots { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+  .sdot {
+    width: 8px; height: 8px; border-radius: 50%;
+    title: attr(data-label);
+  }
+  .sdot.ok     { background: var(--green); }
+  .sdot.warn   { background: var(--yellow); }
+  .sdot.miss   { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); }
+
+  /* ── Detail Panel ──────────────────────────────── */
+  #detail {
+    flex: 1; overflow-y: auto;
+    padding: 28px 32px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .detail-empty {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px; color: var(--muted);
+  }
+  .detail-empty .icon { font-size: 48px; }
+
+  .detail-header {
+    display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px;
+  }
+  .detail-thumb {
+    width: 80px; height: 80px; border-radius: 12px; object-fit: cover;
+    background: var(--card); border: 1px solid var(--border); flex-shrink: 0;
+  }
+  .detail-title { flex: 1; }
+  .detail-title h2 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+  .detail-title .dtag {
+    display: inline-block; margin-top: 6px; padding: 3px 10px;
+    border-radius: 20px; font-size: 11px; font-weight: 600;
+    background: rgba(74,222,128,0.15); color: var(--green);
+  }
+
+  .completeness-bar {
+    display: flex; gap: 8px; margin-bottom: 28px;
+  }
+  .cbar-item {
+    flex: 1; padding: 10px 14px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px; font-size: 12px;
+  }
+  .cbar-icon { font-size: 16px; }
+  .cbar-label { color: var(--muted); }
+  .cbar-status { margin-left: auto; font-size: 11px; font-weight: 700; }
+  .cbar-status.ok   { color: var(--green); }
+  .cbar-status.miss { color: var(--red); }
+
+  /* ── Form ──────────────────────────────────────── */
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+  input, select, textarea {
+    padding: 9px 12px; border-radius: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); font-size: 13px; font-family: inherit; outline: none;
+    transition: border-color .15s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--green); }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  select option { background: #1a1a1a; }
+
+  .toggle-row { display: flex; gap: 12px; }
+  .toggle-label {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; cursor: pointer; user-select: none;
+  }
+  input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--green); cursor: pointer; }
+
+  .form-actions {
+    display: flex; gap: 10px; margin-top: 28px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Buttons ───────────────────────────────────── */
+  .btn {
+    padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none; transition: opacity .15s, transform .1s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled { opacity: 0.45; cursor: default; }
+  .btn-primary   { background: var(--green); color: #000; }
+  .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .btn-danger    { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+  .btn-new       { background: var(--green); color: #000; white-space: nowrap; }
+
+  /* ── Toast ─────────────────────────────────────── */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    padding: 10px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 600;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); pointer-events: none;
+    opacity: 0; transition: opacity .2s;
+    z-index: 9999; white-space: nowrap;
+  }
+  #toast.show { opacity: 1; }
+  #toast.ok   { border-color: var(--green); color: var(--green); }
+  #toast.err  { border-color: var(--red);   color: var(--red); }
+
+  /* ── Stats bar ─────────────────────────────────── */
+  #stats {
+    display: flex; gap: 20px; padding: 8px 20px;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    font-size: 11px; color: var(--muted); flex-shrink: 0;
+    align-items: center;
+  }
+  .stat-val { color: var(--text); font-weight: 700; margin-right: 3px; }
+
+  /* ── Confirm modal ─────────────────────────────── */
+  #modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000; display: none;
+  }
+  #modal-backdrop.show { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px; max-width: 360px; width: 90%;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .modal h3 { font-size: 16px; }
+  .modal p  { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+  /* ── Scrollbar ─────────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+  .section-divider {
+    padding: 6px 16px 4px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <h1>Green Neko <span>Admin</span></h1>
+    <button class="btn btn-new" id="btn-new">+ New Item</button>
+  </header>
+
+  <div id="stats">
+    <span><span class="stat-val" id="st-total">–</span> items</span>
+    <span><span class="stat-val" id="st-desc">–</span> descriptions</span>
+    <span><span class="stat-val" id="st-cal">–</span> calories</span>
+    <span><span class="stat-val" id="st-img">–</span> images</span>
+    <span style="margin-left:auto;color:var(--muted);font-size:10px" id="st-note"></span>
+  </div>
+
+  <div class="main">
+    <div id="sidebar">
+      <div class="sidebar-top">
+        <div class="search-row">
+          <input id="search" placeholder="Search items…" autocomplete="off">
+        </div>
+        <div class="filter-row" id="cat-filters"></div>
+        <div class="completeness-legend">
+          <span><span class="dot green"></span>Has data</span>
+          <span><span class="dot red"></span>Missing</span>
+          <span style="margin-left:auto;font-size:10px">desc · cal · img</span>
+        </div>
+      </div>
+      <div id="item-list"></div>
+    </div>
+
+    <div id="detail">
+      <div class="detail-empty" id="empty-state">
+        <div class="icon">🍜</div>
+        <div>Select an item to view or edit</div>
+      </div>
+      <div id="item-form" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<div id="modal-backdrop">
+  <div class="modal">
+    <h3 id="modal-title">Delete item?</h3>
+    <p id="modal-body">This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+      <button class="btn btn-danger"    id="modal-confirm">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+const API   = 'http://localhost:3333/api';
+let menuData  = null;   // full JSON {café, menu}
+let allItems  = [];     // flat array with _section attached
+let current   = null;   // selected item
+let isNew     = false;
+
+const SECTIONS = ['breakfast','ramen','pokeBowls','appetizers','donburi','teaDesserts','bobaTea','coffee'];
+const SECTION_LABELS = {
+  breakfast:'Breakfast', ramen:'Ramen', pokeBowls:'Poke Bowls',
+  appetizers:'Appetizers', donburi:'Donburi', teaDesserts:'Tea & Desserts',
+  bobaTea:'Boba Tea', coffee:'Coffee'
+};
+
+/* ─── Init ──────────────────────────────────────── */
+async function init() {
+  try {
+    const r = await fetch(`${API}/menu`);
+    menuData = await r.json();
+    allItems = [];
+    for (const [sec, items] of Object.entries(menuData.menu || {})) {
+      items.forEach(it => allItems.push({ ...it, _section: sec }));
+    }
+    renderStats();
+    renderFilters();
+    renderList();
+  } catch(e) {
+    document.getElementById('item-list').innerHTML =
+      `<div style="padding:20px;color:var(--red);font-size:13px">
+        Could not connect to admin server.<br>
+        Run: <code style="background:#111;padding:2px 6px;border-radius:4px">node admin-server.js</code>
+       </div>`;
+  }
+}
+
+/* ─── Stats ─────────────────────────────────────── */
+function renderStats() {
+  const total = allItems.length;
+  const desc  = allItems.filter(i => i.description).length;
+  const cal   = allItems.filter(i => i.calories).length;
+  const img   = allItems.filter(i => i.imageUrl).length;
+  document.getElementById('st-total').textContent = total;
+  document.getElementById('st-desc').textContent  = `${desc}/${total}`;
+  document.getElementById('st-cal').textContent   = `${cal}/${total}`;
+  document.getElementById('st-img').textContent   = `${img}/${total}`;
+  document.getElementById('st-note').textContent  = `menu.json — ${total} items across ${Object.keys(menuData.menu).length} sections`;
+}
+
+/* ─── Category filter chips ──────────────────────── */
+let activeFilter = 'All';
+function renderFilters() {
+  const wrap = document.getElementById('cat-filters');
+  const cats = ['All', ...SECTIONS.filter(s => menuData.menu[s]?.length)];
+  wrap.innerHTML = cats.map(c => {
+    const label = c === 'All' ? 'All' : (SECTION_LABELS[c] || c);
+    return `<button class="cat-chip${activeFilter===c?' active':''}" data-cat="${c}">${label}</button>`;
+  }).join('');
+  wrap.querySelectorAll('.cat-chip').forEach(b => {
+    b.addEventListener('click', () => {
+      activeFilter = b.dataset.cat;
+      renderFilters();
+      renderList();
+    });
+  });
+}
+
+/* ─── Item list ──────────────────────────────────── */
+let searchTerm = '';
+document.getElementById('search').addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase();
+  renderList();
+});
+
+function renderList() {
+  const list = document.getElementById('item-list');
+  let filtered = allItems;
+  if (activeFilter !== 'All') filtered = filtered.filter(i => i._section === activeFilter);
+  if (searchTerm) filtered = filtered.filter(i =>
+    i.name.toLowerCase().includes(searchTerm) ||
+    (i.description||'').toLowerCase().includes(searchTerm)
+  );
+
+  // Group by section
+  const groups = {};
+  filtered.forEach(it => {
+    if (!groups[it._section]) groups[it._section] = [];
+    groups[it._section].push(it);
+  });
+
+  let html = '';
+  for (const sec of SECTIONS) {
+    if (!groups[sec]?.length) continue;
+    if (activeFilter === 'All') {
+      html += `<div class="section-divider">${SECTION_LABELS[sec] || sec} (${groups[sec].length})</div>`;
+    }
+    groups[sec].forEach(it => {
+      const hasDesc = !!it.description;
+      const hasCal  = !!it.calories;
+      const hasImg  = !!it.imageUrl;
+      const active  = current?.id === it.id ? ' active' : '';
+      const thumb   = it.imageUrl
+        ? `<img class="item-thumb" src="${it.imageUrl}" alt="" onerror="this.style.display='none'">`
+        : `<div class="item-thumb-placeholder">🍽</div>`;
+      html += `
+        <div class="item-row${active}" data-id="${it.id}">
+          ${thumb}
+          <div class="item-info">
+            <div class="item-name">${escHtml(it.name)}</div>
+            <div class="item-meta">
+              <span class="item-cat">${SECTION_LABELS[it._section]||it._section}</span>
+              <span class="item-price">₹${it.price}</span>
+            </div>
+          </div>
+          <div class="status-dots">
+            <span class="sdot ${hasDesc?'ok':'miss'}" title="Description"></span>
+            <span class="sdot ${hasCal?'ok':'miss'}"  title="Calories"></span>
+            <span class="sdot ${hasImg?'ok':'miss'}"  title="Image"></span>
+          </div>
+        </div>`;
+    });
+  }
+
+  if (!html) html = `<div style="padding:20px;color:var(--muted);font-size:13px">No items match.</div>`;
+  list.innerHTML = html;
+  list.querySelectorAll('.item-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const item = allItems.find(i => i.id === row.dataset.id);
+      if (item) selectItem(item);
+    });
+  });
+}
+
+/* ─── Select / render detail ─────────────────────── */
+function selectItem(item) {
+  current = item;
+  isNew   = false;
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('item-form').style.display   = '';
+  renderDetail(item);
+  renderList(); // refresh active highlight
+}
+
+function renderDetail(item) {
+  const hasDesc = !!item.description;
+  const hasCal  = !!item.calories;
+  const hasImg  = !!item.imageUrl;
+
+  const sectionOpts = SECTIONS.map(s =>
+    `<option value="${s}" ${item._section===s?'selected':''}>${SECTION_LABELS[s]||s}</option>`
+  ).join('');
+
+  document.getElementById('item-form').innerHTML = `
+    <div class="detail-header">
+      ${item.imageUrl
+        ? `<img class="detail-thumb" src="${item.imageUrl}" alt="" onerror="this.style.display='none'">`
+        : `<div class="detail-thumb" style="display:flex;align-items:center;justify-content:center;font-size:32px;color:var(--muted)">🍽</div>`}
+      <div class="detail-title">
+        <h2>${escHtml(item.name)}</h2>
+        <span class="dtag">${SECTION_LABELS[item._section]||item._section}</span>
+        ${isNew ? '<span class="dtag" style="background:rgba(96,165,250,0.15);color:var(--blue);margin-left:6px">New</span>' : ''}
+      </div>
+    </div>
+
+    <div class="completeness-bar">
+      <div class="cbar-item">
+        <span class="cbar-icon">📝</span>
+        <span class="cbar-label">Description</span>
+        <span class="cbar-status ${hasDesc?'ok':'miss'}">${hasDesc?'✓ Done':'✗ Missing'}</span>
+      </div>
+      <div class="cbar-item">
+        <span class="cbar-icon">🔥</span>
+        <span class="cbar-label">Calories</span>
+        <span class="cbar-status ${hasCal?'ok':'miss'}">${hasCal?'✓ '+item.calories+' kcal':'✗ Missing'}</span>
+      </div>
+      <div class="cbar-item">
+        <span class="cbar-icon">🖼</span>
+        <span class="cbar-label">Image</span>
+        <span class="cbar-status ${hasImg?'ok':'miss'}">${hasImg?'✓ Done':'✗ Missing'}</span>
+      </div>
+    </div>
+
+    <form id="edit-form" autocomplete="off">
+      <div class="form-grid">
+
+        <div class="form-group full">
+          <label>Name</label>
+          <input name="name" value="${escAttr(item.name)}" required>
+        </div>
+
+        <div class="form-group">
+          <label>Section / Category</label>
+          <select name="_section">${sectionOpts}</select>
+        </div>
+
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input name="price" type="number" value="${item.price ?? ''}" placeholder="e.g. 420">
+        </div>
+
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea name="description" rows="4" placeholder="Write the item description…">${escHtml(item.description||'')}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Calories (kcal)</label>
+          <input name="calories" type="number" value="${item.calories ?? ''}" placeholder="e.g. 650">
+        </div>
+
+        <div class="form-group">
+          <label>Image URL / Path</label>
+          <input name="imageUrl" value="${escAttr(item.imageUrl||'')}" placeholder="Menuimages/name.jpg">
+        </div>
+
+        <div class="form-group full">
+          <label>Contains (allergen note)</label>
+          <input name="contains" value="${escAttr(item.contains||'')}" placeholder="e.g. Wheat, Egg, Dairy">
+        </div>
+
+        <div class="form-group full">
+          <label>Allergens</label>
+          <input name="allergens" value="${escAttr(item.allergens||'')}" placeholder="e.g. Gluten, Lactose, Soy">
+        </div>
+
+        <div class="form-group">
+          <label>Color Code</label>
+          <input name="colorCode" value="${escAttr(item.colorCode||'')}" placeholder="#6B4423">
+        </div>
+
+        <div class="form-group">
+          <label>Item ID</label>
+          <input name="id" value="${escAttr(item.id||'')}" placeholder="auto-generated" ${isNew?'':'readonly style="opacity:0.5"'}>
+        </div>
+
+        <div class="form-group full">
+          <label>Tags (comma separated)</label>
+          <input name="tags" value="${escAttr((item.tags||[]).join(', '))}" placeholder="e.g. ramen, spicy, noodles">
+        </div>
+
+        <div class="form-group full">
+          <label>Flags</label>
+          <div class="toggle-row">
+            <label class="toggle-label">
+              <input type="checkbox" name="spicy" ${item.spicy?'checked':''}> Spicy
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" name="vegetarian" ${item.vegetarian?'checked':''}> Vegetarian
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="btn-save">Save Changes</button>
+        <button type="button" class="btn btn-secondary" id="btn-cancel" ${isNew?'':'style="display:none"'}>Cancel</button>
+        <button type="button" class="btn btn-danger"    id="btn-delete" ${isNew?'style="display:none"':''}>Delete</button>
+      </div>
+    </form>
+  `;
+
+  document.getElementById('edit-form').addEventListener('submit', saveItem);
+  if (!isNew) document.getElementById('btn-delete').addEventListener('click', confirmDelete);
+  if (isNew)  document.getElementById('btn-cancel').addEventListener('click', cancelNew);
+}
+
+/* ─── Save ───────────────────────────────────────── */
+async function saveItem(e) {
+  e.preventDefault();
+  const btn  = document.getElementById('btn-save');
+  const form = e.target;
+  const fd   = new FormData(form);
+
+  const updated = { ...current };
+  updated.name        = fd.get('name').trim();
+  updated._section    = fd.get('_section');
+  updated.price       = parseFloat(fd.get('price')) || 0;
+  updated.description = fd.get('description').trim() || null;
+  updated.calories    = parseInt(fd.get('calories')) || null;
+  updated.imageUrl    = fd.get('imageUrl').trim() || null;
+  updated.contains    = fd.get('contains').trim() || null;
+  updated.allergens   = fd.get('allergens').trim() || null;
+  updated.colorCode   = fd.get('colorCode').trim() || null;
+  updated.spicy       = form.querySelector('[name=spicy]').checked;
+  updated.vegetarian  = form.querySelector('[name=vegetarian]').checked;
+  updated.tags        = fd.get('tags').split(',').map(t=>t.trim()).filter(Boolean);
+  if (isNew) updated.id = fd.get('id').trim() || slugId(updated.name, updated._section);
+
+  btn.disabled = true;
+  try {
+    const endpoint = isNew ? `${API}/items` : `${API}/items/${encodeURIComponent(updated.id)}`;
+    const method   = isNew ? 'POST' : 'PUT';
+    const r = await fetch(endpoint, { method, headers: {'Content-Type':'application/json'}, body: JSON.stringify(updated) });
+    if (!r.ok) throw new Error(await r.text());
+    toast('Saved ✓', 'ok');
+    await init();
+    const saved = allItems.find(i => i.id === updated.id);
+    if (saved) selectItem(saved);
+  } catch(err) {
+    toast('Error: ' + err.message, 'err');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+/* ─── New item ───────────────────────────────────── */
+document.getElementById('btn-new').addEventListener('click', () => {
+  isNew   = true;
+  current = {
+    id:'', name:'', _section:'breakfast', price:0,
+    description:null, calories:null, imageUrl:null, imageName:null,
+    contains:null, allergens:null, colorCode:null,
+    spicy:false, vegetarian:false, tags:[], nutrition:null
+  };
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('item-form').style.display   = '';
+  // deselect list
+  document.querySelectorAll('.item-row.active').forEach(r => r.classList.remove('active'));
+  renderDetail(current);
+  document.querySelector('[name=name]')?.focus();
+});
+
+function cancelNew() {
+  isNew   = false;
+  current = null;
+  document.getElementById('item-form').style.display  = 'none';
+  document.getElementById('empty-state').style.display = '';
+  renderList();
+}
+
+/* ─── Delete ─────────────────────────────────────── */
+function confirmDelete() {
+  const backdrop = document.getElementById('modal-backdrop');
+  document.getElementById('modal-body').textContent = `Delete "${current.name}"? This cannot be undone.`;
+  backdrop.classList.add('show');
+  document.getElementById('modal-confirm').onclick = async () => {
+    backdrop.classList.remove('show');
+    try {
+      const r = await fetch(`${API}/items/${encodeURIComponent(current.id)}`, { method: 'DELETE' });
+      if (!r.ok) throw new Error(await r.text());
+      toast('Deleted', 'ok');
+      current = null;
+      document.getElementById('item-form').style.display  = 'none';
+      document.getElementById('empty-state').style.display = '';
+      await init();
+    } catch(err) { toast('Error: ' + err.message, 'err'); }
+  };
+  document.getElementById('modal-cancel').onclick = () => backdrop.classList.remove('show');
+}
+
+/* ─── Helpers ────────────────────────────────────── */
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escAttr(s) {
+  return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function slugId(name, section) {
+  const prefix  = { breakfast:'breakfast', ramen:'ramen', pokeBowls:'poke', appetizers:'app',
+                     donburi:'donburi', teaDesserts:'tea', bobaTea:'boba', coffee:'coffee' };
+  const secItems = allItems.filter(i => i._section === section).length;
+  const n        = String(secItems + 1).padStart(3, '0');
+  return `${prefix[section]||section}_${n}`;
+}
+
+let _toastTimer;
+function toast(msg, type='ok') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className   = `show ${type}`;
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => el.className = '', 2400);
+}
+
+init();
+</script>
+</body>
+</html>
