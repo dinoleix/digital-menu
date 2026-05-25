@@ -484,6 +484,15 @@ input  { font-family: inherit; }
   justify-content: space-between;
   pointer-events: all;
 }
+.card-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-meta-right .badge {
+  padding: 5px 8px;
+  font-size: 14px;
+}
 
 .card-price {
   font-size: 24px;

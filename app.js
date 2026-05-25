@@ -510,7 +510,7 @@ function buildCard(item, pos) {
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
 
-    <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
+    <div class="card-side-badges">${popHtml}${newHtml}${chefHtml}</div>
 
     <div class="nutrition-panel hidden"></div>
 
@@ -529,7 +529,11 @@ function buildCard(item, pos) {
       <div class="card-description">${escHtml(item.description)}</div>
       <div class="card-meta">
         <span class="card-price">${priceStr}</span>
-        ${calBtnHtml}
+        <div class="card-meta-right">
+          ${calBtnHtml}
+          ${vegHtml}
+          ${spicyHtml}
+        </div>
       </div>
     </div>
   `;
