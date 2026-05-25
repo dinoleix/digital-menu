@@ -72,12 +72,13 @@
         <!-- Empty / End State -->
         <div id="empty-state" class="empty-state hidden">
           <div class="empty-emoji">🐱</div>
-          <h2>You've seen it all!</h2>
-          <p>Ready to order something delicious?</p>
+          <h2>You've seen it all<br><span id="empty-cat-label"></span></h2>
+          <p id="empty-sub">Want to go again or explore another category?</p>
           <div class="empty-actions">
-            <button id="view-cart-empty-btn" class="btn-primary">View Cart</button>
-            <button id="restart-btn" class="btn-ghost">Browse Again</button>
+            <button id="restart-btn" class="btn-primary">↺ See Again</button>
+            <button id="view-cart-empty-btn" class="btn-ghost">View Cart</button>
           </div>
+          <div id="empty-other-cats" class="empty-other-cats"></div>
         </div>
       </div>
 

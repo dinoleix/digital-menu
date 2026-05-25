@@ -299,6 +299,27 @@ function renderStack() {
   const remaining  = state.filtered.length - state.currentIndex;
 
   if (remaining <= 0) {
+    // Populate empty state message based on current category
+    const isAll   = state.category === 'All';
+    const catName = isAll ? 'the menu' : state.category;
+    document.getElementById('empty-cat-label').textContent = isAll ? '' : `in ${catName}`;
+
+    // Other category chips
+    const otherCats = [...new Set(state.allItems.map(i => i.category))]
+      .filter(c => c !== state.category);
+    const otherEl = document.getElementById('empty-other-cats');
+    if (otherCats.length && !isAll) {
+      otherEl.innerHTML = '<p class="empty-other-label">Explore another category:</p>' +
+        otherCats.map(c =>
+          `<button class="empty-cat-chip" data-cat="${escHtml(c)}">${escHtml(c)}</button>`
+        ).join('');
+      otherEl.querySelectorAll('.empty-cat-chip').forEach(btn =>
+        btn.addEventListener('click', () => setCategory(btn.dataset.cat))
+      );
+    } else {
+      otherEl.innerHTML = '';
+    }
+
     emptyState.classList.remove('hidden');
     swipeBtns.classList.add('hidden');
     return;
