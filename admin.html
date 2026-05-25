@@ -690,6 +690,9 @@ function renderDetail(item) {
             <label class="toggle-label">
               <input type="checkbox" name="vegetarian" ${item.vegetarian?'checked':''}> Vegetarian
             </label>
+            <label class="toggle-label">
+              <input type="checkbox" name="signature" ${item.signature?'checked':''}> ✦ Signature
+            </label>
           </div>
         </div>
 
@@ -736,6 +739,7 @@ async function saveItem(e) {
   updated.colorCode   = fd.get('colorCode').trim() || null;
   updated.spicy       = form.querySelector('[name=spicy]').checked;
   updated.vegetarian  = form.querySelector('[name=vegetarian]').checked;
+  updated.signature   = form.querySelector('[name=signature]').checked;
   updated.tags        = fd.get('tags').split(',').map(t=>t.trim()).filter(Boolean);
   if (isNew) updated.id = fd.get('id').trim() || slugId(updated.name, updated._section);
 
@@ -763,7 +767,7 @@ document.getElementById('btn-new').addEventListener('click', () => {
     id:'', name:'', _section:'breakfast', price:0,
     description:null, calories:null, imageUrl:null, imageName:null,
     contains:null, allergens:null, colorCode:null,
-    spicy:false, vegetarian:false, tags:[], nutrition:null
+    spicy:false, vegetarian:false, signature:false, tags:[], nutrition:null
   };
   document.getElementById('empty-state').style.display = 'none';
   document.getElementById('item-form').style.display   = '';

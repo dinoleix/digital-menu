@@ -52,6 +52,13 @@
           <img class="brand-icon" src="icon-192.png" alt="Green Neko" />
           <span class="brand-name">Green Neko</span>
         </div>
+        <div class="header-filters">
+          <button id="veg-toggle" class="filter-pill" aria-label="Veg only">🌿 Veg</button>
+          <button id="allergen-btn" class="filter-icon-btn" aria-label="Allergen filter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            <span id="allergen-badge" class="allergen-badge hidden">0</span>
+          </button>
+        </div>
         <button id="cart-btn" class="cart-btn" aria-label="View cart">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
@@ -150,6 +157,30 @@
 
     <!-- ── Toast ─────────────────────────────────────────── -->
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- ── Allergen Filter Sheet ────────────────────────── -->
+    <div id="allergen-overlay" class="allergen-overlay hidden" role="dialog" aria-label="Allergen filter">
+      <div id="allergen-sheet" class="allergen-sheet">
+        <div class="cart-drag-handle"></div>
+        <div class="allergen-header">
+          <h2 class="allergen-title">Avoid Allergens</h2>
+          <p class="allergen-sub">Items containing selected allergens will be hidden</p>
+        </div>
+        <div class="allergen-chips">
+          <button class="allergen-chip" data-allergen="gluten">🌾 Gluten</button>
+          <button class="allergen-chip" data-allergen="dairy">🥛 Dairy</button>
+          <button class="allergen-chip" data-allergen="eggs">🥚 Eggs</button>
+          <button class="allergen-chip" data-allergen="nuts">🥜 Nuts</button>
+          <button class="allergen-chip" data-allergen="soy">🫘 Soy</button>
+          <button class="allergen-chip" data-allergen="shellfish">🦐 Shellfish</button>
+          <button class="allergen-chip" data-allergen="sesame">🫙 Sesame</button>
+        </div>
+        <div class="allergen-footer">
+          <button id="allergen-clear" class="btn-ghost-sm">Clear all</button>
+          <button id="allergen-done" class="btn-primary-sm">Done</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ── Install Banner ────────────────────────────────── -->
     <div id="install-banner" class="install-banner hidden">

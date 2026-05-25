@@ -2,15 +2,50 @@
 
 /* ─── State ─────────────────────────────────────────────── */
 const state = {
-  allItems:      [],
-  filtered:      [],
-  currentIndex:  0,
-  cart:          [],   // [{id, name, price, image, quantity}]
-  category:      'All',
-  tableNumber:   '',
-  history:       [],   // [{item, direction}] for undo
-  config:        {},
+  allItems:        [],
+  filtered:        [],
+  currentIndex:    0,
+  cart:            [],   // [{id, name, price, image, quantity}]
+  category:        'All',
+  tableNumber:     '',
+  history:         [],   // [{item, direction}] for undo
+  config:          {},
+  vegOnly:         false,
+  activeAllergens: new Set(),
 };
+
+function loadFilterPrefs() {
+  try {
+    state.vegOnly = localStorage.getItem('gn_vegOnly') === '1';
+    const saved = JSON.parse(localStorage.getItem('gn_allergens') || '[]');
+    state.activeAllergens = new Set(saved);
+  } catch { /* ignore */ }
+}
+
+function saveFilterPrefs() {
+  localStorage.setItem('gn_vegOnly', state.vegOnly ? '1' : '0');
+  localStorage.setItem('gn_allergens', JSON.stringify([...state.activeAllergens]));
+}
+
+function applyFilters() {
+  let items = state.category === 'All'
+    ? [...state.allItems]
+    : state.allItems.filter(i => i.category === state.category);
+
+  if (state.vegOnly) {
+    items = items.filter(i => i.vegetarian);
+  }
+
+  if (state.activeAllergens.size > 0) {
+    items = items.filter(item => {
+      const text = ((item.allergens || '') + ' ' + (item.contains || '')).toLowerCase();
+      return ![...state.activeAllergens].some(a => text.includes(a));
+    });
+  }
+
+  state.filtered     = items;
+  state.currentIndex = 0;
+}
 
 /* ─── Constants ─────────────────────────────────────────── */
 const STACK_DEPTH  = 3;
@@ -263,7 +298,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     state.config = data.cafe || {};
   }
   state.allItems = allItems;
-  state.filtered = [...allItems];
+  loadFilterPrefs();
+  applyFilters();
 
   registerSW();
   initInstallBanner();
@@ -362,6 +398,79 @@ function initApp() {
   bindSwipeButtons();
   bindCartUI();
   initCategoryDrag();
+  initFilters();
+}
+
+/* ─── Filters (Veg + Allergens) ──────────────────────────── */
+function syncFilterUI() {
+  // Veg toggle
+  const vegBtn = document.getElementById('veg-toggle');
+  vegBtn.classList.toggle('active', state.vegOnly);
+
+  // Allergen badge
+  const badge = document.getElementById('allergen-badge');
+  const count = state.activeAllergens.size;
+  badge.textContent = count;
+  badge.classList.toggle('hidden', count === 0);
+
+  // Allergen chips in sheet
+  document.querySelectorAll('.allergen-chip').forEach(chip => {
+    chip.classList.toggle('active', state.activeAllergens.has(chip.dataset.allergen));
+  });
+}
+
+function initFilters() {
+  syncFilterUI();
+
+  // Veg toggle
+  document.getElementById('veg-toggle').addEventListener('click', () => {
+    state.vegOnly = !state.vegOnly;
+    saveFilterPrefs();
+    applyFilters();
+    syncFilterUI();
+    document.getElementById('card-stack').innerHTML = '';
+    renderStack();
+  });
+
+  // Open allergen sheet
+  const overlay = document.getElementById('allergen-overlay');
+  document.getElementById('allergen-btn').addEventListener('click', () => {
+    overlay.classList.remove('hidden');
+  });
+
+  // Chip toggles
+  document.querySelectorAll('.allergen-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const a = chip.dataset.allergen;
+      state.activeAllergens.has(a) ? state.activeAllergens.delete(a) : state.activeAllergens.add(a);
+      chip.classList.toggle('active', state.activeAllergens.has(a));
+      const badge = document.getElementById('allergen-badge');
+      badge.textContent = state.activeAllergens.size;
+      badge.classList.toggle('hidden', state.activeAllergens.size === 0);
+    });
+  });
+
+  // Clear all
+  document.getElementById('allergen-clear').addEventListener('click', () => {
+    state.activeAllergens.clear();
+    document.querySelectorAll('.allergen-chip').forEach(c => c.classList.remove('active'));
+    document.getElementById('allergen-badge').classList.add('hidden');
+  });
+
+  // Done — apply and close
+  document.getElementById('allergen-done').addEventListener('click', () => {
+    saveFilterPrefs();
+    applyFilters();
+    syncFilterUI();
+    overlay.classList.add('hidden');
+    document.getElementById('card-stack').innerHTML = '';
+    renderStack();
+  });
+
+  // Tap backdrop to dismiss without applying
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) overlay.classList.add('hidden');
+  });
 }
 
 /* ─── Categories ─────────────────────────────────────────── */
@@ -431,11 +540,8 @@ function scrollActiveTabIntoView(smooth = true) {
 
 function setCategory(cat) {
   if (cat === state.category) return;
-  state.category     = cat;
-  state.currentIndex = 0;
-  state.filtered = cat === 'All'
-    ? [...state.allItems]
-    : state.allItems.filter(i => i.category === cat);
+  state.category = cat;
+  applyFilters();
 
   document.querySelectorAll('.cat-tab').forEach(b =>
     b.classList.toggle('active', b.dataset.cat === cat)
@@ -501,6 +607,7 @@ function buildCard(item, pos) {
   const newHtml   = item.tags?.includes('new')            ? `<span class="badge badge-new">✦ NEW</span>` : '';
   const popHtml   = item.tags?.includes('popular')        ? `<span class="badge badge-popular">⭐ Popular</span>` : '';
   const chefHtml  = item.tags?.includes("chef's special") ? `<span class="badge badge-popular">👨‍🍳 Chef's Pick</span>` : '';
+  const sigHtml   = item.signature                        ? `<span class="badge badge-signature">✦ Signature</span>` : '';
   const calBtnHtml = hasNutrition
     ? `<button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>`
     : '';
@@ -510,7 +617,7 @@ function buildCard(item, pos) {
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
 
-    <div class="card-side-badges">${popHtml}${newHtml}${chefHtml}</div>
+    <div class="card-side-badges">${sigHtml}${popHtml}${newHtml}${chefHtml}</div>
 
     <div class="nutrition-panel hidden"></div>
 

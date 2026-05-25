@@ -213,6 +213,131 @@ input  { font-family: inherit; }
 }
 .cart-btn:active { transform: scale(0.92); }
 
+/* ─── Header Filter Buttons ──────────────────────────────── */
+.header-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-pill {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 50px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text-sub);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background .2s, color .2s, border-color .2s, transform .15s;
+}
+.filter-pill.active {
+  background: rgba(74,222,128,0.18);
+  border-color: rgba(74,222,128,0.4);
+  color: var(--green);
+}
+.filter-pill:active { transform: scale(0.93); }
+
+.filter-icon-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-sub);
+  transition: background .2s, color .2s, transform .15s;
+}
+.filter-icon-btn.active {
+  background: rgba(251,191,36,0.18);
+  border-color: rgba(251,191,36,0.4);
+  color: #fbbf24;
+}
+.filter-icon-btn:active { transform: scale(0.92); }
+
+.allergen-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background: #fbbf24;
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Allergen Sheet ─────────────────────────────────────── */
+.allergen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+.allergen-sheet {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 24px 24px 0 0;
+  padding: 12px 20px 32px;
+}
+.allergen-header { margin: 12px 0 20px; }
+.allergen-title  { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.allergen-sub    { font-size: 13px; color: var(--text-sub); }
+.allergen-chips  { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.allergen-chip {
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.allergen-chip.active {
+  background: rgba(248,113,113,0.2);
+  border-color: rgba(248,113,113,0.5);
+  color: #fca5a5;
+}
+.allergen-footer {
+  display: flex;
+  gap: 12px;
+}
+.btn-ghost-sm {
+  flex: 1;
+  height: 48px;
+  border-radius: 14px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-sub);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+}
+.btn-primary-sm {
+  flex: 2;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--green);
+  border: none;
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
 .cart-badge {
   position: absolute;
   top: -4px;
@@ -404,7 +529,8 @@ input  { font-family: inherit; }
 .badge-new     { background: rgba(250,204,21,0.25); color: #fbbf24; border: 1px solid rgba(251,191,36,.3); }
 .badge-popular { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,.15); }
 .badge-veg     { background: rgba(74,222,128,0.2); color: var(--green); border: 1px solid rgba(74,222,128,.25); font-size: 13px; }
-.badge-spicy   { background: rgba(248,113,113,0.18); color: #fca5a5; border: 1px solid rgba(248,113,113,.25); font-size: 13px; }
+.badge-spicy      { background: rgba(248,113,113,0.18); color: #fca5a5; border: 1px solid rgba(248,113,113,.25); font-size: 13px; }
+.badge-signature  { background: rgba(251,191,36,0.18); color: #fbbf24; border: 1px solid rgba(251,191,36,.35); }
 
 /* Like / Nope indicators */
 .like-indicator,
