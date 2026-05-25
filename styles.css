@@ -512,6 +512,27 @@ input  { font-family: inherit; }
 }
 .cal-toggle:active { transform: scale(0.95); }
 
+/* ─── Like Button ────────────────────────────────────────── */
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  transition: background .2s, transform .1s;
+  cursor: pointer;
+}
+.like-btn:active  { transform: scale(0.95); }
+.like-btn:disabled { opacity: 0.6; cursor: default; }
+.like-heart { font-size: 14px; line-height: 1; }
+.like-count { font-size: 12px; min-width: 10px; }
+
 /* ─── Nutrition Panel ────────────────────────────────────── */
 .nutrition-panel {
   position: absolute;

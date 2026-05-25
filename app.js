@@ -19,6 +19,44 @@ const SCALE_STEPS  = [1, 0.95, 0.90];
 const TY_STEPS     = [0, 18, 36];
 const STACK_STEPS  = SCALE_STEPS; // alias used in applyStackTransform
 
+/* ─── Supabase Like Counter ─────────────────────────────── */
+const SB_URL = 'https://twdrocixrvplgrdwncdu.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3ZHJvY2l4cnZwbGdyZHduY2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3MTAzNjYsImV4cCI6MjA5NTI4NjM2Nn0.9xlrD-0m_Iqi3pRs5xlM1kim75tqconC-aSvhrV2Oj8';
+const SB_HDR = { 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Content-Type': 'application/json' };
+
+function getLikedSet() {
+  try { return new Set(JSON.parse(localStorage.getItem('gn_likes') || '[]')); }
+  catch { return new Set(); }
+}
+function saveLikedSet(s) { localStorage.setItem('gn_likes', JSON.stringify([...s])); }
+
+async function fetchLikeCount(itemId) {
+  try {
+    const r = await fetch(`${SB_URL}/rest/v1/likes?item_id=eq.${encodeURIComponent(itemId)}&select=count`, { headers: SB_HDR });
+    const d = await r.json();
+    return d[0]?.count ?? 0;
+  } catch { return 0; }
+}
+
+async function toggleLike(itemId, btn) {
+  const liked   = getLikedSet();
+  const wasLiked = liked.has(itemId);
+  btn.disabled  = true;
+  try {
+    const fn = wasLiked ? 'decrement_like' : 'increment_like';
+    const r  = await fetch(`${SB_URL}/rest/v1/rpc/${fn}`, {
+      method: 'POST', headers: SB_HDR,
+      body: JSON.stringify({ p_item_id: itemId })
+    });
+    const newCount = await r.json();
+    wasLiked ? liked.delete(itemId) : liked.add(itemId);
+    saveLikedSet(liked);
+    btn.querySelector('.like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
+    btn.querySelector('.like-count').textContent = newCount;
+  } catch { /* fail silently */ }
+  finally { btn.disabled = false; }
+}
+
 /* ─── Boot ───────────────────────────────────────────────── */
 window.addEventListener('DOMContentLoaded', async () => {
   let data;
@@ -277,6 +315,8 @@ function buildCard(item, pos) {
   const calBtnHtml = hasNutrition
     ? `<button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>`
     : '';
+  const likedSet  = getLikedSet();
+  const likeBtnHtml = `<button class="like-btn"><span class="like-heart">${likedSet.has(item.id) ? '❤️' : '🤍'}</span><span class="like-count">…</span></button>`;
 
   card.innerHTML = `
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
@@ -302,6 +342,7 @@ function buildCard(item, pos) {
       <div class="card-meta">
         <span class="card-price">${priceStr}</span>
         ${calBtnHtml}
+        ${likeBtnHtml}
       </div>
     </div>
   `;
@@ -315,6 +356,15 @@ function buildCard(item, pos) {
   card.querySelector('.card-name').addEventListener('pointerdown', e => e.stopPropagation());
   card.querySelector('.card-description').addEventListener('pointerdown', e => e.stopPropagation());
   descPanel.addEventListener('click', () => descPanel.classList.add('hidden'));
+
+  // Like button
+  const likeBtn = card.querySelector('.like-btn');
+  likeBtn.addEventListener('pointerdown', e => e.stopPropagation());
+  likeBtn.addEventListener('click', e => { e.stopPropagation(); toggleLike(item.id, likeBtn); });
+  fetchLikeCount(item.id).then(n => {
+    const el = likeBtn.querySelector('.like-count');
+    if (el) el.textContent = n;
+  });
 
   // Load image via probe: shimmer runs until load, stops on success, no-image class on failure/absent
   const bg = card.querySelector('.card-bg');
