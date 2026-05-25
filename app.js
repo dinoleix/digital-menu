@@ -509,7 +509,7 @@ function buildCard(item, pos) {
       <p class="desc-panel-hint">Tap to close</p>
     </div>
 
-    <div class="like-indicator">LIKE<br>💚</div>
+    <div class="like-indicator">DEVOUR<br>💚</div>
     <div class="nope-indicator">NOPE<br>✕</div>
 
     <div class="card-info">
