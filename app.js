@@ -75,22 +75,22 @@ async function fetchLikeCount(itemId) {
 
 function burstHearts(btn) {
   const rect   = btn.getBoundingClientRect();
-  const emojis = ['❤️', '🩷', '💕', '💗', '💖'];
-  const count  = 7 + Math.floor(Math.random() * 4); // 7–10 hearts
+  const emojis = ['❤️', '🩷', '💕', '💗', '💖', '💝', '💓', '💞'];
+  const count  = 22 + Math.floor(Math.random() * 8); // 22–30 hearts
   for (let i = 0; i < count; i++) {
     const el = document.createElement('span');
     el.className   = 'heart-burst';
     el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    const startX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 40;
-    const startY = rect.top + rect.height / 2;
+    const startX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 80;
+    const startY = rect.top  + rect.height / 2 + (Math.random() - 0.5) * 20;
     el.style.cssText = [
       `left:${startX}px`,
       `top:${startY}px`,
-      `font-size:${10 + Math.random() * 16}px`,
-      `animation-duration:${0.9 + Math.random() * 0.8}s`,
-      `animation-delay:${Math.random() * 0.3}s`,
-      `--drift:${(Math.random() - 0.5) * 90}px`,
-      `--spin:${(Math.random() - 0.5) * 40}deg`,
+      `font-size:${12 + Math.random() * 22}px`,
+      `animation-duration:${1.0 + Math.random() * 1.0}s`,
+      `animation-delay:${Math.random() * 0.45}s`,
+      `--drift:${(Math.random() - 0.5) * 160}px`,
+      `--spin:${(Math.random() - 0.5) * 60}deg`,
     ].join(';');
     document.body.appendChild(el);
     el.addEventListener('animationend', () => el.remove(), { once: true });

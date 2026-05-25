@@ -660,9 +660,10 @@ input  { font-family: inherit; }
   will-change: transform, opacity;
 }
 @keyframes heartFloat {
-  0%   { opacity: 1;   transform: translate(0, 0)                       scale(1)   rotate(0deg); }
-  30%  { opacity: 1;   transform: translate(calc(var(--drift)*0.3), -50px) scale(1.2) rotate(calc(var(--spin)*0.5)); }
-  100% { opacity: 0;   transform: translate(var(--drift), -160px)        scale(0.3) rotate(var(--spin)); }
+  0%   { opacity: 1;   transform: translate(0, 0)                          scale(1)   rotate(0deg); }
+  20%  { opacity: 1;   transform: translate(calc(var(--drift)*0.2), -60px) scale(1.35) rotate(calc(var(--spin)*0.3)); }
+  60%  { opacity: 0.8; transform: translate(calc(var(--drift)*0.7), -180px) scale(0.9) rotate(calc(var(--spin)*0.7)); }
+  100% { opacity: 0;   transform: translate(var(--drift), -280px)           scale(0.2) rotate(var(--spin)); }
 }
 
 /* ─── Nutrition Panel ────────────────────────────────────── */
