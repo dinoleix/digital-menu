@@ -199,22 +199,30 @@ function roundRect(ctx, x, y, w, h, r) {
 }
 
 async function toggleLike(itemId, btn) {
-  const liked   = getLikedSet();
+  const liked    = getLikedSet();
   const wasLiked = liked.has(itemId);
-  btn.disabled  = true;
+  btn.disabled   = true;
   try {
-    const fn = wasLiked ? 'decrement_like' : 'increment_like';
-    const r   = await fetch(`${SB_URL}/rest/v1/rpc/${fn}`, {
-      method: 'POST', headers: SB_HDR,
-      body: JSON.stringify({ p_item_id: itemId })
+    // 1 — read current count
+    const getR = await fetch(
+      `${SB_URL}/rest/v1/likes?item_id=eq.${encodeURIComponent(itemId)}&select=count`,
+      { headers: SB_HDR }
+    );
+    const rows = await getR.json();
+    const cur  = parseInt(rows[0]?.count) || 0;
+    const next = wasLiked ? Math.max(0, cur - 1) : cur + 1;
+
+    // 2 — upsert new count (insert on first like, update on subsequent)
+    await fetch(`${SB_URL}/rest/v1/likes`, {
+      method:  'POST',
+      headers: { ...SB_HDR, 'Prefer': 'resolution=merge-duplicates' },
+      body:    JSON.stringify({ item_id: itemId, count: next })
     });
-    const raw      = await r.json();
-    // RPC should return a scalar int; if it returns an object (e.g. error), re-fetch
-    const newCount = typeof raw === 'number' ? raw : await fetchLikeCount(itemId);
+
     wasLiked ? liked.delete(itemId) : liked.add(itemId);
     saveLikedSet(liked);
     btn.querySelector('.like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
-    btn.querySelector('.like-count').textContent = newCount;
+    btn.querySelector('.like-count').textContent = next;
     if (!wasLiked) burstHearts(btn);
   } catch { /* fail silently */ }
   finally { btn.disabled = false; }
