@@ -377,13 +377,6 @@ input  { font-family: inherit; }
 .card-side-badges { transition: opacity 0.3s ease; }
 .card-info        { transition: opacity 0.3s ease; }
 
-.swipe-action-btn.share-action {
-  color: rgba(255,255,255,0.5);
-  border-color: rgba(255,255,255,.15);
-  background: rgba(255,255,255,.05);
-  width: 44px;
-  height: 44px;
-}
 
 /* All badges — stacked vertically at middle-right */
 .card-side-badges {
@@ -521,25 +514,6 @@ input  { font-family: inherit; }
 .cal-toggle:active { transform: scale(0.95); }
 
 /* ─── Like Button ────────────────────────────────────────── */
-.like-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px 13px;
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(255,255,255,0.15);
-  border-radius: 50px;
-  color: rgba(255,255,255,0.8);
-  font-size: 12px;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-  transition: background .2s, transform .1s;
-  cursor: pointer;
-}
-.like-btn:active  { transform: scale(0.95); }
-.like-btn:disabled { opacity: 0.6; cursor: default; }
-.like-heart { font-size: 14px; line-height: 1; }
-.like-count { font-size: 12px; min-width: 10px; }
 
 /* ─── Heart Burst Animation ──────────────────────────────── */
 .heart-burst {
@@ -643,39 +617,73 @@ input  { font-family: inherit; }
 }
 
 
-/* ─── Swipe Buttons ──────────────────────────────────────── */
+/* ─── Action Bar ─────────────────────────────────────────── */
 .swipe-buttons {
   height: var(--swipe-h);
-  padding: 0 16px calc(var(--safe-bottom) + 8px);
+  padding: 0 24px calc(var(--safe-bottom) + 6px);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   flex-shrink: 0;
   pointer-events: all;
   z-index: 10;
   position: relative;
-  background: transparent;
 }
 
-.swipe-action-btn {
-  width: 52px;
-  height: 52px;
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(20,20,20,0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 60px;
+  padding: 8px 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.06) inset;
+}
+
+.action-icon-btn {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid;
-  transition: transform .15s, opacity .15s;
-}
-.swipe-action-btn:active { transform: scale(0.9); }
-
-.swipe-action-btn.undo {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
   color: rgba(255,255,255,0.5);
-  border-color: rgba(255,255,255,.15);
-  background: rgba(255,255,255,.05);
-  width: 44px;
-  height: 44px;
+  transition: background .15s, color .15s, transform .1s;
+  flex-shrink: 0;
+}
+.action-icon-btn:active {
+  transform: scale(0.88);
+  background: rgba(255,255,255,0.13);
+  color: rgba(255,255,255,0.85);
+}
+
+.action-like-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  height: 50px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.11);
+  color: #fff;
+  transition: background .15s, border-color .15s, transform .1s;
+  flex-shrink: 0;
+}
+.action-like-btn:active  { transform: scale(0.93); }
+.action-like-btn:disabled { opacity: 0.45; }
+#bottom-like-heart { font-size: 22px; line-height: 1; }
+#bottom-like-count {
+  font-size: 15px;
+  font-weight: 800;
+  min-width: 14px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: -0.3px;
 }
 
 /* ─── Empty State ────────────────────────────────────────── */

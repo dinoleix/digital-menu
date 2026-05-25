@@ -198,12 +198,12 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-async function toggleLike(itemId, btn) {
+async function toggleLike(itemId) {
+  const btn      = document.getElementById('bottom-like-btn');
   const liked    = getLikedSet();
   const wasLiked = liked.has(itemId);
-  btn.disabled   = true;
+  if (btn) btn.disabled = true;
   try {
-    // 1 — read current count
     const getR = await fetch(
       `${SB_URL}/rest/v1/likes?item_id=eq.${encodeURIComponent(itemId)}&select=count`,
       { headers: SB_HDR }
@@ -212,7 +212,6 @@ async function toggleLike(itemId, btn) {
     const cur  = parseInt(rows[0]?.count) || 0;
     const next = wasLiked ? Math.max(0, cur - 1) : cur + 1;
 
-    // 2 — upsert new count (insert on first like, update on subsequent)
     await fetch(`${SB_URL}/rest/v1/likes`, {
       method:  'POST',
       headers: { ...SB_HDR, 'Prefer': 'resolution=merge-duplicates' },
@@ -221,11 +220,23 @@ async function toggleLike(itemId, btn) {
 
     wasLiked ? liked.delete(itemId) : liked.add(itemId);
     saveLikedSet(liked);
-    btn.querySelector('.like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
-    btn.querySelector('.like-count').textContent = next;
+    document.getElementById('bottom-like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
+    document.getElementById('bottom-like-count').textContent = next;
     if (!wasLiked) burstHearts(btn);
   } catch { /* fail silently */ }
-  finally { btn.disabled = false; }
+  finally { if (btn) btn.disabled = false; }
+}
+
+function syncBottomLikeBtn() {
+  const item = state.filtered[state.currentIndex];
+  if (!item) return;
+  const liked = getLikedSet();
+  document.getElementById('bottom-like-heart').textContent = liked.has(item.id) ? '❤️' : '🤍';
+  document.getElementById('bottom-like-count').textContent = '–';
+  fetchLikeCount(item.id).then(n => {
+    if (state.filtered[state.currentIndex]?.id === item.id)
+      document.getElementById('bottom-like-count').textContent = n;
+  });
 }
 
 /* ─── Boot ───────────────────────────────────────────────── */
@@ -466,6 +477,7 @@ function renderStack() {
   }
 
   attachDrag(getTopCard());
+  syncBottomLikeBtn();
 }
 
 /* ─── Build Card DOM ─────────────────────────────────────── */
@@ -493,7 +505,6 @@ function buildCard(item, pos) {
     ? `<button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>`
     : '';
   const likedSet  = getLikedSet();
-  const likeBtnHtml = `<button class="like-btn"><span class="like-heart">${likedSet.has(item.id) ? '❤️' : '🤍'}</span><span class="like-count">…</span></button>`;
 
   card.innerHTML = `
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
@@ -519,7 +530,6 @@ function buildCard(item, pos) {
       <div class="card-meta">
         <span class="card-price">${priceStr}</span>
         ${calBtnHtml}
-        ${likeBtnHtml}
       </div>
     </div>
   `;
@@ -534,14 +544,6 @@ function buildCard(item, pos) {
   card.querySelector('.card-description').addEventListener('pointerdown', e => e.stopPropagation());
   descPanel.addEventListener('click', () => descPanel.classList.add('hidden'));
 
-  // Like button
-  const likeBtn = card.querySelector('.like-btn');
-  likeBtn.addEventListener('pointerdown', e => e.stopPropagation());
-  likeBtn.addEventListener('click', e => { e.stopPropagation(); toggleLike(item.id, likeBtn); });
-  fetchLikeCount(item.id).then(n => {
-    const el = likeBtn.querySelector('.like-count');
-    if (el) el.textContent = n;
-  });
 
   // Load image via probe: shimmer runs until load, stops on success, no-image class on failure/absent
   const bg = card.querySelector('.card-bg');
@@ -758,8 +760,8 @@ function promoteStack() {
   setTimeout(() => {
     const top = getTopCard();
     if (top) attachDrag(top);
-
     if (remaining <= 0) renderStack(); // Triggers empty state
+    else syncBottomLikeBtn();
   }, 370);
 }
 
@@ -815,7 +817,7 @@ function undoLast() {
     setTimeout(() => { if (stack.firstChild && stack.firstChild !== restoredCard) stack.firstChild.remove(); }, 400);
   }
 
-  setTimeout(() => attachDrag(restoredCard), 460);
+  setTimeout(() => { attachDrag(restoredCard); syncBottomLikeBtn(); }, 460);
   showToast('↩ Brought back');
 
   document.getElementById('swipe-buttons').classList.remove('hidden');
@@ -957,9 +959,13 @@ function hideCounterView() {
 /* ─── Swipe Hint Buttons ─────────────────────────────────── */
 function bindSwipeButtons() {
   document.getElementById('undo-btn').addEventListener('click', undoLast);
+
+  document.getElementById('bottom-like-btn').addEventListener('click', () => {
+    const item = state.filtered[state.currentIndex];
+    if (item) toggleLike(item.id);
+  });
+
   document.getElementById('share-btn').addEventListener('click', () => {
-    const top = getTopCard();
-    if (!top) return;
     const item = state.filtered[state.currentIndex];
     if (item) shareItemAsStory(item);
   });
