@@ -804,8 +804,6 @@ function hideCounterView() {
 
 /* ─── Swipe Hint Buttons ─────────────────────────────────── */
 function bindSwipeButtons() {
-  document.getElementById('skip-btn').addEventListener('click', () => triggerSwipe('left'));
-  document.getElementById('like-btn').addEventListener('click', () => triggerSwipe('right'));
   document.getElementById('undo-btn').addEventListener('click', undoLast);
 }
 

@@ -662,22 +662,12 @@ input  { font-family: inherit; }
 }
 .swipe-action-btn:active { transform: scale(0.9); }
 
-.swipe-action-btn.skip {
-  color: var(--red);
-  border-color: rgba(248,113,113,.35);
-  background: rgba(248,113,113,.08);
-}
 .swipe-action-btn.undo {
   color: rgba(255,255,255,0.5);
   border-color: rgba(255,255,255,.15);
   background: rgba(255,255,255,.05);
   width: 44px;
   height: 44px;
-}
-.swipe-action-btn.like {
-  color: var(--green);
-  border-color: rgba(74,222,128,.35);
-  background: rgba(74,222,128,.08);
 }
 
 /* ─── Empty State ────────────────────────────────────────── */
