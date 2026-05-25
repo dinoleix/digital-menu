@@ -103,7 +103,10 @@
         <div class="cart-footer">
           <div class="cart-total-row">
             <span>Total</span>
-            <span id="cart-total" class="cart-total-amount">$0.00</span>
+            <div class="cart-total-right">
+              <span id="cart-total" class="cart-total-amount">$0.00</span>
+              <span class="gst-note">+ 5% GST</span>
+            </div>
           </div>
           <button id="counter-btn" class="counter-btn">
             🧾 Show to Counter
@@ -122,7 +125,10 @@
         <div class="counter-divider"></div>
         <div class="counter-total-row">
           <span>Total</span>
-          <span id="counter-total" class="counter-total-amount"></span>
+          <div class="cart-total-right">
+            <span id="counter-total" class="counter-total-amount"></span>
+            <span class="gst-note">+ 5% GST</span>
+          </div>
         </div>
         <p class="counter-hint">Show this screen at the counter</p>
         <button id="counter-close" class="counter-close-btn">✕ Close</button>
