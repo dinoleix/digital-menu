@@ -506,12 +506,6 @@ function buildCard(item, pos) {
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
 
-    <button class="share-btn" aria-label="Share to Instagram">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
-      </svg>
-    </button>
-
     <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
 
     <div class="nutrition-panel hidden"></div>
@@ -555,11 +549,6 @@ function buildCard(item, pos) {
     const el = likeBtn.querySelector('.like-count');
     if (el) el.textContent = n;
   });
-
-  // Share button
-  const shareBtn = card.querySelector('.share-btn');
-  shareBtn.addEventListener('pointerdown', e => e.stopPropagation());
-  shareBtn.addEventListener('click', e => { e.stopPropagation(); shareItemAsStory(item); });
 
   // Load image via probe: shimmer runs until load, stops on success, no-image class on failure/absent
   const bg = card.querySelector('.card-bg');
@@ -975,6 +964,12 @@ function hideCounterView() {
 /* ─── Swipe Hint Buttons ─────────────────────────────────── */
 function bindSwipeButtons() {
   document.getElementById('undo-btn').addEventListener('click', undoLast);
+  document.getElementById('share-btn').addEventListener('click', () => {
+    const top = getTopCard();
+    if (!top) return;
+    const item = state.filtered[state.currentIndex];
+    if (item) shareItemAsStory(item);
+  });
 }
 
 /* ─── Cart UI Bindings ───────────────────────────────────── */
