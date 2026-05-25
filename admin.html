@@ -258,7 +258,7 @@
   .login-box {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 18px; padding: 40px 36px;
-    width: 340px; display: flex; flex-direction: column; gap: 20px;
+    width: 360px; display: flex; flex-direction: column; gap: 18px;
     box-shadow: 0 24px 64px rgba(0,0,0,0.6);
   }
   .login-logo { text-align: center; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
@@ -329,8 +329,12 @@
     <div class="login-logo">Green <span>Neko</span></div>
     <div class="login-sub">Admin Panel</div>
     <div style="display:flex;flex-direction:column;gap:8px">
+      <label for="login-email">Email</label>
+      <input id="login-email" type="email" placeholder="you@email.com" autocomplete="email">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
       <label for="login-pass">Password</label>
-      <input id="login-pass" type="password" placeholder="Enter password" autocomplete="current-password">
+      <input id="login-pass" type="password" placeholder="Password" autocomplete="current-password">
     </div>
     <div id="login-err"></div>
     <button id="btn-login">Sign In</button>
@@ -358,7 +362,10 @@ let allItems  = [];
 let current   = null;
 let isNew     = false;
 
-/* ─── Auth ───────────────────────────────────────── */
+/* ─── Auth (Supabase) ────────────────────────────── */
+const SB_URL = 'https://twdrocixrvplgrdwncdu.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3ZHJvY2l4cnZwbGdyZHduY2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3MTAzNjYsImV4cCI6MjA5NTI4NjM2Nn0.9xlrD-0m_Iqi3pRs5xlM1kim75tqconC-aSvhrV2Oj8';
+
 let _token = sessionStorage.getItem('admin_token') || '';
 
 function authHeaders(extra) {
@@ -366,26 +373,30 @@ function authHeaders(extra) {
 }
 
 async function doLogin() {
+  const email   = document.getElementById('login-email').value.trim();
   const pass    = document.getElementById('login-pass').value;
   const errEl   = document.getElementById('login-err');
   const btn     = document.getElementById('btn-login');
-  if (!pass) return;
-  btn.disabled  = true;
+  if (!email || !pass) { errEl.textContent = 'Enter your email and password.'; return; }
+  btn.disabled      = true;
   errEl.textContent = '';
   try {
-    const r = await fetch(`${API}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: pass })
+    const r = await fetch(`${SB_URL}/auth/v1/token?grant_type=password`, {
+      method:  'POST',
+      headers: { 'apikey': SB_KEY, 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ email, password: pass })
     });
-    if (!r.ok) { errEl.textContent = 'Wrong password.'; return; }
-    const { token } = await r.json();
-    _token = token;
-    sessionStorage.setItem('admin_token', token);
+    const data = await r.json();
+    if (!r.ok) {
+      errEl.textContent = data.error_description || data.msg || 'Invalid email or password.';
+      return;
+    }
+    _token = data.access_token;
+    sessionStorage.setItem('admin_token', _token);
     document.getElementById('login-overlay').classList.add('hidden');
     init();
   } catch {
-    errEl.textContent = 'Could not reach server. Is it running?';
+    errEl.textContent = 'Could not reach Supabase. Check your connection.';
   } finally {
     btn.disabled = false;
   }
@@ -393,8 +404,9 @@ async function doLogin() {
 
 document.getElementById('btn-login').addEventListener('click', doLogin);
 document.getElementById('login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('login-email').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('login-pass').focus(); });
 
-// Check if we already have a token
+// Resume session if token already stored
 if (_token) {
   fetch(`${API}/menu`, { headers: authHeaders() }).then(r => {
     if (r.ok) {

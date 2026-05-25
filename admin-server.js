@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 'use strict';
 
-const http   = require('http');
-const fs     = require('fs');
-const path   = require('path');
-const crypto = require('crypto');
-const ROOT = __dirname;
-const MENU = path.join(ROOT, 'menu.json');
-const PORT = 3333;
+const http  = require('http');
+const https = require('https');
+const fs    = require('fs');
+const path  = require('path');
+const ROOT  = __dirname;
+const MENU  = path.join(ROOT, 'menu.json');
+const PORT  = 3333;
 
-const ADMIN_PASS = process.env.ADMIN_PASS || 'greenneko';
-// One random token per server run; restarts invalidate all sessions
-const SESSION_TOKEN = crypto.randomBytes(32).toString('hex');
+const SB_URL = 'https://twdrocixrvplgrdwncdu.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3ZHJvY2l4cnZwbGdyZHduY2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3MTAzNjYsImV4cCI6MjA5NTI4NjM2Nn0.9xlrD-0m_Iqi3pRs5xlM1kim75tqconC-aSvhrV2Oj8';
 
 const MIME = {
   '.html': 'text/html',
@@ -23,6 +22,30 @@ const MIME = {
   '.png':  'image/png',
   '.webp': 'image/webp',
 };
+
+// Token cache: avoid hitting Supabase on every single request
+const tokenCache = new Map(); // token → { valid: bool, expiresAt: ms }
+const CACHE_TTL  = 5 * 60 * 1000; // 5 minutes
+
+async function validateSupabaseToken(token) {
+  const cached = tokenCache.get(token);
+  if (cached && Date.now() < cached.expiresAt) return cached.valid;
+
+  const valid = await new Promise(resolve => {
+    const u = new URL(`${SB_URL}/auth/v1/user`);
+    const req = https.request({
+      hostname: u.hostname,
+      path:     u.pathname,
+      method:   'GET',
+      headers:  { 'apikey': SB_KEY, 'Authorization': `Bearer ${token}` }
+    }, res => resolve(res.statusCode === 200));
+    req.on('error', () => resolve(false));
+    req.end();
+  });
+
+  tokenCache.set(token, { valid, expiresAt: Date.now() + CACHE_TTL });
+  return valid;
+}
 
 function readMenu() {
   return JSON.parse(fs.readFileSync(MENU, 'utf8'));
@@ -47,7 +70,6 @@ function body(req) {
   });
 }
 
-// Find item across all sections; returns { section, index } or null
 function findItem(data, id) {
   for (const [section, items] of Object.entries(data.menu)) {
     const idx = items.findIndex(it => it.id === id);
@@ -66,26 +88,12 @@ const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   if (method === 'OPTIONS') { res.writeHead(204); res.end(); return; }
 
-  /* ── Login (unauthenticated) ── */
-  if (p === '/api/login' && method === 'POST') {
-    try {
-      const payload = await body(req);
-      if (payload.password === ADMIN_PASS) {
-        return json(res, 200, { token: SESSION_TOKEN });
-      }
-      return json(res, 401, { error: 'Wrong password' });
-    } catch(e) { return json(res, 400, { error: 'Bad request' }); }
-  }
-
-  /* ── Auth guard for all other /api/* and static assets (except root admin.html) ── */
+  /* ── Auth guard (all routes except the admin page itself) ── */
   const isAdminPage = (p === '/' || p === '/admin.html');
   if (!isAdminPage) {
     const authHeader = req.headers['authorization'] || '';
     const token      = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
-    // Constant-time compare to prevent timing attacks
-    const provided = Buffer.alloc(64, token || '');
-    const expected = Buffer.alloc(64, SESSION_TOKEN);
-    if (!token || !crypto.timingSafeEqual(provided, expected)) {
+    if (!token || !(await validateSupabaseToken(token))) {
       return json(res, 401, { error: 'Unauthorized' });
     }
   }
@@ -116,7 +124,6 @@ const server = http.createServer(async (req, res) => {
       const loc     = findItem(data, id);
       if (!loc) return json(res, 404, { error: 'not found' });
 
-      // Handle section change
       const newSec = updates._section;
       delete updates._section;
 
@@ -144,7 +151,6 @@ const server = http.createServer(async (req, res) => {
 
   /* ── Static file server ── */
   let filePath = path.join(ROOT, p === '/' ? 'admin.html' : p);
-  // Security: prevent path traversal
   if (!filePath.startsWith(ROOT)) { res.writeHead(403); res.end(); return; }
 
   fs.readFile(filePath, (err, data) => {
@@ -156,6 +162,6 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  Admin UI  → http://localhost:${PORT}`);
-  console.log(`  Password  → ${ADMIN_PASS}  (set ADMIN_PASS env var to change)\n`);
+  console.log(`\n  Admin UI → http://localhost:${PORT}`);
+  console.log(`  Auth     → Supabase (manage users at supabase.com/dashboard)\n`);
 });
