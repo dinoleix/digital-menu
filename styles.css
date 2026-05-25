@@ -533,6 +533,21 @@ input  { font-family: inherit; }
 .like-heart { font-size: 14px; line-height: 1; }
 .like-count { font-size: 12px; min-width: 10px; }
 
+/* ─── Heart Burst Animation ──────────────────────────────── */
+.heart-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: center;
+  animation: heartFloat var(--dur, 1s) ease-out forwards;
+  will-change: transform, opacity;
+}
+@keyframes heartFloat {
+  0%   { opacity: 1;   transform: translate(0, 0)                       scale(1)   rotate(0deg); }
+  30%  { opacity: 1;   transform: translate(calc(var(--drift)*0.3), -50px) scale(1.2) rotate(calc(var(--spin)*0.5)); }
+  100% { opacity: 0;   transform: translate(var(--drift), -160px)        scale(0.3) rotate(var(--spin)); }
+}
+
 /* ─── Nutrition Panel ────────────────────────────────────── */
 .nutrition-panel {
   position: absolute;

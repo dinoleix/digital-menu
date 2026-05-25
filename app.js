@@ -38,6 +38,30 @@ async function fetchLikeCount(itemId) {
   } catch { return 0; }
 }
 
+function burstHearts(btn) {
+  const rect   = btn.getBoundingClientRect();
+  const emojis = ['❤️', '🩷', '💕', '💗', '💖'];
+  const count  = 7 + Math.floor(Math.random() * 4); // 7–10 hearts
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.className   = 'heart-burst';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const startX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 40;
+    const startY = rect.top + rect.height / 2;
+    el.style.cssText = [
+      `left:${startX}px`,
+      `top:${startY}px`,
+      `font-size:${10 + Math.random() * 16}px`,
+      `animation-duration:${0.9 + Math.random() * 0.8}s`,
+      `animation-delay:${Math.random() * 0.3}s`,
+      `--drift:${(Math.random() - 0.5) * 90}px`,
+      `--spin:${(Math.random() - 0.5) * 40}deg`,
+    ].join(';');
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove(), { once: true });
+  }
+}
+
 async function toggleLike(itemId, btn) {
   const liked   = getLikedSet();
   const wasLiked = liked.has(itemId);
@@ -53,6 +77,7 @@ async function toggleLike(itemId, btn) {
     saveLikedSet(liked);
     btn.querySelector('.like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
     btn.querySelector('.like-count').textContent = newCount;
+    if (!wasLiked) burstHearts(btn);
   } catch { /* fail silently */ }
   finally { btn.disabled = false; }
 }
