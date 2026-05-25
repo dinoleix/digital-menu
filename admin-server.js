@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 'use strict';
 
-const http = require('http');
-const fs   = require('fs');
-const path = require('path');
+const http   = require('http');
+const fs     = require('fs');
+const path   = require('path');
+const crypto = require('crypto');
 const ROOT = __dirname;
 const MENU = path.join(ROOT, 'menu.json');
 const PORT = 3333;
+
+const ADMIN_PASS = process.env.ADMIN_PASS || 'greenneko';
+// One random token per server run; restarts invalidate all sessions
+const SESSION_TOKEN = crypto.randomBytes(32).toString('hex');
 
 const MIME = {
   '.html': 'text/html',
@@ -58,8 +63,32 @@ const server = http.createServer(async (req, res) => {
 
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   if (method === 'OPTIONS') { res.writeHead(204); res.end(); return; }
+
+  /* ── Login (unauthenticated) ── */
+  if (p === '/api/login' && method === 'POST') {
+    try {
+      const payload = await body(req);
+      if (payload.password === ADMIN_PASS) {
+        return json(res, 200, { token: SESSION_TOKEN });
+      }
+      return json(res, 401, { error: 'Wrong password' });
+    } catch(e) { return json(res, 400, { error: 'Bad request' }); }
+  }
+
+  /* ── Auth guard for all other /api/* and static assets (except root admin.html) ── */
+  const isAdminPage = (p === '/' || p === '/admin.html');
+  if (!isAdminPage) {
+    const authHeader = req.headers['authorization'] || '';
+    const token      = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
+    // Constant-time compare to prevent timing attacks
+    const provided = Buffer.alloc(64, token || '');
+    const expected = Buffer.alloc(64, SESSION_TOKEN);
+    if (!token || !crypto.timingSafeEqual(provided, expected)) {
+      return json(res, 401, { error: 'Unauthorized' });
+    }
+  }
 
   /* ── API routes ── */
   if (p === '/api/menu' && method === 'GET') {
@@ -127,5 +156,6 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  Admin UI → http://localhost:${PORT}\n`);
+  console.log(`\n  Admin UI  → http://localhost:${PORT}`);
+  console.log(`  Password  → ${ADMIN_PASS}  (set ADMIN_PASS env var to change)\n`);
 });
