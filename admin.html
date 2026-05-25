@@ -510,7 +510,7 @@ function renderList() {
     }
     groups[sec].forEach(it => {
       const hasDesc = !!it.description;
-      const hasCal  = !!it.calories;
+      const hasCal  = !!it.calories || !!(it.nutrition && Object.keys(it.nutrition).length);
       const hasImg  = !!it.imageUrl;
       const active  = current?.id === it.id ? ' active' : '';
       const thumb   = it.imageUrl
@@ -584,7 +584,7 @@ function renderDetail(item) {
       </div>
       <div class="cbar-item">
         <span class="cbar-icon">🔥</span>
-        <span class="cbar-label">Calories</span>
+        <span class="cbar-label">Nutrition</span>
         <span class="cbar-status ${hasCal?'ok':'miss'}">${hasCal?'✓ '+item.calories+' kcal':'✗ Missing'}</span>
       </div>
       <div class="cbar-item">
@@ -618,13 +618,42 @@ function renderDetail(item) {
         </div>
 
         <div class="form-group">
-          <label>Calories (kcal)</label>
-          <input name="calories" type="number" value="${item.calories ?? ''}" placeholder="e.g. 650">
-        </div>
-
-        <div class="form-group">
           <label>Image URL / Path</label>
           <input name="imageUrl" value="${escAttr(item.imageUrl||'')}" placeholder="Menuimages/name.jpg">
+        </div>
+
+        <div class="form-group full" style="margin-top:4px">
+          <label style="color:var(--yellow)">🔥 Nutrition Facts</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px">
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Calories (kcal)</label>
+              <input name="calories" value="${escAttr(String(item.calories??''))}" placeholder="~710">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Protein (g)</label>
+              <input name="n_protein" value="${escAttr(String(item.nutrition?.protein??''))}" placeholder="~42">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Carbs (g)</label>
+              <input name="n_carbs" value="${escAttr(String(item.nutrition?.carbs??''))}" placeholder="~55">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Fat (g)</label>
+              <input name="n_fat" value="${escAttr(String(item.nutrition?.fat??''))}" placeholder="~30">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Fiber (g)</label>
+              <input name="n_fiber" value="${escAttr(String(item.nutrition?.fiber??''))}" placeholder="~4">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Sodium (mg)</label>
+              <input name="n_sodium" value="${escAttr(String(item.nutrition?.sodium??''))}" placeholder="~2100">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <label>Cholesterol (mg)</label>
+              <input name="n_cholesterol" value="${escAttr(String(item.nutrition?.cholesterol??''))}" placeholder="~280">
+            </div>
+          </div>
         </div>
 
         <div class="form-group full">
@@ -691,8 +720,17 @@ async function saveItem(e) {
   updated._section    = fd.get('_section');
   updated.price       = parseFloat(fd.get('price')) || 0;
   updated.description = fd.get('description').trim() || null;
-  updated.calories    = parseInt(fd.get('calories')) || null;
+  updated.calories    = fd.get('calories').trim() || null;
   updated.imageUrl    = fd.get('imageUrl').trim() || null;
+
+  const nutFields = { protein: 'n_protein', carbs: 'n_carbs', fat: 'n_fat',
+                      fiber: 'n_fiber', sodium: 'n_sodium', cholesterol: 'n_cholesterol' };
+  const nut = {};
+  for (const [key, field] of Object.entries(nutFields)) {
+    const v = fd.get(field).trim();
+    if (v) nut[key] = v;
+  }
+  updated.nutrition = Object.keys(nut).length ? nut : null;
   updated.contains    = fd.get('contains').trim() || null;
   updated.allergens   = fd.get('allergens').trim() || null;
   updated.colorCode   = fd.get('colorCode').trim() || null;
