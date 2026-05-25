@@ -62,6 +62,142 @@ function burstHearts(btn) {
   }
 }
 
+/* ─── Instagram Story Share ──────────────────────────────── */
+async function shareItemAsStory(item) {
+  const W = 1080, H = 1920;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  // 1 — background colour
+  ctx.fillStyle = item.colorCode || '#111111';
+  ctx.fillRect(0, 0, W, H);
+
+  // 2 — food photo (cover-fill, centred)
+  if (item.imageUrl) {
+    try {
+      const img = await loadImage(item.imageUrl);
+      const scale = Math.max(W / img.width, H / img.height);
+      const dw = img.width * scale, dh = img.height * scale;
+      ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+    } catch { /* no image — solid colour bg is fine */ }
+  }
+
+  // 3 — dark gradient overlay (bottom 65%)
+  const grad = ctx.createLinearGradient(0, H * 0.25, 0, H);
+  grad.addColorStop(0,   'rgba(0,0,0,0)');
+  grad.addColorStop(0.4, 'rgba(0,0,0,0.55)');
+  grad.addColorStop(1,   'rgba(0,0,0,0.93)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // 4 — top branding pill
+  const brandX = W / 2, brandY = 130;
+  ctx.save();
+  roundRect(ctx, brandX - 160, brandY - 44, 320, 68, 50);
+  ctx.fillStyle = 'rgba(255,255,255,0.12)';
+  ctx.fill();
+  ctx.restore();
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 36px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('🐱 Green Neko', brandX, brandY + 6);
+
+  // 5 — bottom text block
+  const bX = 80, bY = H - 320;
+
+  // category chip
+  ctx.save();
+  const catW = ctx.measureText(item.category?.toUpperCase() || '').width + 60;
+  roundRect(ctx, bX, bY, catW, 52, 30);
+  ctx.fillStyle = 'rgba(74,222,128,0.25)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(74,222,128,0.6)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.restore();
+  ctx.fillStyle = '#4ade80';
+  ctx.font = 'bold 26px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText((item.category || '').toUpperCase(), bX + 30, bY + 34);
+
+  // item name (wrap at 2 lines)
+  ctx.fillStyle = '#ffffff';
+  ctx.font      = 'bold 86px -apple-system, BlinkMacSystemFont, sans-serif';
+  const nameLines = wrapText(ctx, item.name, W - bX - 80, 2);
+  nameLines.forEach((line, i) => ctx.fillText(line, bX, bY + 110 + i * 96));
+
+  // price
+  ctx.fillStyle = '#4ade80';
+  ctx.font      = 'bold 72px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.fillText(`₹${item.price}`, bX, bY + 110 + nameLines.length * 96 + 20);
+
+  // 6 — website watermark
+  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.font      = '30px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('greenneko.com', W / 2, H - 80);
+
+  // 7 — share or download
+  canvas.toBlob(async blob => {
+    const file = new File([blob], `greenneko-${item.id}.png`, { type: 'image/png' });
+    if (navigator.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: item.name, text: `${item.name} at Green Neko` });
+        return;
+      } catch { /* user cancelled or unsupported — fall through to download */ }
+    }
+    // Desktop fallback: trigger download
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `greenneko-${item.name.replace(/\s+/g, '-').toLowerCase()}.png`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+  }, 'image/png');
+}
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => resolve(img);
+    img.onerror = reject;
+    img.src     = src;
+  });
+}
+
+function wrapText(ctx, text, maxWidth, maxLines) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      if (lines.length >= maxLines) { lines[maxLines - 1] += '…'; return lines; }
+      line = word;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
 async function toggleLike(itemId, btn) {
   const liked   = getLikedSet();
   const wasLiked = liked.has(itemId);
@@ -370,6 +506,12 @@ function buildCard(item, pos) {
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
 
+    <button class="share-btn" aria-label="Share to Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
+      </svg>
+    </button>
+
     <div class="card-side-badges">${popHtml}${vegHtml}${spicyHtml}${newHtml}${chefHtml}</div>
 
     <div class="nutrition-panel hidden"></div>
@@ -413,6 +555,11 @@ function buildCard(item, pos) {
     const el = likeBtn.querySelector('.like-count');
     if (el) el.textContent = n;
   });
+
+  // Share button
+  const shareBtn = card.querySelector('.share-btn');
+  shareBtn.addEventListener('pointerdown', e => e.stopPropagation());
+  shareBtn.addEventListener('click', e => { e.stopPropagation(); shareItemAsStory(item); });
 
   // Load image via probe: shimmer runs until load, stops on success, no-image class on failure/absent
   const bg = card.querySelector('.card-bg');
