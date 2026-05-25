@@ -34,7 +34,7 @@ async function fetchLikeCount(itemId) {
   try {
     const r = await fetch(`${SB_URL}/rest/v1/likes?item_id=eq.${encodeURIComponent(itemId)}&select=count`, { headers: SB_HDR });
     const d = await r.json();
-    return d[0]?.count ?? 0;
+    return parseInt(d[0]?.count) || 0;
   } catch { return 0; }
 }
 
@@ -68,11 +68,13 @@ async function toggleLike(itemId, btn) {
   btn.disabled  = true;
   try {
     const fn = wasLiked ? 'decrement_like' : 'increment_like';
-    const r  = await fetch(`${SB_URL}/rest/v1/rpc/${fn}`, {
+    const r   = await fetch(`${SB_URL}/rest/v1/rpc/${fn}`, {
       method: 'POST', headers: SB_HDR,
       body: JSON.stringify({ p_item_id: itemId })
     });
-    const newCount = await r.json();
+    const raw      = await r.json();
+    // RPC should return a scalar int; if it returns an object (e.g. error), re-fetch
+    const newCount = typeof raw === 'number' ? raw : await fetchLikeCount(itemId);
     wasLiked ? liked.delete(itemId) : liked.add(itemId);
     saveLikedSet(liked);
     btn.querySelector('.like-heart').textContent = liked.has(itemId) ? '❤️' : '🤍';
