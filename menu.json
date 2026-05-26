@@ -1621,8 +1621,12 @@
         "category": "Coffee",
         "price": 140,
         "description": "A pure, concentrated single shot (40ml) of rich espresso pulled from premium coffee beans — bold, full-bodied, and intensely aromatic. The foundation of all great coffee.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 5,
+        "nutrition": {
+          "protein": 0.3,
+          "carbs": 0.5,
+          "fat": 0.1
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1631,8 +1635,8 @@
           "espresso"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/espresso.jpg",
+        "imageName": "espresso.jpg"
       },
       {
         "id": "coffee_002",
@@ -1640,8 +1644,12 @@
         "category": "Coffee",
         "price": 170,
         "description": "A double shot (80ml) of premium espresso — twice the depth, twice the richness. Bold, full-bodied, and perfectly concentrated for those who take their coffee seriously.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 10,
+        "nutrition": {
+          "protein": 0.6,
+          "carbs": 1,
+          "fat": 0.2
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1650,8 +1658,8 @@
           "espresso"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/espresso.jpg",
+        "imageName": "espresso.jpg"
       },
       {
         "id": "coffee_003",
@@ -1659,8 +1667,12 @@
         "category": "Coffee",
         "price": 180,
         "description": "Drip-brewed Robusta coffee mixed with sweetened condensed milk — rich, intensely bold, and deeply satisfying. A Vietnamese classic that's sweet, strong, and uniquely indulgent.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 175,
+        "nutrition": {
+          "protein": 3,
+          "carbs": 29,
+          "fat": 5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1669,8 +1681,8 @@
           "vietnamese"
         ],
         "colorCode": "#6B3A2A",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/vietnamese-coffee.jpg",
+        "imageName": "vietnamese-coffee.jpg"
       },
       {
         "id": "coffee_004",
@@ -1678,8 +1690,12 @@
         "category": "Coffee",
         "price": 190,
         "description": "Espresso diluted with hot water to create a smooth, full-flavoured black coffee — clean, bold, and gently bitter. Simple, elegant, and endlessly drinkable.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 10,
+        "nutrition": {
+          "protein": 0.5,
+          "carbs": 1.5,
+          "fat": 0.1
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1688,8 +1704,8 @@
           "black coffee"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/americano.jpg",
+        "imageName": "americano.jpg"
       },
       {
         "id": "coffee_005",
@@ -1697,8 +1713,12 @@
         "category": "Coffee",
         "price": 210,
         "description": "A classic Italian espresso topped with equal parts velvety steamed milk and thick, airy foam — balanced, comforting, and beautifully crafted in every cup.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 90,
+        "nutrition": {
+          "protein": 5,
+          "carbs": 8,
+          "fat": 3.5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1707,8 +1727,8 @@
           "milk"
         ],
         "colorCode": "#A0522D",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/cappuccino.jpg",
+        "imageName": "cappuccino.jpg"
       },
       {
         "id": "coffee_006",
@@ -1716,8 +1736,12 @@
         "category": "Coffee",
         "price": 210,
         "description": "Smooth espresso blended with a generous pour of steamed milk and a light layer of foam — creamy, mellow, and the perfect everyday coffee companion.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 160,
+        "nutrition": {
+          "protein": 9,
+          "carbs": 16,
+          "fat": 5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1726,8 +1750,8 @@
           "milk"
         ],
         "colorCode": "#C4A882",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/latte.jpg",
+        "imageName": "latte.jpg"
       },
       {
         "id": "coffee_007",
@@ -1735,8 +1759,12 @@
         "category": "Coffee",
         "price": 250,
         "description": "A decadent blend of espresso, rich chocolate sauce, and steamed milk — a perfect harmony of coffee and cocoa finished with a light foam. Indulgent, warming, and impossible to resist.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 300,
+        "nutrition": {
+          "protein": 10,
+          "carbs": 42,
+          "fat": 12
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1746,8 +1774,8 @@
           "milk"
         ],
         "colorCode": "#4A2C0A",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/mocha.jpg",
+        "imageName": "mocha.jpg"
       },
       {
         "id": "coffee_008",
@@ -1755,8 +1783,12 @@
         "category": "Coffee",
         "price": 160,
         "description": "A single shot (100ml) of premium espresso served over ice — bold, refreshing, and perfectly chilled. Pure coffee intensity with an icy edge.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 5,
+        "nutrition": {
+          "protein": 0.3,
+          "carbs": 0.5,
+          "fat": 0.1
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1765,8 +1797,8 @@
           "espresso"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-espresso.jpg",
+        "imageName": "iced-espresso.jpg"
       },
       {
         "id": "coffee_009",
@@ -1774,8 +1806,12 @@
         "category": "Coffee",
         "price": 190,
         "description": "A double shot (140ml) of premium espresso poured over ice — concentrated, bold, and ice-cold. For those who need their coffee strong and fast.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 10,
+        "nutrition": {
+          "protein": 0.6,
+          "carbs": 1,
+          "fat": 0.2
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1784,8 +1820,8 @@
           "espresso"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-espresso.jpg",
+        "imageName": "iced-espresso.jpg"
       },
       {
         "id": "coffee_010",
@@ -1793,8 +1829,12 @@
         "category": "Coffee",
         "price": 230,
         "description": "Chilled drip-brewed Robusta coffee with sweet condensed milk poured over ice — rich, bold, and deeply refreshing. The iconic Vietnamese cà phê sữa đá, served cold and perfect.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 200,
+        "nutrition": {
+          "protein": 3,
+          "carbs": 33,
+          "fat": 5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1803,8 +1843,8 @@
           "vietnamese"
         ],
         "colorCode": "#6B3A2A",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-vietnamese-coffee.jpg",
+        "imageName": "iced-vietnamese-coffee.jpg"
       },
       {
         "id": "coffee_011",
@@ -1812,8 +1852,12 @@
         "category": "Coffee",
         "price": 230,
         "description": "Crisp, chilled espresso shots poured over ice with cold water — clean, bold, and endlessly refreshing. The perfect iced black coffee for a warm day.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 10,
+        "nutrition": {
+          "protein": 0.5,
+          "carbs": 1.5,
+          "fat": 0.1
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1822,8 +1866,8 @@
           "black coffee"
         ],
         "colorCode": "#3B1D08",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-americano.jpg",
+        "imageName": "iced-americano.jpg"
       },
       {
         "id": "coffee_012",
@@ -1831,8 +1875,12 @@
         "category": "Coffee",
         "price": 260,
         "description": "Espresso combined with cold frothed milk served over ice — light, refreshing, and beautifully indulgent. The chilled cousin of the classic cappuccino.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 110,
+        "nutrition": {
+          "protein": 6,
+          "carbs": 10,
+          "fat": 4
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1841,8 +1889,8 @@
           "milk"
         ],
         "colorCode": "#A0522D",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-cappuccino.jpg",
+        "imageName": "iced-cappuccino.jpg"
       },
       {
         "id": "coffee_013",
@@ -1850,8 +1898,12 @@
         "category": "Coffee",
         "price": 260,
         "description": "Creamy espresso and cold milk poured over ice — smooth, mellow, and endlessly satisfying. A café staple that never disappoints.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 180,
+        "nutrition": {
+          "protein": 9,
+          "carbs": 17,
+          "fat": 6
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1860,8 +1912,8 @@
           "milk"
         ],
         "colorCode": "#C4A882",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-latte.jpg",
+        "imageName": "iced-latte.jpg"
       },
       {
         "id": "coffee_014",
@@ -1869,8 +1921,12 @@
         "category": "Coffee",
         "price": 290,
         "description": "Espresso, rich chocolate sauce, and cold milk over ice — a chilled, chocolatey coffee treat that's indulgent and refreshing all at once.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 330,
+        "nutrition": {
+          "protein": 10,
+          "carbs": 46,
+          "fat": 13
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1880,8 +1936,8 @@
           "milk"
         ],
         "colorCode": "#4A2C0A",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-mocha.jpg",
+        "imageName": "iced-mocha.jpg"
       },
       {
         "id": "coffee_015",
@@ -1889,8 +1945,12 @@
         "category": "Coffee",
         "price": 300,
         "description": "Freshly squeezed orange juice combined with espresso over ice — bright, citrusy, and boldly energising. A surprising combination that works beautifully together.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 85,
+        "nutrition": {
+          "protein": 1,
+          "carbs": 18,
+          "fat": 0.2
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1900,8 +1960,8 @@
           "specials"
         ],
         "colorCode": "#FF8C00",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-orange-coffee.jpg",
+        "imageName": "iced-orange-coffee.jpg"
       },
       {
         "id": "coffee_016",
@@ -1909,8 +1969,12 @@
         "category": "Coffee",
         "price": 300,
         "description": "Freshly squeezed lime juice with espresso over ice — tangy, refreshing, and uniquely bold. A zesty coffee experience that wakes up your senses.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 60,
+        "nutrition": {
+          "protein": 1,
+          "carbs": 13,
+          "fat": 0.2
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1920,8 +1984,8 @@
           "specials"
         ],
         "colorCode": "#9ACD32",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-lime-coffee.jpg",
+        "imageName": "iced-lime-coffee.jpg"
       },
       {
         "id": "coffee_017",
@@ -1929,8 +1993,12 @@
         "category": "Coffee",
         "price": 250,
         "description": "Smooth espresso over ice with a rich French vanilla flavour — sweet, creamy, and perfectly balanced. A classic flavoured iced coffee that feels like a treat.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 220,
+        "nutrition": {
+          "protein": 6,
+          "carbs": 34,
+          "fat": 6
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1940,8 +2008,8 @@
           "specials"
         ],
         "colorCode": "#FFFACD",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/iced-coffee-french-vanilla.jpg",
+        "imageName": "iced-coffee-french-vanilla.jpg"
       },
       {
         "id": "coffee_018",
@@ -1949,8 +2017,12 @@
         "category": "Coffee",
         "price": 300,
         "description": "Premium ceremonial grade matcha whisked to perfection with steamed milk — earthy, smooth, and vibrant. Available hot or iced, it's a nourishing and deeply satisfying alternative to coffee.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 180,
+        "nutrition": {
+          "protein": 7,
+          "carbs": 24,
+          "fat": 6
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1959,8 +2031,8 @@
           "latte"
         ],
         "colorCode": "#228B22",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/matcha-latte.jpg",
+        "imageName": "matcha-latte.jpg"
       },
       {
         "id": "coffee_019",
@@ -1968,8 +2040,12 @@
         "category": "Coffee",
         "price": 300,
         "description": "Premium matcha dissolved in cold water and served over ice — clean, refreshing, and subtly earthy. A lighter, dairy-free way to enjoy the depth of ceremonial matcha.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 40,
+        "nutrition": {
+          "protein": 2,
+          "carbs": 7,
+          "fat": 0.5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1978,8 +2054,8 @@
           "iced"
         ],
         "colorCode": "#32CD32",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/matcha-iced-tea.jpg",
+        "imageName": "matcha-iced-tea.jpg"
       },
       {
         "id": "coffee_020",
@@ -1987,8 +2063,12 @@
         "category": "Coffee",
         "price": 285,
         "description": "Premium matcha layered with fresh strawberry flavours and milk over ice — a beautiful sweet-earthy combination that's as stunning to look at as it is to drink.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 230,
+        "nutrition": {
+          "protein": 6,
+          "carbs": 38,
+          "fat": 6
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -1998,8 +2078,8 @@
           "iced"
         ],
         "colorCode": "#FF69B4",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/strawberry-matcha-latte.jpg",
+        "imageName": "strawberry-matcha-latte.jpg"
       },
       {
         "id": "coffee_021",
@@ -2007,8 +2087,12 @@
         "category": "Coffee",
         "price": 260,
         "description": "Premium matcha blended with tropical mango over ice — vibrant, fruity, and refreshingly unique. The perfect balance of earthy green tea and sweet mango.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 160,
+        "nutrition": {
+          "protein": 3,
+          "carbs": 32,
+          "fat": 1.5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -2018,8 +2102,8 @@
           "iced"
         ],
         "colorCode": "#FFD700",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/mango-matcha.jpg",
+        "imageName": "mango-matcha.jpg"
       },
       {
         "id": "coffee_022",
@@ -2027,8 +2111,12 @@
         "category": "Coffee",
         "price": 300,
         "description": "Aromatic Thai tea brewed with warming spices and blended with creamy milk — sweet, bold, and distinctively orange. Available hot or iced for the classic Thai tea experience.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 270,
+        "nutrition": {
+          "protein": 5,
+          "carbs": 42,
+          "fat": 9
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -2037,8 +2125,8 @@
           "latte"
         ],
         "colorCode": "#FF8C00",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/thai-tea-latte.jpg",
+        "imageName": "thai-tea-latte.jpg"
       },
       {
         "id": "coffee_023",
@@ -2046,8 +2134,12 @@
         "category": "Coffee",
         "price": 180,
         "description": "A warming herbal brew featuring sumac and berry — tangy, antioxidant-rich, and beautifully tart. A unique and healthful tea available hot or iced.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 20,
+        "nutrition": {
+          "protein": 0.5,
+          "carbs": 4,
+          "fat": 0.2
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -2056,8 +2148,8 @@
           "berry"
         ],
         "colorCode": "#8B0000",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/sumac-berry-tea.jpg",
+        "imageName": "sumac-berry-tea.jpg"
       },
       {
         "id": "coffee_024",
@@ -2065,8 +2157,12 @@
         "category": "Coffee",
         "price": 180,
         "description": "Hibiscus roselle tea — vibrant, tart, and naturally caffeine-free. Deeply ruby-red and packed with antioxidants, it's as beautiful as it is refreshing. Served hot or iced.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 15,
+        "nutrition": {
+          "protein": 0.3,
+          "carbs": 3.5,
+          "fat": 0.1
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -2076,8 +2172,8 @@
           "caffeine-free"
         ],
         "colorCode": "#DC143C",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/fruity-roselle-tea.jpg",
+        "imageName": "fruity-roselle-tea.jpg"
       },
       {
         "id": "coffee_025",
@@ -2085,8 +2181,12 @@
         "category": "Coffee",
         "price": 180,
         "description": "A unique tea brewed with black glutinous rice — nutty, earthy, and packed with antioxidants. Subtly sweet with a distinctive deep purple hue. Served hot or iced.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 35,
+        "nutrition": {
+          "protein": 1,
+          "carbs": 7,
+          "fat": 0.5
+        },
         "spicy": false,
         "vegetarian": true,
         "tags": [
@@ -2095,8 +2195,8 @@
           "rice tea"
         ],
         "colorCode": "#4B0082",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/forbidden-rice-tea.jpg",
+        "imageName": "forbidden-rice-tea.jpg"
       }
     ]
   }
