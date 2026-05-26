@@ -26,20 +26,52 @@
 <body>
   <div id="app">
 
-    <!-- ── Table Number Modal ─────────────────────────────── -->
+    <!-- ── Welcome / Guide Modal ─────────────────────────── -->
     <div id="table-modal" class="modal-overlay">
       <div class="modal-card">
         <div class="modal-paw">🐾</div>
         <h1 class="modal-title">Green Neko</h1>
         <p class="modal-sub">Good food, good vibes</p>
-        <div class="modal-input-wrap">
-          <label>Your table number</label>
-          <input id="table-input" type="number" placeholder="e.g. 12" min="1" max="99" />
+
+        <div class="guide-grid">
+
+          <!-- Swipe left = skip -->
+          <div class="guide-cell">
+            <svg class="guide-arrow guide-arrow--skip" width="44" height="34" viewBox="0 0 44 34" fill="none">
+              <path d="M38 8 C28 2 14 4 8 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M4 13 L8 19 L14 17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="guide-cell-label">Skip</span>
+          </div>
+
+          <!-- Swipe right = add to basket -->
+          <div class="guide-cell">
+            <svg class="guide-arrow guide-arrow--add" width="44" height="34" viewBox="0 0 44 34" fill="none">
+              <path d="M6 8 C16 2 30 4 36 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M40 13 L36 19 L30 17" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="guide-cell-label">Add to basket</span>
+          </div>
+
+          <!-- Veg filter -->
+          <div class="guide-cell">
+            <span class="guide-big-emoji">🌿</span>
+            <span class="guide-cell-label">Veg only</span>
+          </div>
+
+          <!-- Allergen filter -->
+          <div class="guide-cell">
+            <svg class="guide-filter-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            <span class="guide-cell-label">Allergens</span>
+          </div>
+
         </div>
+
         <button id="start-btn" class="start-btn">
           Let's Eat <span class="btn-arrow">→</span>
         </button>
-        <button id="skip-table-btn" class="skip-table-btn">Skip for now</button>
       </div>
     </div>
 

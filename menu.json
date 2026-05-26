@@ -170,14 +170,14 @@
         "category": "Ramen",
         "price": 530,
         "description": "Juicy, pan-grilled chicken thigh glazed in sweet teriyaki sauce served atop springy ramen noodles and a light, umami-rich thin broth. Each bowl is layered with vibrant toppings — palak, sweet corn, bamboo shoot pickle, mushrooms, and spring onion — and finished with an ajitama egg, nori, and a drizzle of garlic, onion, and chicken oils. A satisfying fusion of smoky, savory, and slightly sweet flavors that bring comfort in every spoonful.",
-        "calories": 710,
+        "calories": "710",
         "nutrition": {
-          "protein": 42,
-          "carbs": 55,
-          "fat": 30,
-          "fiber": 4,
-          "sodium": 2100,
-          "cholesterol": 280
+          "protein": "42",
+          "carbs": "55",
+          "fat": "30",
+          "fiber": "4",
+          "sodium": "2100",
+          "cholesterol": "280"
         },
         "contains": "Chicken thigh, ramen noodles, thin broth, sweet teriyaki sauce, tare, palak, mushroom, bamboo shoot pickle & sauce, sweet corn, spring onion, ajitama egg, nori, chicken powder, garlic oil, onion oil, and chilli crisp.",
         "allergens": "Gluten, Soy, Egg, Sesame (from oil), Possible traces of shellfish (in sauces)",
@@ -191,7 +191,8 @@
         ],
         "colorCode": "#D2691E",
         "imageUrl": "Menuimages/pan-grilled-chicken-ramen-thick-or-thin-broth.jpg",
-        "imageName": "pan-grilled-chicken-ramen-thick-or-thin-broth.jpg"
+        "imageName": "pan-grilled-chicken-ramen-thick-or-thin-broth.jpg",
+        "signature": true
       },
       {
         "id": "ramen_002",
@@ -347,14 +348,14 @@
         "category": "Poke Bowls",
         "price": 450,
         "description": "Tender teriyaki-glazed chicken served over a bed of seasoned Japanese rice, topped with a colorful medley of purple cabbage, cucumber, carrot, pickled radish, and creamy avocado. Enhanced with edamame beans, sweet corn, seaweed salad, crispy fried onion and garlic, and a sprinkle of sesame seeds. Finished with a light dressing that ties together freshness, crunch, and umami in every bite.",
-        "calories": 680,
+        "calories": "680",
         "nutrition": {
-          "protein": 40,
-          "carbs": 65,
-          "fat": 24,
-          "fiber": 6,
-          "sodium": 1500,
-          "cholesterol": 110
+          "protein": "40",
+          "carbs": "65",
+          "fat": "24",
+          "fiber": "6",
+          "sodium": "1500",
+          "cholesterol": "110"
         },
         "spicy": false,
         "vegetarian": false,
@@ -366,7 +367,10 @@
         ],
         "colorCode": "#CD853F",
         "imageUrl": "Menuimages/chicken-poke-bowl.jpg",
-        "imageName": "chicken-poke-bowl.jpg"
+        "imageName": "chicken-poke-bowl.jpg",
+        "contains": null,
+        "allergens": null,
+        "signature": true
       },
       {
         "id": "poke_003",
@@ -578,8 +582,15 @@
         "category": "Appetizers",
         "price": 350,
         "description": "A Japanese classic — tender chicken marinated with soy, ginger, and garlic, lightly coated and fried to a perfect golden crisp. Juicy on the inside with an irresistibly crunchy exterior, served with Japanese mayo and a wedge of lemon. Simple, bold, and endlessly craveable.",
-        "calories": null,
-        "nutrition": null,
+        "calories": 520,
+        "nutrition": {
+          "protein": 32,
+          "carbs": 12,
+          "fat": 38,
+          "sodium": 780,
+          "fiber": 1,
+          "cholesterol": 140
+        },
         "spicy": true,
         "vegetarian": false,
         "tags": [
@@ -849,6 +860,94 @@
           "vegan"
         ],
         "colorCode": "#DAA520",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_019",
+        "name": "Chicken Katsu Finger",
+        "category": "Appetizers",
+        "price": 0,
+        "description": "Crispy golden chicken fingers coated in seasoned breadcrumbs, fried to perfection, and served with tangy katsu sauce — a flavorful balance of crunch, juiciness, and zest in every bite.",
+        "calories": "470",
+        "nutrition": {
+          "protein": "28",
+          "carbs": "22",
+          "fat": "32",
+          "fiber": "1",
+          "sodium": "620",
+          "cholesterol": "95"
+        },
+        "spicy": false,
+        "vegetarian": false,
+        "contains": "Chicken, breadcrumbs, egg, flour, katsu sauce, spices, oil, cabbage",
+        "allergens": "Gluten, Egg",
+        "tags": [
+          "appetizer",
+          "chicken",
+          "japanese",
+          "fried"
+        ],
+        "colorCode": "#B8860B",
+        "imageUrl": "Menuimages/chicken-katsu-finger.jpg",
+        "imageName": null,
+        "signature": false
+      },
+      {
+        "id": "appetizer_020",
+        "name": "Tofu Teriyaki",
+        "category": "Appetizers",
+        "price": null,
+        "description": "Pan-seared tofu glazed in a rich, savory-sweet teriyaki sauce and sprinkled with toasted sesame seeds — a wholesome, protein-rich dish that's light yet deeply flavorful.",
+        "calories": 290,
+        "nutrition": {
+          "protein": 22,
+          "carbs": 18,
+          "fat": 14,
+          "sodium": 640,
+          "fiber": 2
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "contains": "Tofu, teriyaki sauce, sesame seed",
+        "allergens": "Soy, Sesame",
+        "tags": [
+          "appetizer",
+          "tofu",
+          "japanese",
+          "vegetarian"
+        ],
+        "colorCode": "#DAA520",
+        "imageUrl": null,
+        "imageName": null
+      },
+      {
+        "id": "appetizer_021",
+        "name": "Paneer Katsu Finger",
+        "category": "Appetizers",
+        "price": null,
+        "description": "Crispy golden fingers of paneer coated in seasoned breadcrumbs and served with tangy katsu sauce — a perfect blend of crunch and creaminess in every bite.",
+        "calories": 480,
+        "nutrition": {
+          "protein": 22,
+          "carbs": 28,
+          "fat": 33,
+          "sodium": 580,
+          "fiber": 2,
+          "cholesterol": 65
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "contains": "Paneer, breadcrumbs, flour, katsu sauce, spices, oil",
+        "allergens": "Gluten, Dairy, Soy",
+        "tags": [
+          "appetizer",
+          "paneer",
+          "japanese",
+          "fried",
+          "vegetarian"
+        ],
+        "colorCode": "#F5DEB3",
         "imageUrl": null,
         "imageName": null
       }

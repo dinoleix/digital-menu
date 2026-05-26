@@ -98,42 +98,44 @@ input  { font-family: inherit; }
   color: var(--text-sub);
   font-size: 15px;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
-.modal-input-wrap {
+/* ─── How-to-use guide grid ──────────────────────────────── */
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
-.modal-input-wrap label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--text-sub);
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.modal-input-wrap input {
-  width: 100%;
-  padding: 16px 20px;
+.guide-cell {
   background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  color: var(--text);
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-  transition: border-color .2s;
-  -moz-appearance: textfield;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 12px 18px;
+  gap: 10px;
 }
-.modal-input-wrap input::-webkit-inner-spin-button,
-.modal-input-wrap input::-webkit-outer-spin-button { -webkit-appearance: none; }
-.modal-input-wrap input:focus { border-color: var(--green); outline: none; }
-.modal-input-wrap input::placeholder { color: var(--text-dim); font-weight: 400; }
+
+.guide-arrow--skip { color: var(--red); }
+.guide-arrow--add  { color: var(--green); }
+
+.guide-big-emoji { font-size: 26px; line-height: 1; }
+
+.guide-filter-icon { color: var(--text-sub); }
+
+.guide-cell-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
 
 .start-btn {
   width: 100%;
@@ -152,14 +154,6 @@ input  { font-family: inherit; }
 }
 .start-btn:active { transform: scale(0.97); opacity: .9; }
 .btn-arrow { font-size: 18px; }
-
-.skip-table-btn {
-  color: var(--text-dim);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px;
-}
-.skip-table-btn:hover { color: var(--text-sub); }
 
 /* ─── Main wrapper ───────────────────────────────────────── */
 #main {

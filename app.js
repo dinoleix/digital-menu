@@ -372,12 +372,7 @@ function initInstallBanner() {
 
 /* ─── Modal ─────────────────────────────────────────────── */
 function bindModal() {
-  const input     = document.getElementById('table-input');
-  const startBtn  = document.getElementById('start-btn');
-  const skipBtn   = document.getElementById('skip-table-btn');
-
   const launch = () => {
-    state.tableNumber = input.value.trim() || '';
     document.getElementById('table-modal').classList.add('hidden');
     document.getElementById('main').classList.remove('hidden');
     const el = document.documentElement;
@@ -386,9 +381,7 @@ function bindModal() {
     initApp();
   };
 
-  startBtn.addEventListener('click', launch);
-  skipBtn.addEventListener('click', launch);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') launch(); });
+  document.getElementById('start-btn').addEventListener('click', launch);
 }
 
 /* ─── Init App ───────────────────────────────────────────── */
