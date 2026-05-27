@@ -513,26 +513,6 @@
         "imageName": "takoyaki-japanese-octopus-balls.jpg"
       },
       {
-        "id": "appetizer_002",
-        "name": "Baked Sweet & Spicy Wings",
-        "category": "Appetizers",
-        "price": 340,
-        "description": "Oven-baked chicken wings tossed in a bold blend of gochujang chili paste, tomato sauce, garlic, and sesame oil — sticky, caramelised, and loaded with flavour. Finished with toasted sesame seeds and spring onions, these wings deliver the perfect balance of sweet heat and crunch without the deep fry.",
-        "calories": null,
-        "nutrition": null,
-        "spicy": true,
-        "vegetarian": false,
-        "tags": [
-          "appetizer",
-          "wings",
-          "crispy",
-          "asian"
-        ],
-        "colorCode": "#A0522D",
-        "imageUrl": "https://greenneko.com/menu/menu_images/baked-sweet-spicy-wings.png",
-        "imageName": "baked-sweet-spicy-wings.png"
-      },
-      {
         "id": "appetizer_003",
         "name": "Chicken Katsu Finger",
         "category": "Appetizers",
@@ -1005,8 +985,8 @@
           "cookies"
         ],
         "colorCode": "#D2691E",
-        "imageUrl": "https://greenneko.com/menu/menu_images/cookies.png",
-        "imageName": "cookies.png"
+        "imageUrl": "Menuimages/cookies.jpg",
+        "imageName": "cookies.jpg"
       }
     ],
     "bobaTea": [
