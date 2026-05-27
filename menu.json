@@ -100,8 +100,8 @@
           "breakfast"
         ],
         "colorCode": "#8B008B",
-        "imageUrl": null,
-        "imageName": "acai-bowl-yogurt.png",
+        "imageUrl": "Menuimages/acai-bowl-yogurt.jpg",
+        "imageName": "acai-bowl-yogurt.jpg",
         "contains": null,
         "allergens": null,
         "signature": false
