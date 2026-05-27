@@ -865,94 +865,6 @@
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/IMG_2729.jpg",
         "imageName": "IMG_2729.jpg"
-      },
-      {
-        "id": "appetizer_019",
-        "name": "Chicken Katsu Finger",
-        "category": "Appetizers",
-        "price": 0,
-        "description": "Crispy golden chicken fingers coated in seasoned breadcrumbs, fried to perfection, and served with tangy katsu sauce — a flavorful balance of crunch, juiciness, and zest in every bite.",
-        "calories": "470",
-        "nutrition": {
-          "protein": "28",
-          "carbs": "22",
-          "fat": "32",
-          "fiber": "1",
-          "sodium": "620",
-          "cholesterol": "95"
-        },
-        "spicy": false,
-        "vegetarian": false,
-        "contains": "Chicken, breadcrumbs, egg, flour, katsu sauce, spices, oil, cabbage",
-        "allergens": "Gluten, Egg",
-        "tags": [
-          "appetizer",
-          "chicken",
-          "japanese",
-          "fried"
-        ],
-        "colorCode": "#B8860B",
-        "imageUrl": "Menuimages/chicken-katsu-finger.jpg",
-        "imageName": null,
-        "signature": false
-      },
-      {
-        "id": "appetizer_020",
-        "name": "Tofu Teriyaki",
-        "category": "Appetizers",
-        "price": null,
-        "description": "Pan-seared tofu glazed in a rich, savory-sweet teriyaki sauce and sprinkled with toasted sesame seeds — a wholesome, protein-rich dish that's light yet deeply flavorful.",
-        "calories": 290,
-        "nutrition": {
-          "protein": 22,
-          "carbs": 18,
-          "fat": 14,
-          "sodium": 640,
-          "fiber": 2
-        },
-        "spicy": false,
-        "vegetarian": true,
-        "contains": "Tofu, teriyaki sauce, sesame seed",
-        "allergens": "Soy, Sesame",
-        "tags": [
-          "appetizer",
-          "tofu",
-          "japanese",
-          "vegetarian"
-        ],
-        "colorCode": "#DAA520",
-        "imageUrl": "https://greenneko.com/menu/menu_images/teriyaki-tofu.png",
-        "imageName": "teriyaki-tofu.png"
-      },
-      {
-        "id": "appetizer_021",
-        "name": "Paneer Katsu Finger",
-        "category": "Appetizers",
-        "price": null,
-        "description": "Crispy golden fingers of paneer coated in seasoned breadcrumbs and served with tangy katsu sauce — a perfect blend of crunch and creaminess in every bite.",
-        "calories": 480,
-        "nutrition": {
-          "protein": 22,
-          "carbs": 28,
-          "fat": 33,
-          "sodium": 580,
-          "fiber": 2,
-          "cholesterol": 65
-        },
-        "spicy": false,
-        "vegetarian": true,
-        "contains": "Paneer, breadcrumbs, flour, katsu sauce, spices, oil",
-        "allergens": "Gluten, Dairy, Soy",
-        "tags": [
-          "appetizer",
-          "paneer",
-          "japanese",
-          "fried",
-          "vegetarian"
-        ],
-        "colorCode": "#F5DEB3",
-        "imageUrl": "Menuimages/paneer-katsu-finger.jpg",
-        "imageName": "paneer-katsu-finger.jpg"
       }
     ],
     "donburi": [
@@ -1688,7 +1600,8 @@
         ],
         "colorCode": "#6B3A2A",
         "imageUrl": "Menuimages/vietnamese-coffee.jpg",
-        "imageName": "vietnamese-coffee.jpg"
+        "imageName": "vietnamese-coffee.jpg",
+        "priceLarge": 210
       },
       {
         "id": "coffee_004",
@@ -1711,7 +1624,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/americano.jpg",
-        "imageName": "americano.jpg"
+        "imageName": "americano.jpg",
+        "priceLarge": 220
       },
       {
         "id": "coffee_005",
@@ -1734,7 +1648,8 @@
         ],
         "colorCode": "#A0522D",
         "imageUrl": "Menuimages/cappuccino.jpg",
-        "imageName": "cappuccino.jpg"
+        "imageName": "cappuccino.jpg",
+        "priceLarge": 250
       },
       {
         "id": "coffee_006",
@@ -1757,7 +1672,8 @@
         ],
         "colorCode": "#C4A882",
         "imageUrl": "Menuimages/latte.jpg",
-        "imageName": "latte.jpg"
+        "imageName": "latte.jpg",
+        "priceLarge": 250
       },
       {
         "id": "coffee_007",
@@ -1781,7 +1697,8 @@
         ],
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/mocha.jpg",
-        "imageName": "mocha.jpg"
+        "imageName": "mocha.jpg",
+        "priceLarge": 280
       },
       {
         "id": "coffee_008",
@@ -1850,7 +1767,8 @@
         ],
         "colorCode": "#6B3A2A",
         "imageUrl": "Menuimages/iced-vietnamese-coffee.jpg",
-        "imageName": "iced-vietnamese-coffee.jpg"
+        "imageName": "iced-vietnamese-coffee.jpg",
+        "priceLarge": 290
       },
       {
         "id": "coffee_011",
@@ -1873,7 +1791,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-americano.jpg",
-        "imageName": "iced-americano.jpg"
+        "imageName": "iced-americano.jpg",
+        "priceLarge": 290
       },
       {
         "id": "coffee_012",
@@ -1896,7 +1815,8 @@
         ],
         "colorCode": "#A0522D",
         "imageUrl": "Menuimages/iced-cappuccino.jpg",
-        "imageName": "iced-cappuccino.jpg"
+        "imageName": "iced-cappuccino.jpg",
+        "priceLarge": 310
       },
       {
         "id": "coffee_013",
@@ -1919,7 +1839,8 @@
         ],
         "colorCode": "#C4A882",
         "imageUrl": "Menuimages/iced-latte.jpg",
-        "imageName": "iced-latte.jpg"
+        "imageName": "iced-latte.jpg",
+        "priceLarge": 310
       },
       {
         "id": "coffee_014",
@@ -1943,7 +1864,8 @@
         ],
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/iced-mocha.jpg",
-        "imageName": "iced-mocha.jpg"
+        "imageName": "iced-mocha.jpg",
+        "priceLarge": 340
       },
       {
         "id": "coffee_015",
@@ -1967,7 +1889,8 @@
         ],
         "colorCode": "#FF8C00",
         "imageUrl": "Menuimages/iced-orange-coffee.jpg",
-        "imageName": "iced-orange-coffee.jpg"
+        "imageName": "iced-orange-coffee.jpg",
+        "priceLarge": 350
       },
       {
         "id": "coffee_016",
@@ -1991,7 +1914,8 @@
         ],
         "colorCode": "#9ACD32",
         "imageUrl": "Menuimages/iced-lime-coffee.jpg",
-        "imageName": "iced-lime-coffee.jpg"
+        "imageName": "iced-lime-coffee.jpg",
+        "priceLarge": 350
       },
       {
         "id": "coffee_017",
@@ -2015,7 +1939,8 @@
         ],
         "colorCode": "#FFFACD",
         "imageUrl": "Menuimages/iced-coffee-french-vanilla.jpg",
-        "imageName": "iced-coffee-french-vanilla.jpg"
+        "imageName": "iced-coffee-french-vanilla.jpg",
+        "priceLarge": 280
       },
       {
         "id": "coffee_018",
@@ -2038,13 +1963,15 @@
         ],
         "colorCode": "#228B22",
         "imageUrl": "Menuimages/matcha-latte.jpg",
-        "imageName": "matcha-latte.jpg"
+        "imageName": "matcha-latte.jpg",
+        "priceIced": 300,
+        "priceIcedLarge": 350
       },
       {
         "id": "coffee_019",
         "name": "Matcha Iced Tea",
         "category": "Coffee",
-        "price": 300,
+        "price": null,
         "description": "Premium matcha dissolved in cold water and served over ice — clean, refreshing, and subtly earthy. A lighter, dairy-free way to enjoy the depth of ceremonial matcha.",
         "calories": 40,
         "nutrition": {
@@ -2061,7 +1988,9 @@
         ],
         "colorCode": "#32CD32",
         "imageUrl": "Menuimages/matcha-iced-tea.jpg",
-        "imageName": "matcha-iced-tea.jpg"
+        "imageName": "matcha-iced-tea.jpg",
+        "priceIced": 300,
+        "priceIcedLarge": 350
       },
       {
         "id": "coffee_020",
@@ -2085,7 +2014,8 @@
         ],
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/strawberry-matcha-latte.jpg",
-        "imageName": "strawberry-matcha-latte.jpg"
+        "imageName": "strawberry-matcha-latte.jpg",
+        "priceIced": 360
       },
       {
         "id": "coffee_021",
@@ -2109,7 +2039,8 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-matcha.jpg",
-        "imageName": "mango-matcha.jpg"
+        "imageName": "mango-matcha.jpg",
+        "priceIced": 300
       },
       {
         "id": "coffee_022",
@@ -2132,7 +2063,9 @@
         ],
         "colorCode": "#FF8C00",
         "imageUrl": "Menuimages/thai-tea-latte.jpg",
-        "imageName": "thai-tea-latte.jpg"
+        "imageName": "thai-tea-latte.jpg",
+        "priceIced": 260,
+        "priceIcedLarge": 300
       },
       {
         "id": "coffee_023",
@@ -2155,7 +2088,8 @@
         ],
         "colorCode": "#8B0000",
         "imageUrl": "Menuimages/sumac-berry-tea.jpg",
-        "imageName": "sumac-berry-tea.jpg"
+        "imageName": "sumac-berry-tea.jpg",
+        "priceIced": 200
       },
       {
         "id": "coffee_024",
@@ -2179,7 +2113,8 @@
         ],
         "colorCode": "#DC143C",
         "imageUrl": "Menuimages/fruity-roselle-tea.jpg",
-        "imageName": "fruity-roselle-tea.jpg"
+        "imageName": "fruity-roselle-tea.jpg",
+        "priceIced": 200
       },
       {
         "id": "coffee_025",
@@ -2202,7 +2137,8 @@
         ],
         "colorCode": "#4B0082",
         "imageUrl": "Menuimages/forbidden-rice-tea.jpg",
-        "imageName": "forbidden-rice-tea.jpg"
+        "imageName": "forbidden-rice-tea.jpg",
+        "priceIced": 200
       }
     ]
   }
