@@ -715,7 +715,8 @@ function stackCards() {
 
 /* ─── Drag / Swipe ───────────────────────────────────────── */
 function attachDrag(card) {
-  if (!card) return;
+  if (!card || card._dragAttached) return;
+  card._dragAttached = true;
 
   let startX = 0, startY = 0, dragging = false;
 
@@ -822,6 +823,11 @@ function executeSwipe(cardEl, direction) {
   cardEl.style.pointerEvents = 'none';
 
   state.currentIndex++;
+
+  // Attach drag to the next card immediately — don't wait for fly + promote timeouts
+  const cards = stackCards();
+  const nextTop = cards[cards.length - 2];
+  if (nextTop) attachDrag(nextTop);
 
   setTimeout(() => {
     cardEl.remove();

@@ -42,8 +42,8 @@
           "breakfast"
         ],
         "colorCode": "#F5DEB3",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/french-toast-cloud-fruits.jpg",
+        "imageName": "french-toast-cloud-fruits.jpg"
       },
       {
         "id": "breakfast_003",
@@ -100,8 +100,11 @@
           "breakfast"
         ],
         "colorCode": "#8B008B",
-        "imageUrl": "https://greenneko.com/menu/menu_images/acai-bowl-yogurt.png",
-        "imageName": "acai-bowl-yogurt.png"
+        "imageUrl": null,
+        "imageName": "acai-bowl-yogurt.png",
+        "contains": null,
+        "allergens": null,
+        "signature": false
       },
       {
         "id": "breakfast_006",
@@ -120,8 +123,8 @@
           "matcha"
         ],
         "colorCode": "#4CAF50",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/matcha-souffle-pancake.jpg",
+        "imageName": "matcha-souffle-pancake.jpg"
       },
       {
         "id": "breakfast_007",
@@ -140,8 +143,8 @@
           "chocolate"
         ],
         "colorCode": "#4A2C0A",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/chocolate-souffle-pancake.jpg",
+        "imageName": "chocolate-souffle-pancake.jpg"
       },
       {
         "id": "breakfast_008",
@@ -159,8 +162,8 @@
           "breakfast"
         ],
         "colorCode": "#F5DEB3",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/french-toast-cloud-plain.jpg",
+        "imageName": "french-toast-cloud-plain.jpg"
       }
     ],
     "ramen": [
@@ -269,8 +272,8 @@
           "spicy"
         ],
         "colorCode": "#CC3300",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/chicken-tantan-ramen.jpg",
+        "imageName": "chicken-tantan-ramen.jpg"
       },
       {
         "id": "ramen_005",
@@ -290,8 +293,8 @@
           "spicy"
         ],
         "colorCode": "#CC5500",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/chicken-tantan-ramen.jpg",
+        "imageName": "chicken-tantan-ramen.jpg"
       },
       {
         "id": "ramen_006",
@@ -310,8 +313,8 @@
           "noodles"
         ],
         "colorCode": "#FF69B4",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/naruto-ramen.jpg",
+        "imageName": "naruto-ramen.jpg"
       }
     ],
     "pokeBowls": [
@@ -740,8 +743,8 @@
           "japanese"
         ],
         "colorCode": "#D2691E",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/Chicken-gyoza.jpeg",
+        "imageName": "Chicken-gyoza.jpeg"
       },
       {
         "id": "appetizer_013",
@@ -780,8 +783,8 @@
           "japanese"
         ],
         "colorCode": "#F5F5DC",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/chicken-onigiri.jpg",
+        "imageName": "chicken-onigiri.jpg"
       },
       {
         "id": "appetizer_015",
@@ -800,8 +803,8 @@
           "sando"
         ],
         "colorCode": "#FFFACD",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/tamago-sando.jpg",
+        "imageName": "tamago-sando.jpg"
       },
       {
         "id": "appetizer_016",
@@ -820,8 +823,8 @@
           "cheese"
         ],
         "colorCode": "#FFD700",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/Chicken-gyoza.jpeg",
+        "imageName": "Chicken-gyoza.jpeg"
       },
       {
         "id": "appetizer_017",
@@ -840,8 +843,8 @@
           "vegetarian"
         ],
         "colorCode": "#F5F5DC",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/paneer-onigiri.jpg",
+        "imageName": "paneer-onigiri.jpg"
       },
       {
         "id": "appetizer_018",
@@ -860,8 +863,8 @@
           "vegan"
         ],
         "colorCode": "#DAA520",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/IMG_2729.jpg",
+        "imageName": "IMG_2729.jpg"
       },
       {
         "id": "appetizer_019",
@@ -918,8 +921,8 @@
           "vegetarian"
         ],
         "colorCode": "#DAA520",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "https://greenneko.com/menu/menu_images/teriyaki-tofu.png",
+        "imageName": "teriyaki-tofu.png"
       },
       {
         "id": "appetizer_021",
@@ -948,8 +951,8 @@
           "vegetarian"
         ],
         "colorCode": "#F5DEB3",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/paneer-katsu-finger.jpg",
+        "imageName": "paneer-katsu-finger.jpg"
       }
     ],
     "donburi": [
@@ -1051,8 +1054,8 @@
           "rice"
         ],
         "colorCode": "#CD853F",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/chicken-teriyaki-don.jpg",
+        "imageName": "chicken-teriyaki-don.jpg"
       }
     ],
     "teaDesserts": [
@@ -1080,7 +1083,7 @@
         "name": "Cookies",
         "category": "Tea & Desserts",
         "price": null,
-        "description": "Cookies",
+        "description": "Freshly baked butter cookies with a melt-in-your-mouth crumb — golden, lightly crisp on the edges, and perfectly sweet. Ask our team for today's flavour.",
         "calories": null,
         "nutrition": null,
         "spicy": false,
@@ -1554,8 +1557,8 @@
           "milk"
         ],
         "colorCode": "#9370DB",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/taro-milk-boba.jpg",
+        "imageName": "taro-milk-boba.jpg"
       },
       {
         "id": "boba_019",
@@ -1573,8 +1576,8 @@
           "green tea"
         ],
         "colorCode": "#DC143C",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/raspberry-popping-boba.jpg",
+        "imageName": "raspberry-popping-boba.jpg"
       },
       {
         "id": "boba_020",
@@ -1592,8 +1595,8 @@
           "sparkling"
         ],
         "colorCode": "#FFDAB9",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/peachy-fuzz.jpg",
+        "imageName": "peachy-fuzz.jpg"
       },
       {
         "id": "boba_021",
@@ -1610,8 +1613,11 @@
           "sparkling"
         ],
         "colorCode": "#FFB6C1",
-        "imageUrl": null,
-        "imageName": null
+        "imageUrl": "Menuimages/blush-fuzz.jpg",
+        "imageName": null,
+        "contains": null,
+        "allergens": null,
+        "signature": false
       }
     ],
     "coffee": [
