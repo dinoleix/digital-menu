@@ -1291,6 +1291,90 @@ input  { font-family: inherit; }
   justify-content: center;
 }
 
+/* ─── Size Picker Sheet ──────────────────────────────────── */
+.size-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.size-sheet {
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 24px 24px 0 0;
+  padding: 12px 24px calc(var(--safe-bottom) + 24px);
+  animation: slideUp .32s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.size-item-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin: 8px 0 4px;
+  line-height: 1.3;
+}
+
+.size-label {
+  font-size: 12px;
+  color: var(--text-sub);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.size-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.size-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.size-btn:active { transform: scale(0.96); }
+
+.size-btn--large {
+  background: rgba(74,222,128,0.1);
+  border-color: rgba(74,222,128,0.4);
+}
+
+.size-btn-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-sub);
+}
+
+.size-btn-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.size-btn--large .size-btn-price { color: var(--green); }
+
+.size-close-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+  transition: color .15s;
+}
+.size-close-btn:active { color: var(--text-sub); }
+
 /* ─── Extras Overlay ─────────────────────────────────────── */
 .extras-overlay {
   position: fixed;

@@ -861,6 +861,39 @@ function springBack(card) {
   });
 }
 
+/* ─── Size Picker Sheet ──────────────────────────────────── */
+function showSizeSheet(item) {
+  const sheet = document.getElementById('size-sheet');
+  const overlay = document.getElementById('size-overlay');
+
+  document.getElementById('size-item-name').textContent = item.name;
+  document.getElementById('size-reg-price').textContent  = `₹${item.price}`;
+  document.getElementById('size-large-price').textContent = `₹${item.priceLarge}`;
+
+  let dismissTimer;
+
+  function pick(size) {
+    clearTimeout(dismissTimer);
+    overlay.classList.add('hidden');
+    if (size === 'regular') {
+      addToCart(item, 1);
+    } else {
+      addToCart({ ...item, id: item.id + '_L', name: item.name + ' (Large)', price: item.priceLarge }, 1);
+    }
+  }
+
+  document.getElementById('size-btn-reg').onclick   = () => pick('regular');
+  document.getElementById('size-btn-large').onclick = () => pick('large');
+  document.getElementById('size-close-btn').onclick = () => {
+    clearTimeout(dismissTimer);
+    overlay.classList.add('hidden');
+    addToCart(item, 1); // default to regular on dismiss
+  };
+
+  overlay.classList.remove('hidden');
+  dismissTimer = setTimeout(() => { overlay.classList.add('hidden'); addToCart(item, 1); }, 8000);
+}
+
 /* ─── Execute Swipe ──────────────────────────────────────── */
 function executeSwipe(cardEl, direction) {
   const itemId = cardEl.dataset.itemId;
@@ -871,7 +904,11 @@ function executeSwipe(cardEl, direction) {
   if (state.history.length > 15) state.history.shift();
 
   if (direction === 'right') {
-    addToCart(item, 1);
+    if (item.priceLarge != null) {
+      showSizeSheet(item);
+    } else {
+      addToCart(item, 1);
+    }
   }
 
   // Fly off screen

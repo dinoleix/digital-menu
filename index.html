@@ -196,6 +196,26 @@
       </div>
     </div>
 
+    <!-- ── Size Picker Sheet ─────────────────────────────── -->
+    <div id="size-overlay" class="size-overlay hidden">
+      <div id="size-sheet" class="size-sheet">
+        <div class="cart-drag-handle"></div>
+        <p class="size-item-name" id="size-item-name"></p>
+        <p class="size-label">Choose your size</p>
+        <div class="size-options">
+          <button id="size-btn-reg" class="size-btn">
+            <span class="size-btn-label">Regular</span>
+            <span class="size-btn-price" id="size-reg-price"></span>
+          </button>
+          <button id="size-btn-large" class="size-btn size-btn--large">
+            <span class="size-btn-label">Large</span>
+            <span class="size-btn-price" id="size-large-price"></span>
+          </button>
+        </div>
+        <button id="size-close-btn" class="size-close-btn">Skip — add Regular</button>
+      </div>
+    </div>
+
     <!-- ── Toast ─────────────────────────────────────────── -->
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
