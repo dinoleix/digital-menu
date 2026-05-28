@@ -6,6 +6,7 @@ const state = {
   filtered:        [],
   currentIndex:    0,
   cart:            [],   // [{id, name, price, image, quantity}]
+  addOns:          [],   // [{id, name, quantity, price}]
   category:        'All',
   tableNumber:     '',
   history:         [],   // [{item, direction}] for undo
@@ -298,6 +299,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     state.config = data.cafe || {};
   }
   state.allItems = allItems;
+  state.addOns   = data.addOns || [];
   loadFilterPrefs();
   applyFilters();
 
@@ -469,7 +471,7 @@ function initFilters() {
 /* ─── Categories ─────────────────────────────────────────── */
 function renderCategories() {
   const el   = document.getElementById('categories');
-  const cats = ['All', ...new Set(state.allItems.map(i => i.category))];
+  const cats = ['All', ...new Set(state.allItems.map(i => i.category)), 'Extras'];
 
   el.innerHTML = cats.map(cat => `
     <button class="cat-tab${cat === state.category ? ' active' : ''}"
@@ -534,15 +536,70 @@ function scrollActiveTabIntoView(smooth = true) {
 function setCategory(cat) {
   if (cat === state.category) return;
   state.category = cat;
-  applyFilters();
 
   document.querySelectorAll('.cat-tab').forEach(b =>
     b.classList.toggle('active', b.dataset.cat === cat)
   );
   scrollActiveTabIntoView(true);
 
+  const extrasOverlay = document.getElementById('extras-overlay');
+
+  if (cat === 'Extras') {
+    extrasOverlay.classList.remove('hidden');
+    document.getElementById('card-stack').innerHTML = '';
+    document.getElementById('empty-state').classList.add('hidden');
+    document.getElementById('swipe-buttons').classList.add('hidden');
+    renderExtrasGrid();
+    return;
+  }
+
+  extrasOverlay.classList.add('hidden');
+  applyFilters();
   document.getElementById('card-stack').innerHTML = '';
   renderStack();
+}
+
+/* ─── Extras Grid ────────────────────────────────────────── */
+function renderExtrasGrid() {
+  const grid = document.getElementById('extras-grid');
+  if (!grid) return;
+
+  grid.innerHTML = state.addOns.map(addon => {
+    const cartEntry = state.cart.find(c => c.id === addon.id);
+    const qty = cartEntry ? cartEntry.quantity : 0;
+    return `
+      <div class="addon-card${qty > 0 ? ' addon-card--active' : ''}">
+        <div class="addon-top">
+          <div class="addon-name">${escHtml(addon.name)}</div>
+          ${addon.quantity ? `<div class="addon-weight">${escHtml(addon.quantity)}</div>` : ''}
+        </div>
+        <div class="addon-bottom">
+          <span class="addon-price">+₹${addon.price}</span>
+          <div class="addon-counter">
+            ${qty > 0 ? `<button class="addon-dec" data-id="${escAttr(addon.id)}">−</button>
+            <span class="addon-count">${qty}</span>` : ''}
+            <button class="addon-inc" data-id="${escAttr(addon.id)}">+</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.addon-inc').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const addon = state.addOns.find(a => a.id === btn.dataset.id);
+      if (!addon) return;
+      addToCart(addon, 1);
+      renderExtrasGrid();
+    });
+  });
+
+  grid.querySelectorAll('.addon-dec').forEach(btn => {
+    btn.addEventListener('click', () => {
+      removeFromCart(btn.dataset.id, 1);
+      renderExtrasGrid();
+    });
+  });
 }
 
 /* ─── Card Stack ─────────────────────────────────────────── */
@@ -1005,7 +1062,9 @@ function renderCartItems() {
 
   container.innerHTML = state.cart.map(c => `
     <div class="cart-item" data-id="${c.id}">
-      <img class="cart-item-img" src="${escAttr(c.image)}" alt="${escAttr(c.name)}" loading="lazy" />
+      ${c.image
+        ? `<img class="cart-item-img" src="${escAttr(c.image)}" alt="" loading="lazy" />`
+        : `<div class="cart-item-img cart-item-img--addon">+</div>`}
       <div class="cart-item-info">
         <div class="cart-item-name">${escHtml(c.name)}</div>
         <div class="cart-item-price">${c.price != null ? `₹${(c.price * c.quantity).toFixed(2)}` : 'See menu'}</div>
@@ -1037,6 +1096,32 @@ function renderCartItems() {
 
   const total = state.cart.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
   totalEl.textContent = `₹${total.toFixed(2)}`;
+
+  // Upsell strip — add-ons horizontal scroll
+  if (state.addOns.length > 0) {
+    const strip = document.createElement('div');
+    strip.className = 'cart-upsell';
+    strip.innerHTML = `
+      <p class="cart-upsell-title">✦ Enhance your order</p>
+      <div class="cart-upsell-chips">
+        ${state.addOns.map(addon => `
+          <button class="upsell-chip" data-id="${escAttr(addon.id)}">
+            <span class="upsell-chip-name">${escHtml(addon.name)}</span>
+            <span class="upsell-chip-price">+₹${addon.price}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(strip);
+    strip.querySelectorAll('.upsell-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const addon = state.addOns.find(a => a.id === chip.dataset.id);
+        if (!addon) return;
+        addToCart(addon, 1);
+        renderCartItems();
+      });
+    });
+  }
 }
 
 /* ─── Counter View ────────────────────────────────────────── */

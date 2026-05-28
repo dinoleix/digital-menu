@@ -2121,5 +2121,85 @@
         "priceIced": 200
       }
     ]
-  }
+  },
+  "addOns": [
+    {
+      "id": "addon_001",
+      "name": "Extra Chicken",
+      "quantity": "70g",
+      "price": 100
+    },
+    {
+      "id": "addon_002",
+      "name": "Extra Tuna",
+      "quantity": "75g",
+      "price": 250
+    },
+    {
+      "id": "addon_003",
+      "name": "Extra Shrimp",
+      "quantity": "80g",
+      "price": 250
+    },
+    {
+      "id": "addon_004",
+      "name": "Extra Salmon",
+      "quantity": "65g",
+      "price": 300
+    },
+    {
+      "id": "addon_005",
+      "name": "Extra Egg",
+      "quantity": null,
+      "price": 50
+    },
+    {
+      "id": "addon_006",
+      "name": "Extra Tofu",
+      "quantity": "70g",
+      "price": 100
+    },
+    {
+      "id": "addon_007",
+      "name": "Extra Rice",
+      "quantity": "130g",
+      "price": 100
+    },
+    {
+      "id": "addon_008",
+      "name": "Extra Paneer",
+      "quantity": "70g",
+      "price": 100
+    },
+    {
+      "id": "addon_009",
+      "name": "Extra Poke Sauce",
+      "quantity": null,
+      "price": 40
+    },
+    {
+      "id": "addon_010",
+      "name": "Extra Seaweed",
+      "quantity": null,
+      "price": 30
+    },
+    {
+      "id": "addon_011",
+      "name": "Extra Waffle Sauce",
+      "quantity": null,
+      "price": 50
+    },
+    {
+      "id": "addon_012",
+      "name": "Extra Boba",
+      "quantity": null,
+      "price": 30
+    },
+    {
+      "id": "addon_013",
+      "name": "Extra Milk",
+      "quantity": "50ml",
+      "price": 30
+    }
+  ]
 }
