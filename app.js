@@ -305,6 +305,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   registerSW();
   initInstallBanner();
+  initMuteToggle();
   bindModal();
 });
 
@@ -589,6 +590,7 @@ function renderExtrasGrid() {
     btn.addEventListener('click', () => {
       const addon = state.addOns.find(a => a.id === btn.dataset.id);
       if (!addon) return;
+      playSound('add');
       addToCart(addon, 1);
       renderExtrasGrid();
     });
@@ -875,6 +877,7 @@ function showSizeSheet(item) {
   function pick(size) {
     clearTimeout(dismissTimer);
     overlay.classList.add('hidden');
+    playSound('add');
     if (size === 'regular') {
       addToCart(item, 1);
     } else {
@@ -904,11 +907,14 @@ function executeSwipe(cardEl, direction) {
   if (state.history.length > 15) state.history.shift();
 
   if (direction === 'right') {
+    playSound('right');
     if (item.priceLarge != null) {
       showSizeSheet(item);
     } else {
       addToCart(item, 1);
     }
+  } else {
+    playSound('left');
   }
 
   // Fly off screen
@@ -991,6 +997,7 @@ function triggerSwipe(direction) {
 function undoLast() {
   const last = state.history.pop();
   if (!last) { showToast('Nothing to undo'); return; }
+  playSound('undo');
 
   if (last.direction === 'right') {
     removeFromCart(last.item.id, last.qty);
@@ -1167,6 +1174,7 @@ function renderCartItems() {
       chip.addEventListener('click', () => {
         const addon = state.addOns.find(a => a.id === chip.dataset.id);
         if (!addon) return;
+        playSound('add');
         addToCart(addon, 1);
         renderCartItems();
       });
@@ -1239,6 +1247,92 @@ function showToast(msg) {
   el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+/* ─── Sound Design ───────────────────────────────────────── */
+let _audioCtx = null;
+function getAudioCtx() {
+  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (_audioCtx.state === 'suspended') _audioCtx.resume();
+  return _audioCtx;
+}
+
+function isMuted() { return localStorage.getItem('gn_mute') === '1'; }
+
+function playSound(type) {
+  if (isMuted()) return;
+  try {
+    const ctx = getAudioCtx();
+    if      (type === 'right') playSoundRight(ctx);
+    else if (type === 'left')  playSoundLeft(ctx);
+    else if (type === 'add')   playSoundAdd(ctx);
+    else if (type === 'undo')  playSoundUndo(ctx);
+  } catch(e) { /* silent fail — AudioContext blocked */ }
+}
+
+function playSoundRight(ctx) {
+  // Ascending two-note chime: C6 → E6
+  [1047, 1319].forEach((freq, i) => {
+    const osc = ctx.createOscillator(), g = ctx.createGain();
+    osc.connect(g); g.connect(ctx.destination);
+    osc.type = 'sine'; osc.frequency.value = freq;
+    const t = ctx.currentTime + i * 0.11;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(0.22, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.45);
+    osc.start(t); osc.stop(t + 0.45);
+  });
+}
+
+function playSoundLeft(ctx) {
+  // Downward sawtooth whoosh
+  const osc = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+  osc.connect(f); f.connect(g); g.connect(ctx.destination);
+  osc.type = 'sawtooth'; f.type = 'bandpass'; f.frequency.value = 600; f.Q.value = 0.6;
+  const t = ctx.currentTime;
+  osc.frequency.setValueAtTime(550, t);
+  osc.frequency.exponentialRampToValueAtTime(70, t + 0.22);
+  g.gain.setValueAtTime(0.12, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+  osc.start(t); osc.stop(t + 0.22);
+}
+
+function playSoundAdd(ctx) {
+  // Short soft pop
+  const osc = ctx.createOscillator(), g = ctx.createGain();
+  osc.connect(g); g.connect(ctx.destination);
+  osc.type = 'sine';
+  const t = ctx.currentTime;
+  osc.frequency.setValueAtTime(540, t);
+  osc.frequency.exponentialRampToValueAtTime(260, t + 0.07);
+  g.gain.setValueAtTime(0.28, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.07);
+  osc.start(t); osc.stop(t + 0.07);
+}
+
+function playSoundUndo(ctx) {
+  // Descending two-note: E6 → C6
+  [1319, 1047].forEach((freq, i) => {
+    const osc = ctx.createOscillator(), g = ctx.createGain();
+    osc.connect(g); g.connect(ctx.destination);
+    osc.type = 'sine'; osc.frequency.value = freq;
+    const t = ctx.currentTime + i * 0.09;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(0.16, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+    osc.start(t); osc.stop(t + 0.3);
+  });
+}
+
+function initMuteToggle() {
+  const btn = document.getElementById('mute-btn');
+  if (!btn) return;
+  const update = () => btn.textContent = isMuted() ? '🔇' : '🔔';
+  update();
+  btn.addEventListener('click', () => {
+    localStorage.setItem('gn_mute', isMuted() ? '0' : '1');
+    update();
+  });
 }
 
 /* ─── Utilities ──────────────────────────────────────────── */
