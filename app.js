@@ -650,7 +650,12 @@ function buildCard(item, pos) {
   const hasCalories   = item.calories != null;
   const n             = item.nutrition || {};
   const hasNutrition  = hasCalories || Object.values(n).some(v => v != null);
-  const priceStr      = item.price != null ? `₹${item.price.toFixed(2)}` : 'See menu';
+  const priceStr = (() => {
+    if (item.price == null) return 'See menu';
+    const reg = `₹${item.price}`;
+    if (item.priceLarge != null) return `${reg} <span class="price-large">· L ₹${item.priceLarge}</span>`;
+    return reg;
+  })();
 
   const spicyHtml = spicyLevel > 0 ? `<span class="badge badge-spicy">${'🌶'.repeat(spicyLevel)}</span>` : '';
   const vegHtml   = item.vegetarian ? `<span class="badge badge-veg">🌿</span>` : '';
