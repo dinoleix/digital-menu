@@ -1168,8 +1168,11 @@
         "imageName": "thai-tea-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 300
       },
       {
         "id": "boba_002",
@@ -1198,8 +1201,11 @@
         "imageName": "vietnamese-coffee-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 320
       },
       {
         "id": "boba_003",
@@ -1228,8 +1234,11 @@
         "imageName": "matcha-tea-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 390
       },
       {
         "id": "boba_004",
@@ -1258,8 +1267,11 @@
         "imageName": "brown-sugar-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_005",
@@ -1288,8 +1300,11 @@
         "imageName": "caramel-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_006",
@@ -1318,8 +1333,11 @@
         "imageName": "chocolate-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_007",
@@ -1348,8 +1366,11 @@
         "imageName": "strawberry-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_008",
@@ -1378,8 +1399,11 @@
         "imageName": "mango-boba-milk.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_009",
@@ -1408,8 +1432,11 @@
         "imageName": "blueberry-boba-milk-tea.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_010",
@@ -1438,8 +1465,11 @@
         "imageName": "passion-fruit-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_011",
@@ -1468,8 +1498,11 @@
         "imageName": "lychee-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_012",
@@ -1498,8 +1531,11 @@
         "imageName": "strawberry-matcha-tea-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 390
       },
       {
         "id": "boba_013",
@@ -1528,8 +1564,11 @@
         "imageName": "strawberry-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_014",
@@ -1558,8 +1597,11 @@
         "imageName": "mango-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_015",
@@ -1588,8 +1630,11 @@
         "imageName": "peach-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_016",
@@ -1618,8 +1663,11 @@
         "imageName": "passion-fruit-peach-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_017",
@@ -1648,8 +1696,11 @@
         "imageName": "mango-matcha-green-tea-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 330
       },
       {
         "id": "boba_018",
@@ -1671,8 +1722,11 @@
         "imageName": "taro-milk-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 330
       },
       {
         "id": "boba_019",
@@ -1694,8 +1748,11 @@
         "imageName": "raspberry-popping-boba.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 290
       },
       {
         "id": "boba_020",
@@ -1717,8 +1774,11 @@
         "imageName": "peachy-fuzz.jpg",
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 249
       },
       {
         "id": "boba_021",
@@ -1742,8 +1802,11 @@
         "signature": false,
         "addOnIds": [
           "addon_012",
-          "addon_013"
-        ]
+          "addon_013",
+          "addon_014",
+          "addon_015"
+        ],
+        "priceLarge": 249
       }
     ],
     "coffee": [
@@ -1819,7 +1882,8 @@
         "imageName": "vietnamese-coffee.jpg",
         "priceLarge": 210,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -1871,7 +1935,8 @@
         "imageName": "cappuccino.jpg",
         "priceLarge": 250,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -1898,7 +1963,8 @@
         "imageName": "latte.jpg",
         "priceLarge": 250,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -1926,7 +1992,8 @@
         "imageName": "mocha.jpg",
         "priceLarge": 280,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2001,7 +2068,8 @@
         "imageName": "iced-vietnamese-coffee.jpg",
         "priceLarge": 290,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2053,7 +2121,8 @@
         "imageName": "iced-cappuccino.jpg",
         "priceLarge": 310,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2080,7 +2149,8 @@
         "imageName": "iced-latte.jpg",
         "priceLarge": 310,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2108,7 +2178,8 @@
         "imageName": "iced-mocha.jpg",
         "priceLarge": 340,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2188,7 +2259,8 @@
         "imageName": "iced-coffee-french-vanilla.jpg",
         "priceLarge": 280,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2216,7 +2288,8 @@
         "priceIced": 300,
         "priceIcedLarge": 350,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2244,7 +2317,8 @@
         "priceIced": 300,
         "priceIcedLarge": 350,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2272,7 +2346,8 @@
         "imageName": "strawberry-matcha-latte.jpg",
         "priceIced": 360,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2300,7 +2375,8 @@
         "imageName": "mango-matcha.jpg",
         "priceIced": 300,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2328,7 +2404,8 @@
         "priceIced": 260,
         "priceIcedLarge": 300,
         "addOnIds": [
-          "addon_013"
+          "addon_013",
+          "addon_014"
         ]
       },
       {
@@ -2487,6 +2564,18 @@
       "name": "Extra Milk",
       "quantity": "50ml",
       "price": 30
+    },
+    {
+      "id": "addon_014",
+      "name": "Non-Dairy Option",
+      "quantity": null,
+      "price": 50
+    },
+    {
+      "id": "addon_015",
+      "name": "Cream Cheese Topping",
+      "quantity": null,
+      "price": 40
     }
   ]
 }
