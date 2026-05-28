@@ -24,7 +24,10 @@
         ],
         "colorCode": "#6B4423",
         "imageUrl": "Menuimages/avocado-toast-non-veg.jpg",
-        "imageName": "avocado-toast-non-veg.jpg"
+        "imageName": "avocado-toast-non-veg.jpg",
+        "addOnIds": [
+          "addon_005"
+        ]
       },
       {
         "id": "breakfast_002",
@@ -43,7 +46,8 @@
         ],
         "colorCode": "#F5DEB3",
         "imageUrl": "Menuimages/french-toast-cloud-fruits.jpg",
-        "imageName": "french-toast-cloud-fruits.jpg"
+        "imageName": "french-toast-cloud-fruits.jpg",
+        "addOnIds": []
       },
       {
         "id": "breakfast_003",
@@ -62,7 +66,8 @@
         ],
         "colorCode": "#FFE4B5",
         "imageUrl": "Menuimages/neko-soufflé-pancake.jpg",
-        "imageName": "neko-soufflé-pancake.jpg"
+        "imageName": "neko-soufflé-pancake.jpg",
+        "addOnIds": []
       },
       {
         "id": "breakfast_004",
@@ -82,7 +87,8 @@
         ],
         "colorCode": "#8B008B",
         "imageUrl": "Menuimages/acai-bowl-peanut-butter.jpg",
-        "imageName": "acai-bowl-peanut-butter.jpg"
+        "imageName": "acai-bowl-peanut-butter.jpg",
+        "addOnIds": []
       },
       {
         "id": "breakfast_005",
@@ -104,7 +110,8 @@
         "imageName": "acai-bowl-yogurt.jpg",
         "contains": null,
         "allergens": null,
-        "signature": false
+        "signature": false,
+        "addOnIds": []
       },
       {
         "id": "breakfast_006",
@@ -124,7 +131,8 @@
         ],
         "colorCode": "#4CAF50",
         "imageUrl": "Menuimages/matcha-souffle-pancake.jpg",
-        "imageName": "matcha-souffle-pancake.jpg"
+        "imageName": "matcha-souffle-pancake.jpg",
+        "addOnIds": []
       },
       {
         "id": "breakfast_007",
@@ -144,7 +152,8 @@
         ],
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/chocolate-souffle-pancake.jpg",
-        "imageName": "chocolate-souffle-pancake.jpg"
+        "imageName": "chocolate-souffle-pancake.jpg",
+        "addOnIds": []
       },
       {
         "id": "breakfast_008",
@@ -163,7 +172,8 @@
         ],
         "colorCode": "#F5DEB3",
         "imageUrl": "Menuimages/french-toast-cloud-plain.jpg",
-        "imageName": "french-toast-cloud-plain.jpg"
+        "imageName": "french-toast-cloud-plain.jpg",
+        "addOnIds": []
       }
     ],
     "ramen": [
@@ -195,7 +205,12 @@
         "colorCode": "#D2691E",
         "imageUrl": "Menuimages/pan-grilled-chicken-ramen-thick-or-thin-broth.jpg",
         "imageName": "pan-grilled-chicken-ramen-thick-or-thin-broth.jpg",
-        "signature": true
+        "signature": true,
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       },
       {
         "id": "ramen_002",
@@ -224,7 +239,12 @@
         ],
         "colorCode": "#FF4500",
         "imageUrl": "Menuimages/spicy-chicken-ramen-thick-or-think-broth-.jpg",
-        "imageName": "spicy-chicken-ramen-thick-or-think-broth-.jpg"
+        "imageName": "spicy-chicken-ramen-thick-or-think-broth-.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       },
       {
         "id": "ramen_003",
@@ -253,7 +273,12 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/tofu-ramen-veg-broth.jpg",
-        "imageName": "tofu-ramen-veg-broth.jpg"
+        "imageName": "tofu-ramen-veg-broth.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       },
       {
         "id": "ramen_004",
@@ -273,7 +298,12 @@
         ],
         "colorCode": "#CC3300",
         "imageUrl": "Menuimages/chicken-tantan-ramen.jpg",
-        "imageName": "chicken-tantan-ramen.jpg"
+        "imageName": "chicken-tantan-ramen.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       },
       {
         "id": "ramen_005",
@@ -294,7 +324,12 @@
         ],
         "colorCode": "#CC5500",
         "imageUrl": "Menuimages/chicken-tantan-ramen.jpg",
-        "imageName": "chicken-tantan-ramen.jpg"
+        "imageName": "chicken-tantan-ramen.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       },
       {
         "id": "ramen_006",
@@ -314,7 +349,12 @@
         ],
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/naruto-ramen.jpg",
-        "imageName": "naruto-ramen.jpg"
+        "imageName": "naruto-ramen.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_010",
+          "addon_007"
+        ]
       }
     ],
     "pokeBowls": [
@@ -343,7 +383,18 @@
         ],
         "colorCode": "#FF6347",
         "imageUrl": "Menuimages/shrimp-poke-bowl.jpg",
-        "imageName": "shrimp-poke-bowl.jpg"
+        "imageName": "shrimp-poke-bowl.jpg",
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       },
       {
         "id": "poke_002",
@@ -373,7 +424,18 @@
         "imageName": "chicken-poke-bowl.jpg",
         "contains": null,
         "allergens": null,
-        "signature": true
+        "signature": true,
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       },
       {
         "id": "poke_003",
@@ -400,7 +462,18 @@
         ],
         "colorCode": "#FF8C00",
         "imageUrl": "Menuimages/tuna-poke-bowl.jpg",
-        "imageName": "tuna-poke-bowl.jpg"
+        "imageName": "tuna-poke-bowl.jpg",
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       },
       {
         "id": "poke_004",
@@ -427,7 +500,18 @@
         ],
         "colorCode": "#FF7F50",
         "imageUrl": "Menuimages/salmon-poke-bowl.jpg",
-        "imageName": "salmon-poke-bowl.jpg"
+        "imageName": "salmon-poke-bowl.jpg",
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       },
       {
         "id": "poke_005",
@@ -454,7 +538,18 @@
         ],
         "colorCode": "#FFA500",
         "imageUrl": "Menuimages/paneer-poke-bowl.jpg",
-        "imageName": "paneer-poke-bowl.jpg"
+        "imageName": "paneer-poke-bowl.jpg",
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       },
       {
         "id": "poke_006",
@@ -481,7 +576,18 @@
         ],
         "colorCode": "#BDB76B",
         "imageUrl": "Menuimages/tofu-poke-bowl.jpg",
-        "imageName": "tofu-poke-bowl.jpg"
+        "imageName": "tofu-poke-bowl.jpg",
+        "addOnIds": [
+          "addon_001",
+          "addon_002",
+          "addon_003",
+          "addon_004",
+          "addon_006",
+          "addon_007",
+          "addon_008",
+          "addon_009",
+          "addon_010"
+        ]
       }
     ],
     "appetizers": [
@@ -510,7 +616,8 @@
         ],
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/takoyaki-japanese-octopus-balls.jpg",
-        "imageName": "takoyaki-japanese-octopus-balls.jpg"
+        "imageName": "takoyaki-japanese-octopus-balls.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_003",
@@ -530,7 +637,8 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/chicken-katsu-finger.jpg",
-        "imageName": "chicken-katsu-finger.jpg"
+        "imageName": "chicken-katsu-finger.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_004",
@@ -557,7 +665,8 @@
         ],
         "colorCode": "#FF6B9D",
         "imageUrl": "Menuimages/shrimp-tempura.jpg",
-        "imageName": "shrimp-tempura.jpg"
+        "imageName": "shrimp-tempura.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_005",
@@ -584,7 +693,8 @@
         ],
         "colorCode": "#B8860B",
         "imageUrl": "Menuimages/chicken-karaage.jpg",
-        "imageName": "chicken-karaage.jpg"
+        "imageName": "chicken-karaage.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_006",
@@ -604,7 +714,8 @@
         ],
         "colorCode": "#90EE90",
         "imageUrl": "Menuimages/king-oyster-enoki-mushroom-lotus-root-tempura.jpg",
-        "imageName": "king-oyster-enoki-mushroom-lotus-root-tempura.jpg"
+        "imageName": "king-oyster-enoki-mushroom-lotus-root-tempura.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_007",
@@ -624,7 +735,8 @@
         ],
         "colorCode": "#FFA500",
         "imageUrl": "Menuimages/paneer-katsu-finger.jpg",
-        "imageName": "paneer-katsu-finger.jpg"
+        "imageName": "paneer-katsu-finger.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_008",
@@ -644,7 +756,8 @@
         ],
         "colorCode": "#BDB76B",
         "imageUrl": "https://greenneko.com/menu/menu_images/teriyaki-tofu.png",
-        "imageName": "teriyaki-tofu.png"
+        "imageName": "teriyaki-tofu.png",
+        "addOnIds": []
       },
       {
         "id": "appetizer_009",
@@ -664,7 +777,8 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/teriyaki-paneer.jpg",
-        "imageName": "teriyaki-paneer.jpg"
+        "imageName": "teriyaki-paneer.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_010",
@@ -684,7 +798,8 @@
         ],
         "colorCode": "#CD853F",
         "imageUrl": "Menuimages/chicken-teriyaki.jpg",
-        "imageName": "chicken-teriyaki.jpg"
+        "imageName": "chicken-teriyaki.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_011",
@@ -704,7 +819,8 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/tofu-katsu-finger.jpg",
-        "imageName": "tofu-katsu-finger.jpg"
+        "imageName": "tofu-katsu-finger.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_012",
@@ -724,7 +840,8 @@
         ],
         "colorCode": "#D2691E",
         "imageUrl": "Menuimages/Chicken-gyoza.jpeg",
-        "imageName": "Chicken-gyoza.jpeg"
+        "imageName": "Chicken-gyoza.jpeg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_013",
@@ -744,7 +861,10 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/chicken-katsu-sando.jpg",
-        "imageName": "chicken-katsu-sando.jpg"
+        "imageName": "chicken-katsu-sando.jpg",
+        "addOnIds": [
+          "addon_005"
+        ]
       },
       {
         "id": "appetizer_014",
@@ -764,7 +884,8 @@
         ],
         "colorCode": "#F5F5DC",
         "imageUrl": "Menuimages/chicken-onigiri.jpg",
-        "imageName": "chicken-onigiri.jpg"
+        "imageName": "chicken-onigiri.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_015",
@@ -784,7 +905,10 @@
         ],
         "colorCode": "#FFFACD",
         "imageUrl": "Menuimages/tamago-sando.jpg",
-        "imageName": "tamago-sando.jpg"
+        "imageName": "tamago-sando.jpg",
+        "addOnIds": [
+          "addon_005"
+        ]
       },
       {
         "id": "appetizer_016",
@@ -804,7 +928,8 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/Chicken-gyoza.jpeg",
-        "imageName": "Chicken-gyoza.jpeg"
+        "imageName": "Chicken-gyoza.jpeg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_017",
@@ -824,7 +949,8 @@
         ],
         "colorCode": "#F5F5DC",
         "imageUrl": "Menuimages/paneer-onigiri.jpg",
-        "imageName": "paneer-onigiri.jpg"
+        "imageName": "paneer-onigiri.jpg",
+        "addOnIds": []
       },
       {
         "id": "appetizer_018",
@@ -844,7 +970,10 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/IMG_2729.jpg",
-        "imageName": "IMG_2729.jpg"
+        "imageName": "IMG_2729.jpg",
+        "addOnIds": [
+          "addon_005"
+        ]
       }
     ],
     "donburi": [
@@ -873,7 +1002,11 @@
         ],
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/spicy-chicken-with-egg-rice-bowl.jpg",
-        "imageName": "spicy-chicken-with-egg-rice-bowl.jpg"
+        "imageName": "spicy-chicken-with-egg-rice-bowl.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_007"
+        ]
       },
       {
         "id": "donburi_002",
@@ -900,7 +1033,12 @@
         ],
         "colorCode": "#DAA520",
         "imageUrl": "Menuimages/tofu-teriyaki-rice-bowl.jpg",
-        "imageName": "tofu-teriyaki-rice-bowl.jpg"
+        "imageName": "tofu-teriyaki-rice-bowl.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_006",
+          "addon_007"
+        ]
       },
       {
         "id": "donburi_003",
@@ -927,7 +1065,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/egg-omelette-and-vegetable-rice-bowl.jpg",
-        "imageName": "egg-omelette-and-vegetable-rice-bowl.jpg"
+        "imageName": "egg-omelette-and-vegetable-rice-bowl.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_007"
+        ]
       },
       {
         "id": "donburi_004",
@@ -947,7 +1089,11 @@
         ],
         "colorCode": "#CD853F",
         "imageUrl": "Menuimages/chicken-teriyaki-don.jpg",
-        "imageName": "chicken-teriyaki-don.jpg"
+        "imageName": "chicken-teriyaki-don.jpg",
+        "addOnIds": [
+          "addon_005",
+          "addon_007"
+        ]
       }
     ],
     "teaDesserts": [
@@ -968,7 +1114,10 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/bubble-waffle.jpg",
-        "imageName": "bubble-waffle.jpg"
+        "imageName": "bubble-waffle.jpg",
+        "addOnIds": [
+          "addon_011"
+        ]
       },
       {
         "id": "dessert_002",
@@ -986,7 +1135,8 @@
         ],
         "colorCode": "#D2691E",
         "imageUrl": "Menuimages/cookies.jpg",
-        "imageName": "cookies.jpg"
+        "imageName": "cookies.jpg",
+        "addOnIds": []
       }
     ],
     "bobaTea": [
@@ -1015,7 +1165,11 @@
         ],
         "colorCode": "#FF8C00",
         "imageUrl": "Menuimages/thai-tea-boba.jpg",
-        "imageName": "thai-tea-boba.jpg"
+        "imageName": "thai-tea-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_002",
@@ -1041,7 +1195,11 @@
         ],
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/vietnamese-coffee-milk-boba.jpg",
-        "imageName": "vietnamese-coffee-milk-boba.jpg"
+        "imageName": "vietnamese-coffee-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_003",
@@ -1067,7 +1225,11 @@
         ],
         "colorCode": "#228B22",
         "imageUrl": "Menuimages/matcha-tea-boba.jpg",
-        "imageName": "matcha-tea-boba.jpg"
+        "imageName": "matcha-tea-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_004",
@@ -1093,7 +1255,11 @@
         ],
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/brown-sugar-milk-boba.jpg",
-        "imageName": "brown-sugar-milk-boba.jpg"
+        "imageName": "brown-sugar-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_005",
@@ -1119,7 +1285,11 @@
         ],
         "colorCode": "#CD853F",
         "imageUrl": "Menuimages/caramel-milk-boba.jpg",
-        "imageName": "caramel-milk-boba.jpg"
+        "imageName": "caramel-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_006",
@@ -1145,7 +1315,11 @@
         ],
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/chocolate-milk-boba.jpg",
-        "imageName": "chocolate-milk-boba.jpg"
+        "imageName": "chocolate-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_007",
@@ -1171,7 +1345,11 @@
         ],
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/strawberry-milk-boba.jpg",
-        "imageName": "strawberry-milk-boba.jpg"
+        "imageName": "strawberry-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_008",
@@ -1197,7 +1375,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-boba-milk.jpg",
-        "imageName": "mango-boba-milk.jpg"
+        "imageName": "mango-boba-milk.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_009",
@@ -1223,7 +1405,11 @@
         ],
         "colorCode": "#4169E1",
         "imageUrl": "Menuimages/blueberry-boba-milk-tea.jpg",
-        "imageName": "blueberry-boba-milk-tea.jpg"
+        "imageName": "blueberry-boba-milk-tea.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_010",
@@ -1249,7 +1435,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/passion-fruit-green-tea-popping-boba.jpg",
-        "imageName": "passion-fruit-green-tea-popping-boba.jpg"
+        "imageName": "passion-fruit-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_011",
@@ -1275,7 +1465,11 @@
         ],
         "colorCode": "#FFB6C1",
         "imageUrl": "Menuimages/lychee-green-tea-popping-boba.jpg",
-        "imageName": "lychee-green-tea-popping-boba.jpg"
+        "imageName": "lychee-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_012",
@@ -1301,7 +1495,11 @@
         ],
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/strawberry-matcha-tea-boba.jpg",
-        "imageName": "strawberry-matcha-tea-boba.jpg"
+        "imageName": "strawberry-matcha-tea-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_013",
@@ -1327,7 +1525,11 @@
         ],
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/strawberry-green-tea-popping-boba.jpg",
-        "imageName": "strawberry-green-tea-popping-boba.jpg"
+        "imageName": "strawberry-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_014",
@@ -1353,7 +1555,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-green-tea-popping-boba.jpg",
-        "imageName": "mango-green-tea-popping-boba.jpg"
+        "imageName": "mango-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_015",
@@ -1379,7 +1585,11 @@
         ],
         "colorCode": "#FFDAB9",
         "imageUrl": "Menuimages/peach-green-tea-popping-boba.jpg",
-        "imageName": "peach-green-tea-popping-boba.jpg"
+        "imageName": "peach-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_016",
@@ -1405,7 +1615,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/passion-fruit-peach-green-tea-popping-boba.jpg",
-        "imageName": "passion-fruit-peach-green-tea-popping-boba.jpg"
+        "imageName": "passion-fruit-peach-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_017",
@@ -1431,7 +1645,11 @@
         ],
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-matcha-green-tea-popping-boba.jpg",
-        "imageName": "mango-matcha-green-tea-popping-boba.jpg"
+        "imageName": "mango-matcha-green-tea-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_018",
@@ -1450,7 +1668,11 @@
         ],
         "colorCode": "#9370DB",
         "imageUrl": "Menuimages/taro-milk-boba.jpg",
-        "imageName": "taro-milk-boba.jpg"
+        "imageName": "taro-milk-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_019",
@@ -1469,7 +1691,11 @@
         ],
         "colorCode": "#DC143C",
         "imageUrl": "Menuimages/raspberry-popping-boba.jpg",
-        "imageName": "raspberry-popping-boba.jpg"
+        "imageName": "raspberry-popping-boba.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_020",
@@ -1488,7 +1714,11 @@
         ],
         "colorCode": "#FFDAB9",
         "imageUrl": "Menuimages/peachy-fuzz.jpg",
-        "imageName": "peachy-fuzz.jpg"
+        "imageName": "peachy-fuzz.jpg",
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       },
       {
         "id": "boba_021",
@@ -1509,7 +1739,11 @@
         "imageName": null,
         "contains": null,
         "allergens": null,
-        "signature": false
+        "signature": false,
+        "addOnIds": [
+          "addon_012",
+          "addon_013"
+        ]
       }
     ],
     "coffee": [
@@ -1534,7 +1768,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/espresso.jpg",
-        "imageName": "espresso.jpg"
+        "imageName": "espresso.jpg",
+        "addOnIds": []
       },
       {
         "id": "coffee_002",
@@ -1557,7 +1792,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/espresso.jpg",
-        "imageName": "espresso.jpg"
+        "imageName": "espresso.jpg",
+        "addOnIds": []
       },
       {
         "id": "coffee_003",
@@ -1581,7 +1817,10 @@
         "colorCode": "#6B3A2A",
         "imageUrl": "Menuimages/vietnamese-coffee.jpg",
         "imageName": "vietnamese-coffee.jpg",
-        "priceLarge": 210
+        "priceLarge": 210,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_004",
@@ -1605,7 +1844,8 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/americano.jpg",
         "imageName": "americano.jpg",
-        "priceLarge": 220
+        "priceLarge": 220,
+        "addOnIds": []
       },
       {
         "id": "coffee_005",
@@ -1629,7 +1869,10 @@
         "colorCode": "#A0522D",
         "imageUrl": "Menuimages/cappuccino.jpg",
         "imageName": "cappuccino.jpg",
-        "priceLarge": 250
+        "priceLarge": 250,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_006",
@@ -1653,7 +1896,10 @@
         "colorCode": "#C4A882",
         "imageUrl": "Menuimages/latte.jpg",
         "imageName": "latte.jpg",
-        "priceLarge": 250
+        "priceLarge": 250,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_007",
@@ -1678,7 +1924,10 @@
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/mocha.jpg",
         "imageName": "mocha.jpg",
-        "priceLarge": 280
+        "priceLarge": 280,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_008",
@@ -1701,7 +1950,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-espresso.jpg",
-        "imageName": "iced-espresso.jpg"
+        "imageName": "iced-espresso.jpg",
+        "addOnIds": []
       },
       {
         "id": "coffee_009",
@@ -1724,7 +1974,8 @@
         ],
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-espresso.jpg",
-        "imageName": "iced-espresso.jpg"
+        "imageName": "iced-espresso.jpg",
+        "addOnIds": []
       },
       {
         "id": "coffee_010",
@@ -1748,7 +1999,10 @@
         "colorCode": "#6B3A2A",
         "imageUrl": "Menuimages/iced-vietnamese-coffee.jpg",
         "imageName": "iced-vietnamese-coffee.jpg",
-        "priceLarge": 290
+        "priceLarge": 290,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_011",
@@ -1772,7 +2026,8 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-americano.jpg",
         "imageName": "iced-americano.jpg",
-        "priceLarge": 290
+        "priceLarge": 290,
+        "addOnIds": []
       },
       {
         "id": "coffee_012",
@@ -1796,7 +2051,10 @@
         "colorCode": "#A0522D",
         "imageUrl": "Menuimages/iced-cappuccino.jpg",
         "imageName": "iced-cappuccino.jpg",
-        "priceLarge": 310
+        "priceLarge": 310,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_013",
@@ -1820,7 +2078,10 @@
         "colorCode": "#C4A882",
         "imageUrl": "Menuimages/iced-latte.jpg",
         "imageName": "iced-latte.jpg",
-        "priceLarge": 310
+        "priceLarge": 310,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_014",
@@ -1845,7 +2106,10 @@
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/iced-mocha.jpg",
         "imageName": "iced-mocha.jpg",
-        "priceLarge": 340
+        "priceLarge": 340,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_015",
@@ -1870,7 +2134,8 @@
         "colorCode": "#FF8C00",
         "imageUrl": "Menuimages/iced-orange-coffee.jpg",
         "imageName": "iced-orange-coffee.jpg",
-        "priceLarge": 350
+        "priceLarge": 350,
+        "addOnIds": []
       },
       {
         "id": "coffee_016",
@@ -1895,7 +2160,8 @@
         "colorCode": "#9ACD32",
         "imageUrl": "Menuimages/iced-lime-coffee.jpg",
         "imageName": "iced-lime-coffee.jpg",
-        "priceLarge": 350
+        "priceLarge": 350,
+        "addOnIds": []
       },
       {
         "id": "coffee_017",
@@ -1920,7 +2186,10 @@
         "colorCode": "#FFFACD",
         "imageUrl": "Menuimages/iced-coffee-french-vanilla.jpg",
         "imageName": "iced-coffee-french-vanilla.jpg",
-        "priceLarge": 280
+        "priceLarge": 280,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_018",
@@ -1945,7 +2214,10 @@
         "imageUrl": "Menuimages/matcha-latte.jpg",
         "imageName": "matcha-latte.jpg",
         "priceIced": 300,
-        "priceIcedLarge": 350
+        "priceIcedLarge": 350,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_019",
@@ -1970,7 +2242,10 @@
         "imageUrl": "Menuimages/matcha-iced-tea.jpg",
         "imageName": "matcha-iced-tea.jpg",
         "priceIced": 300,
-        "priceIcedLarge": 350
+        "priceIcedLarge": 350,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_020",
@@ -1995,7 +2270,10 @@
         "colorCode": "#FF69B4",
         "imageUrl": "Menuimages/strawberry-matcha-latte.jpg",
         "imageName": "strawberry-matcha-latte.jpg",
-        "priceIced": 360
+        "priceIced": 360,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_021",
@@ -2020,7 +2298,10 @@
         "colorCode": "#FFD700",
         "imageUrl": "Menuimages/mango-matcha.jpg",
         "imageName": "mango-matcha.jpg",
-        "priceIced": 300
+        "priceIced": 300,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_022",
@@ -2045,7 +2326,10 @@
         "imageUrl": "Menuimages/thai-tea-latte.jpg",
         "imageName": "thai-tea-latte.jpg",
         "priceIced": 260,
-        "priceIcedLarge": 300
+        "priceIcedLarge": 300,
+        "addOnIds": [
+          "addon_013"
+        ]
       },
       {
         "id": "coffee_023",
@@ -2069,7 +2353,8 @@
         "colorCode": "#8B0000",
         "imageUrl": "Menuimages/sumac-berry-tea.jpg",
         "imageName": "sumac-berry-tea.jpg",
-        "priceIced": 200
+        "priceIced": 200,
+        "addOnIds": []
       },
       {
         "id": "coffee_024",
@@ -2094,7 +2379,8 @@
         "colorCode": "#DC143C",
         "imageUrl": "Menuimages/fruity-roselle-tea.jpg",
         "imageName": "fruity-roselle-tea.jpg",
-        "priceIced": 200
+        "priceIced": 200,
+        "addOnIds": []
       },
       {
         "id": "coffee_025",
@@ -2118,7 +2404,8 @@
         "colorCode": "#4B0082",
         "imageUrl": "Menuimages/forbidden-rice-tea.jpg",
         "imageName": "forbidden-rice-tea.jpg",
-        "priceIced": 200
+        "priceIced": 200,
+        "addOnIds": []
       }
     ]
   },

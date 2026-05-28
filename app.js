@@ -1097,14 +1097,22 @@ function renderCartItems() {
   const total = state.cart.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
   totalEl.textContent = `₹${total.toFixed(2)}`;
 
-  // Upsell strip — add-ons horizontal scroll
-  if (state.addOns.length > 0) {
+  // Upsell strip — only add-ons relevant to items currently in cart
+  const relevantAddonIds = new Set(
+    state.cart.flatMap(c => {
+      const menuItem = state.allItems.find(i => String(i.id) === String(c.id));
+      return menuItem?.addOnIds || [];
+    })
+  );
+  const relevantAddons = state.addOns.filter(a => relevantAddonIds.has(a.id));
+
+  if (relevantAddons.length > 0) {
     const strip = document.createElement('div');
     strip.className = 'cart-upsell';
     strip.innerHTML = `
       <p class="cart-upsell-title">✦ Enhance your order</p>
       <div class="cart-upsell-chips">
-        ${state.addOns.map(addon => `
+        ${relevantAddons.map(addon => `
           <button class="upsell-chip" data-id="${escAttr(addon.id)}">
             <span class="upsell-chip-name">${escHtml(addon.name)}</span>
             <span class="upsell-chip-price">+₹${addon.price}</span>
