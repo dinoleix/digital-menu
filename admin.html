@@ -311,6 +311,7 @@
     <h1>Green Neko <span>Admin</span></h1>
     <button id="btn-love-count" class="btn btn-toggle" title="Show love count badge on menu cards">❤️ Love Badge: <span id="love-count-status">OFF</span></button>
     <button id="btn-mood-deck" class="btn btn-toggle" title="Show mood picker on return visits">🎭 Mood Deck: <span id="mood-deck-status">OFF</span></button>
+    <button id="btn-personality" class="btn btn-toggle" title="Show personality summary when deck empties">🌟 Personality: <span id="personality-status">OFF</span></button>
     <button class="btn btn-new" id="btn-new">+ New Item</button>
   </header>
 
@@ -523,10 +524,47 @@ async function initMoodDeckToggle() {
   }
 }
 
+/* ─── Personality Toggle ─────────────────────────── */
+async function initPersonalityToggle() {
+  const btn    = document.getElementById('btn-personality');
+  const status = document.getElementById('personality-status');
+
+  try {
+    const r = await fetch(`${API}/settings`, { headers: authHeaders() });
+    if (!r.ok) throw new Error();
+    const s = await r.json();
+    setBtn(!!s.showPersonality);
+  } catch { setBtn(false); }
+
+  btn.addEventListener('click', async () => {
+    const prev = btn.classList.contains('on');
+    const next = !prev;
+    btn.disabled = true;
+    try {
+      const r = await fetch(`${API}/settings`, {
+        method: 'PUT', headers: authHeaders(),
+        body: JSON.stringify({ showPersonality: next })
+      });
+      if (!r.ok) throw new Error(`Server returned ${r.status}`);
+      setBtn(next);
+      toast('Saved ✓', 'ok');
+    } catch(err) {
+      setBtn(prev);
+      toast('Save failed — ' + err.message, 'err');
+    } finally { btn.disabled = false; }
+  });
+
+  function setBtn(on) {
+    btn.classList.toggle('on', on);
+    status.textContent = on ? 'ON' : 'OFF';
+  }
+}
+
 /* ─── Init ──────────────────────────────────────── */
 async function init() {
   initLoveCountToggle();
   initMoodDeckToggle();
+  initPersonalityToggle();
   try {
     const r = await fetch(`${API}/menu`, { headers: authHeaders() });
     if (r.status === 401) { sessionStorage.removeItem('admin_token'); location.reload(); return; }

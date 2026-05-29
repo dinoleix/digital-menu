@@ -7,8 +7,11 @@ const state = {
   currentIndex:    0,
   cart:            [],   // [{id, name, price, image, quantity}]
   addOns:          [],   // [{id, name, quantity, price}]
-  showLoveCount:   false,
-  showMoodDeck:    false,
+  showLoveCount:    false,
+  showMoodDeck:     false,
+  showPersonality:  false,
+  sessionSeen:      0,
+  sessionYes:       0,
   category:        'All',
   tableNumber:     '',
   history:         [],   // [{item, direction}] for undo
@@ -319,8 +322,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
   state.allItems     = allItems;
   state.addOns       = data.addOns || [];
-  state.showLoveCount = !!(data.settings?.showLoveCount);
-  state.showMoodDeck  = !!(data.settings?.showMoodDeck);
+  state.showLoveCount   = !!(data.settings?.showLoveCount);
+  state.showMoodDeck    = !!(data.settings?.showMoodDeck);
+  state.showPersonality = !!(data.settings?.showPersonality);
   loadFilterPrefs();
   applyFilters();
 
@@ -731,11 +735,18 @@ function renderStack() {
   const remaining  = state.filtered.length - state.currentIndex;
 
   if (remaining <= 0) {
-    // Populate empty state message based on current category
-    const isAll   = state.category === 'All';
-    const catName = isAll ? 'the menu' : state.category;
-    document.getElementById('empty-cat-label').textContent = isAll ? '' : `in ${catName}`;
+    // Clean up any previous personality card
+    emptyState.classList.remove('has-personality');
+    document.getElementById('personality-card')?.remove();
 
+    const p = state.showPersonality ? computePersonality() : null;
+    if (p) {
+      renderPersonalityCard(p);
+      emptyState.classList.add('has-personality');
+    } else {
+      const isAll = state.category === 'All';
+      document.getElementById('empty-cat-label').textContent = isAll ? '' : `in ${state.category}`;
+    }
 
     emptyState.classList.remove('hidden');
     swipeBtns.classList.add('hidden');
@@ -1025,6 +1036,8 @@ function executeSwipe(cardEl, direction) {
 
   state.history.push({ item, direction, qty: 1 });
   if (state.history.length > 15) state.history.shift();
+  state.sessionSeen++;
+  if (direction === 'right') state.sessionYes++;
 
   if (direction === 'right') {
     playSound('right');
@@ -1163,8 +1176,146 @@ function undoLast() {
 /* ─── Restart / Browse Again ─────────────────────────────── */
 function restartDeck() {
   state.currentIndex = 0;
+  state.history      = [];
+  state.sessionSeen  = 0;
+  state.sessionYes   = 0;
   document.getElementById('card-stack').innerHTML = '';
   renderStack();
+}
+
+/* ─── Personality Summary ────────────────────────────────── */
+function computePersonality() {
+  const yesItems = state.history.filter(h => h.direction === 'right').map(h => h.item);
+  if (yesItems.length < 2) return null;
+
+  const cats    = new Set(yesItems.map(i => i.category));
+  const spicyCt = yesItems.filter(i => i.spicy).length;
+  const drinkCt = yesItems.filter(i => ['Coffee', 'Boba Tea', 'Tea & Desserts'].includes(i.category)).length;
+  const vegCt   = yesItems.filter(i => i.vegetarian).length;
+  const yesRate = yesItems.length / Math.max(state.sessionSeen, 1);
+
+  let emoji, title, sub;
+  if (spicyCt >= 2) {
+    emoji = '🔥'; title = 'The Spice Hunter';
+    sub   = `Went spicy ${spicyCt} time${spicyCt > 1 ? 's' : ''}`;
+  } else if (vegCt >= yesItems.length * 0.5) {
+    emoji = '🌿'; title = 'The Green Soul';
+    sub   = 'Mostly plant-based choices';
+  } else if (drinkCt >= yesItems.length * 0.4) {
+    emoji = '☕'; title = 'The Caffeine Devotee';
+    sub   = 'You really love your drinks';
+  } else if (cats.size >= 4) {
+    emoji = '🌟'; title = 'The Adventurous Omnivore';
+    sub   = `Picked across ${cats.size} categories`;
+  } else if (yesRate < 0.25 && state.sessionSeen >= 6) {
+    emoji = '👑'; title = 'The Selective Gourmet';
+    sub   = 'You know exactly what you want';
+  } else {
+    emoji = '🌙'; title = 'The Comfort Seeker';
+    sub   = 'Good food, every time';
+  }
+
+  return { emoji, title, sub, seen: state.sessionSeen, yesCount: state.sessionYes };
+}
+
+function renderPersonalityCard(p) {
+  const card = document.createElement('div');
+  card.id        = 'personality-card';
+  card.className = 'personality-card';
+  card.innerHTML = `
+    <div class="p-emoji">${p.emoji}</div>
+    <div class="p-type">You are</div>
+    <div class="p-title">${p.title}</div>
+    <div class="p-sub">${p.sub}</div>
+    <div class="p-stats">
+      <span class="p-stat"><span class="p-stat-val">${p.seen}</span> swiped</span>
+      <span class="p-stat-sep">·</span>
+      <span class="p-stat"><span class="p-stat-val">${p.yesCount}</span> added</span>
+    </div>
+    <button class="p-share-btn" id="p-share-btn">📸 Share my result</button>
+  `;
+  const actions = document.querySelector('.empty-actions');
+  document.getElementById('empty-state').insertBefore(card, actions);
+  document.getElementById('p-share-btn').addEventListener('click', () => sharePersonality(p), { once: true });
+}
+
+async function sharePersonality(p) {
+  const W = 1080, H = 1920;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  // Background gradient
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, '#0d1f12'); bg.addColorStop(1, '#0a0a0a');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+
+  // Subtle radial glow
+  const glow = ctx.createRadialGradient(W/2, H*0.45, 0, W/2, H*0.45, 600);
+  glow.addColorStop(0, 'rgba(74,222,128,0.08)'); glow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
+
+  // Branding
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 48px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('🐱 Green Neko', W/2, 148);
+
+  ctx.strokeStyle = 'rgba(74,222,128,0.25)'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(W/2 - 220, 178); ctx.lineTo(W/2 + 220, 178); ctx.stroke();
+
+  // Big emoji
+  ctx.font = '220px serif';
+  ctx.fillText(p.emoji, W/2, H*0.44);
+
+  // "You are" label
+  ctx.font = '500 52px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.45)';
+  ctx.fillText('You are', W/2, H*0.44 + 90);
+
+  // Title
+  ctx.font = 'bold 100px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.fillStyle = '#ffffff';
+  const titleLines = wrapText(ctx, p.title, W - 160, 2);
+  titleLines.forEach((line, i) => ctx.fillText(line, W/2, H*0.44 + 210 + i * 116));
+
+  // Sub
+  ctx.font = '52px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.fillStyle = '#4ade80';
+  ctx.fillText(p.sub, W/2, H*0.44 + 210 + titleLines.length * 116 + 76);
+
+  // Stats pill
+  const statsY = H*0.44 + 210 + titleLines.length * 116 + 76 + 100;
+  ctx.font = 'bold 40px -apple-system, BlinkMacSystemFont, sans-serif';
+  const statsText = `${p.seen} swiped · ${p.yesCount} said yes`;
+  const pillW = ctx.measureText(statsText).width + 90;
+  ctx.save();
+  roundRect(ctx, W/2 - pillW/2, statsY - 48, pillW, 78, 50);
+  ctx.fillStyle = 'rgba(74,222,128,0.12)'; ctx.fill();
+  ctx.strokeStyle = 'rgba(74,222,128,0.35)'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.restore();
+  ctx.fillStyle = 'rgba(255,255,255,0.75)';
+  ctx.fillText(statsText, W/2, statsY + 14);
+
+  // Watermark
+  ctx.font = '36px -apple-system, BlinkMacSystemFont, sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.25)';
+  ctx.fillText('Try Green Neko', W/2, H - 90);
+
+  canvas.toBlob(async blob => {
+    const file = new File([blob], 'greenneko-personality.png', { type: 'image/png' });
+    if (navigator.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: p.title, text: `I am ${p.title} at Green Neko!` });
+        return;
+      } catch { /* fall through to download */ }
+    }
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'greenneko-personality.png';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+  }, 'image/png');
 }
 
 /* ─── Cart ───────────────────────────────────────────────── */
