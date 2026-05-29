@@ -1137,6 +1137,34 @@
         "imageUrl": "Menuimages/cookies.jpg",
         "imageName": "cookies.jpg",
         "addOnIds": []
+      },
+      {
+        "id": "coffee_025",
+        "name": "Forbidden Rice Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "A unique tea brewed with black glutinous rice — nutty, earthy, and packed with antioxidants. Subtly sweet with a distinctive deep purple hue. Served hot or iced.",
+        "calories": "35",
+        "nutrition": {
+          "protein": "1",
+          "carbs": "7",
+          "fat": "0.5"
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "rice tea"
+        ],
+        "colorCode": "#4B0082",
+        "imageUrl": "Menuimages/forbidden-rice-tea.jpg",
+        "imageName": "forbidden-rice-tea.jpg",
+        "priceIced": 200,
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false
       }
     ],
     "bobaTea": [
@@ -2458,31 +2486,6 @@
         "imageName": "fruity-roselle-tea.jpg",
         "priceIced": 200,
         "addOnIds": []
-      },
-      {
-        "id": "coffee_025",
-        "name": "Forbidden Rice Tea",
-        "category": "Coffee",
-        "price": 180,
-        "description": "A unique tea brewed with black glutinous rice — nutty, earthy, and packed with antioxidants. Subtly sweet with a distinctive deep purple hue. Served hot or iced.",
-        "calories": 35,
-        "nutrition": {
-          "protein": 1,
-          "carbs": 7,
-          "fat": 0.5
-        },
-        "spicy": false,
-        "vegetarian": true,
-        "tags": [
-          "tea",
-          "herbal",
-          "rice tea"
-        ],
-        "colorCode": "#4B0082",
-        "imageUrl": "Menuimages/forbidden-rice-tea.jpg",
-        "imageName": "forbidden-rice-tea.jpg",
-        "priceIced": 200,
-        "addOnIds": []
       }
     ]
   },
@@ -2581,6 +2584,6 @@
   "settings": {
     "showLoveCount": true,
     "showMoodDeck": true,
-    "showPersonality": false
+    "showPersonality": true
   }
 }
