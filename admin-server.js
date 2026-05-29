@@ -7,7 +7,7 @@ const fs    = require('fs');
 const path  = require('path');
 const ROOT  = __dirname;
 const MENU  = path.join(ROOT, 'menu.json');
-const PORT  = 3333;
+const PORT  = process.env.PORT || 3333;
 
 const SB_URL = 'https://twdrocixrvplgrdwncdu.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3ZHJvY2l4cnZwbGdyZHduY2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3MTAzNjYsImV4cCI6MjA5NTI4NjM2Nn0.9xlrD-0m_Iqi3pRs5xlM1kim75tqconC-aSvhrV2Oj8';

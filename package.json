@@ -1,0 +1,12 @@
+{
+  "name": "greenneko-admin",
+  "version": "1.0.0",
+  "description": "Green Neko digital menu — admin server",
+  "main": "admin-server.js",
+  "scripts": {
+    "start": "node admin-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
