@@ -321,9 +321,34 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 /* ─── PWA: Service Worker ────────────────────────────────── */
 function registerSW() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  }
+  if (!('serviceWorker' in navigator)) return;
+
+  // Remember if a SW was already controlling this page before registration.
+  // If not, this is a first install — don't show the update banner.
+  const hadController = !!navigator.serviceWorker.controller;
+
+  navigator.serviceWorker.register('./sw.js').then(reg => {
+    // Poll for updates every time the user focuses the tab
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') reg.update();
+    });
+  }).catch(() => {});
+
+  // Option C — when a new SW takes control (skipWaiting already fired),
+  // show the soft update banner so the user can reload at their convenience
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (hadController) showUpdateBanner();
+  });
+}
+
+function showUpdateBanner() {
+  const banner  = document.getElementById('update-banner');
+  const reload  = document.getElementById('update-reload-btn');
+  const dismiss = document.getElementById('update-dismiss-btn');
+  if (!banner) return;
+  banner.classList.remove('hidden');
+  reload.addEventListener('click',  () => location.reload());
+  dismiss.addEventListener('click', () => banner.classList.add('hidden'));
 }
 
 /* ─── PWA: Install Banner ────────────────────────────────── */

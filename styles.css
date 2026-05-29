@@ -1243,6 +1243,70 @@ input  { font-family: inherit; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 2px; }
 
 /* ─── Install Banner ─────────────────────────────────────── */
+/* ─── Update Banner ─────────────────────────────────────── */
+.update-banner {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  width: calc(100% - 32px);
+  max-width: 400px;
+  animation: slideDownFade .35s cubic-bezier(0.25,0.46,0.45,0.94);
+  pointer-events: all;
+}
+
+@keyframes slideDownFade {
+  from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.update-banner-inner {
+  background: rgba(22,22,22,0.97);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(74,222,128,0.3);
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6), 0 0 0 1px rgba(74,222,128,.08);
+}
+
+.update-icon { font-size: 20px; flex-shrink: 0; }
+
+.update-text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.update-reload-btn {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  background: var(--green);
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: transform .15s;
+}
+.update-reload-btn:active { transform: scale(0.95); }
+
+.update-dismiss {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: var(--text-sub);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .install-banner {
   position: fixed;
   bottom: calc(var(--safe-bottom) + 12px);
