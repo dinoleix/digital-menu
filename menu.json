@@ -1165,6 +1165,63 @@
         "contains": null,
         "allergens": null,
         "signature": false
+      },
+      {
+        "id": "coffee_023",
+        "name": "Sumac Berry Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "A warming herbal brew featuring sumac and berry — tangy, antioxidant-rich, and beautifully tart. A unique and healthful tea available hot or iced.",
+        "calories": "20",
+        "nutrition": {
+          "protein": "0.5",
+          "carbs": "4",
+          "fat": "0.2"
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "berry"
+        ],
+        "colorCode": "#8B0000",
+        "imageUrl": "Menuimages/sumac-berry-tea.jpg",
+        "imageName": "sumac-berry-tea.jpg",
+        "priceIced": 200,
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false
+      },
+      {
+        "id": "coffee_024",
+        "name": "Fruity Roselle Tea",
+        "category": "Coffee",
+        "price": 180,
+        "description": "Hibiscus roselle tea — vibrant, tart, and naturally caffeine-free. Deeply ruby-red and packed with antioxidants, it's as beautiful as it is refreshing. Served hot or iced.",
+        "calories": "15",
+        "nutrition": {
+          "protein": "0.3",
+          "carbs": "3.5",
+          "fat": "0.1"
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "tea",
+          "herbal",
+          "hibiscus",
+          "caffeine-free"
+        ],
+        "colorCode": "#DC143C",
+        "imageUrl": "Menuimages/fruity-roselle-tea.jpg",
+        "imageName": "fruity-roselle-tea.jpg",
+        "priceIced": 200,
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false
       }
     ],
     "bobaTea": [
@@ -2435,57 +2492,103 @@
           "addon_013",
           "addon_014"
         ]
-      },
+      }
+    ],
+    "desserts": [
       {
-        "id": "coffee_023",
-        "name": "Sumac Berry Tea",
-        "category": "Coffee",
-        "price": 180,
-        "description": "A warming herbal brew featuring sumac and berry — tangy, antioxidant-rich, and beautifully tart. A unique and healthful tea available hot or iced.",
-        "calories": 20,
-        "nutrition": {
-          "protein": 0.5,
-          "carbs": 4,
-          "fat": 0.2
-        },
+        "id": "dessert_001",
+        "name": "Tiramisu",
+        "category": "Desserts",
+        "price": 0,
+        "description": "Made in-house daily. Layers of espresso-soaked ladyfingers and velvety mascarpone cream, finished with a generous dusting of rich cocoa. Classic Italian comfort in every bite.",
+        "calories": null,
+        "nutrition": null,
         "spicy": false,
         "vegetarian": true,
+        "signature": true,
         "tags": [
-          "tea",
-          "herbal",
-          "berry"
+          "dessert",
+          "sweet",
+          "chocolate",
+          "coffee",
+          "inhouse"
         ],
-        "colorCode": "#8B0000",
-        "imageUrl": "Menuimages/sumac-berry-tea.jpg",
-        "imageName": "sumac-berry-tea.jpg",
-        "priceIced": 200,
-        "addOnIds": []
+        "colorCode": "#2a1506",
+        "imageUrl": null,
+        "imageName": null,
+        "addOnIds": [],
+        "contains": "Eggs, Dairy, Gluten",
+        "allergens": "gluten, dairy, eggs"
       },
       {
-        "id": "coffee_024",
-        "name": "Fruity Roselle Tea",
-        "category": "Coffee",
-        "price": 180,
-        "description": "Hibiscus roselle tea — vibrant, tart, and naturally caffeine-free. Deeply ruby-red and packed with antioxidants, it's as beautiful as it is refreshing. Served hot or iced.",
-        "calories": 15,
-        "nutrition": {
-          "protein": 0.3,
-          "carbs": 3.5,
-          "fat": 0.1
-        },
+        "id": "dessert_002",
+        "name": "Shu Cream",
+        "category": "Desserts",
+        "price": 0,
+        "description": "Light choux pastry shells filled to the brim with silky Japanese custard cream. Crisp on the outside, cloud-soft on the inside — a delicate bite of pure indulgence.",
+        "calories": null,
+        "nutrition": null,
         "spicy": false,
         "vegetarian": true,
+        "signature": false,
         "tags": [
-          "tea",
-          "herbal",
-          "hibiscus",
-          "caffeine-free"
+          "dessert",
+          "sweet",
+          "pastry"
         ],
-        "colorCode": "#DC143C",
-        "imageUrl": "Menuimages/fruity-roselle-tea.jpg",
-        "imageName": "fruity-roselle-tea.jpg",
-        "priceIced": 200,
-        "addOnIds": []
+        "colorCode": "#3b2a10",
+        "imageUrl": null,
+        "imageName": null,
+        "addOnIds": [],
+        "contains": "Eggs, Dairy, Gluten",
+        "allergens": "gluten, dairy, eggs"
+      },
+      {
+        "id": "dessert_003",
+        "name": "Choco Filled Éclair",
+        "category": "Desserts",
+        "price": 0,
+        "description": "French-style choux pastry with a glossy dark chocolate glaze and a generous filling of smooth chocolate cream. Rich, elegant, and deeply satisfying.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "signature": false,
+        "tags": [
+          "dessert",
+          "sweet",
+          "chocolate",
+          "pastry"
+        ],
+        "colorCode": "#1e0f04",
+        "imageUrl": null,
+        "imageName": null,
+        "addOnIds": [],
+        "contains": "Eggs, Dairy, Gluten",
+        "allergens": "gluten, dairy, eggs"
+      },
+      {
+        "id": "dessert_004",
+        "name": "Maritozzo Cream Bun",
+        "category": "Desserts",
+        "price": 0,
+        "description": "A pillowy Roman-style brioche bun split and stuffed generously with fresh Chantilly cream. Soft, sweet, and impossibly fluffy — best enjoyed right away.",
+        "calories": null,
+        "nutrition": null,
+        "spicy": false,
+        "vegetarian": true,
+        "signature": false,
+        "tags": [
+          "dessert",
+          "sweet",
+          "pastry"
+        ],
+        "colorCode": "#4a2e0e",
+        "imageUrl": null,
+        "imageName": null,
+        "addOnIds": [],
+        "contains": "Eggs, Dairy, Gluten",
+        "allergens": "gluten, dairy, eggs"
       }
     ]
   },
