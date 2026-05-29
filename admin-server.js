@@ -88,9 +88,8 @@ const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   if (method === 'OPTIONS') { res.writeHead(204); res.end(); return; }
 
-  /* ── Auth guard (all routes except the admin page itself) ── */
-  const isAdminPage = (p === '/' || p === '/admin.html');
-  if (!isAdminPage) {
+  /* ── Auth guard (API routes only — static files are public) ── */
+  if (p.startsWith('/api/')) {
     const authHeader = req.headers['authorization'] || '';
     const token      = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
     if (!token || !(await validateSupabaseToken(token))) {
