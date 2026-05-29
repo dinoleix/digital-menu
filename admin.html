@@ -291,6 +291,7 @@
   <header>
     <h1>Green Neko <span>Admin</span></h1>
     <button id="btn-love-count" class="btn btn-toggle" title="Show love count badge on menu cards">❤️ Love Badge: <span id="love-count-status">OFF</span></button>
+    <button id="btn-mood-deck" class="btn btn-toggle" title="Show mood picker on return visits">🎭 Mood Deck: <span id="mood-deck-status">OFF</span></button>
     <button class="btn btn-new" id="btn-new">+ New Item</button>
   </header>
 
@@ -461,9 +462,40 @@ async function initLoveCountToggle() {
   }
 }
 
+/* ─── Mood Deck Toggle ──────────────────────────── */
+async function initMoodDeckToggle() {
+  const btn    = document.getElementById('btn-mood-deck');
+  const status = document.getElementById('mood-deck-status');
+
+  try {
+    const r = await fetch(`${API}/settings`, { headers: authHeaders() });
+    const s = await r.json();
+    setMoodBtn(!!s.showMoodDeck);
+  } catch { setMoodBtn(false); }
+
+  btn.addEventListener('click', async () => {
+    const cur  = btn.classList.contains('on');
+    const next = !cur;
+    btn.disabled = true;
+    try {
+      await fetch(`${API}/settings`, {
+        method: 'PUT', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ showMoodDeck: next })
+      });
+      setMoodBtn(next);
+    } finally { btn.disabled = false; }
+  });
+
+  function setMoodBtn(on) {
+    btn.classList.toggle('on', on);
+    status.textContent = on ? 'ON' : 'OFF';
+  }
+}
+
 /* ─── Init ──────────────────────────────────────── */
 async function init() {
   initLoveCountToggle();
+  initMoodDeckToggle();
   try {
     const r = await fetch(`${API}/menu`, { headers: authHeaders() });
     if (r.status === 401) { sessionStorage.removeItem('admin_token'); location.reload(); return; }

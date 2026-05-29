@@ -2579,6 +2579,7 @@
     }
   ],
   "settings": {
-    "showLoveCount": false
+    "showLoveCount": false,
+    "showMoodDeck": false
   }
 }

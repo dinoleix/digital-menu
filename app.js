@@ -8,6 +8,7 @@ const state = {
   cart:            [],   // [{id, name, price, image, quantity}]
   addOns:          [],   // [{id, name, quantity, price}]
   showLoveCount:   false,
+  showMoodDeck:    false,
   category:        'All',
   tableNumber:     '',
   history:         [],   // [{item, direction}] for undo
@@ -50,6 +51,15 @@ function applyFilters() {
 }
 
 /* ─── Constants ─────────────────────────────────────────── */
+const MOOD_TAGS = {
+  comfort: ['ramen', 'donburi', 'rice', 'chicken', 'noodles'],
+  energy:  ['coffee', 'espresso', 'matcha', 'acai', 'healthy'],
+  clean:   ['vegetarian', 'vegan', 'healthy', 'salad', 'bowl'],
+  spicy:   ['spicy', 'tantanmen'],
+  treat:   ['boba tea', 'dessert', 'chocolate', 'sweet', 'waffle'],
+  light:   ['poke', 'bowl', 'fruity', 'sparkling', 'green tea'],
+};
+
 const STACK_DEPTH  = 3;
 const SWIPE_THRESH = 110;
 const SCALE_STEPS  = [1, 0.95, 0.90];
@@ -310,6 +320,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   state.allItems     = allItems;
   state.addOns       = data.addOns || [];
   state.showLoveCount = !!(data.settings?.showLoveCount);
+  state.showMoodDeck  = !!(data.settings?.showMoodDeck);
   loadFilterPrefs();
   applyFilters();
 
@@ -409,17 +420,59 @@ function initInstallBanner() {
 }
 
 /* ─── Modal ─────────────────────────────────────────────── */
-function bindModal() {
-  const launch = () => {
-    document.getElementById('table-modal').classList.add('hidden');
-    document.getElementById('main').classList.remove('hidden');
-    const el = document.documentElement;
-    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
-    if (req) req.call(el).catch(() => {});
-    initApp();
-  };
+function enterApp() {
+  document.getElementById('main').classList.remove('hidden');
+  const el  = document.documentElement;
+  const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+  if (req) req.call(el).catch(() => {});
+  initApp();
+}
 
-  document.getElementById('start-btn').addEventListener('click', launch);
+function applyMoodSort(mood) {
+  const boostTags = MOOD_TAGS[mood] || [];
+  if (!boostTags.length) return;
+  state.filtered.sort((a, b) => {
+    const scoreA = (a.tags || []).filter(t => boostTags.includes(t.toLowerCase())).length;
+    const scoreB = (b.tags || []).filter(t => boostTags.includes(t.toLowerCase())).length;
+    return scoreB - scoreA;
+  });
+}
+
+function showMoodPicker() {
+  const overlay = document.getElementById('mood-overlay');
+  overlay.classList.remove('hidden');
+
+  function dismiss() { overlay.classList.add('hidden'); enterApp(); }
+
+  overlay.querySelectorAll('.mood-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyMoodSort(btn.dataset.mood);
+      dismiss();
+    }, { once: true });
+  });
+
+  document.getElementById('mood-skip-btn').addEventListener('click', dismiss, { once: true });
+}
+
+function bindModal() {
+  const isReturning = localStorage.getItem('gn_guided') === '1';
+
+  if (isReturning) {
+    document.getElementById('table-modal').classList.add('hidden');
+    if (state.showMoodDeck) {
+      showMoodPicker();
+    } else {
+      enterApp();
+    }
+    return;
+  }
+
+  // First visit — show the how-to-use guide
+  document.getElementById('start-btn').addEventListener('click', () => {
+    localStorage.setItem('gn_guided', '1');
+    document.getElementById('table-modal').classList.add('hidden');
+    enterApp();
+  });
 }
 
 /* ─── Your Usual ─────────────────────────────────────────── */
