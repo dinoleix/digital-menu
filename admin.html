@@ -245,6 +245,25 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 
+  /* ── Image lightbox ────────────────────────────── */
+  .detail-thumb { cursor: zoom-in; transition: opacity .15s; }
+  .detail-thumb:hover { opacity: 0.85; }
+
+  #lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.88);
+    display: flex; align-items: center; justify-content: center;
+    cursor: zoom-out; display: none;
+  }
+  #lightbox.show { display: flex; }
+  #lightbox img {
+    max-width: 90vw; max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+    object-fit: contain;
+    pointer-events: none;
+  }
+
   .section-divider {
     padding: 6px 16px 4px;
     font-size: 10px; font-weight: 700; text-transform: uppercase;
@@ -346,6 +365,7 @@
   </div>
 </div>
 
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
 <div id="toast"></div>
 <div id="modal-backdrop">
   <div class="modal">
@@ -646,7 +666,7 @@ function renderDetail(item) {
   document.getElementById('item-form').innerHTML = `
     <div class="detail-header">
       ${item.imageUrl
-        ? `<img class="detail-thumb" src="${item.imageUrl}" alt="" onerror="this.style.display='none'">`
+        ? `<img class="detail-thumb" src="${item.imageUrl}" alt="" onerror="this.style.display='none'" onclick="openLightbox(this.src)">`
         : `<div class="detail-thumb" style="display:flex;align-items:center;justify-content:center;font-size:32px;color:var(--muted)">🍽</div>`}
       <div class="detail-title">
         <h2>${escHtml(item.name)}</h2>
@@ -907,6 +927,22 @@ function toast(msg, type='ok') {
   clearTimeout(_toastTimer);
   _toastTimer = setTimeout(() => el.className = '', 2400);
 }
+
+/* ─── Lightbox ───────────────────────────────────── */
+function openLightbox(src) {
+  const lb  = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  lb.classList.add('show');
+}
+
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('show');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
 </script>
 </body>
 </html>
