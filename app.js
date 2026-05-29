@@ -7,6 +7,7 @@ const state = {
   currentIndex:    0,
   cart:            [],   // [{id, name, price, image, quantity}]
   addOns:          [],   // [{id, name, quantity, price}]
+  showLoveCount:   false,
   category:        'All',
   tableNumber:     '',
   history:         [],   // [{item, direction}] for undo
@@ -270,8 +271,16 @@ function syncBottomLikeBtn() {
   document.getElementById('bottom-like-heart').textContent = liked.has(item.id) ? '❤️' : '🤍';
   document.getElementById('bottom-like-count').textContent = '–';
   fetchLikeCount(item.id).then(n => {
-    if (state.filtered[state.currentIndex]?.id === item.id)
-      document.getElementById('bottom-like-count').textContent = n;
+    if (state.filtered[state.currentIndex]?.id !== item.id) return;
+    document.getElementById('bottom-like-count').textContent = n;
+    // Update on-card love badge if feature is enabled
+    if (state.showLoveCount) {
+      const badge = getTopCard()?.querySelector('.card-love-badge');
+      if (badge && n > 0) {
+        badge.textContent = `❤️ ${n} ${n === 1 ? 'love' : 'loves'}`;
+        badge.classList.remove('hidden');
+      }
+    }
   });
 }
 
@@ -298,8 +307,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     allItems = data.items || [];
     state.config = data.cafe || {};
   }
-  state.allItems = allItems;
-  state.addOns   = data.addOns || [];
+  state.allItems     = allItems;
+  state.addOns       = data.addOns || [];
+  state.showLoveCount = !!(data.settings?.showLoveCount);
   loadFilterPrefs();
   applyFilters();
 
@@ -691,6 +701,7 @@ function buildCard(item, pos) {
       <div class="card-category">${escHtml(item.category)}</div>
       <div class="card-name">${escHtml(item.name)}</div>
       <div class="card-description">${escHtml(item.description)}</div>
+      <div class="card-love-badge hidden"></div>
       <div class="card-meta">
         <span class="card-price">${priceStr}</span>
         <div class="card-meta-right">

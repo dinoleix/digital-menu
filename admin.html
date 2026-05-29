@@ -197,6 +197,9 @@
   .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
   .btn-danger    { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
   .btn-new       { background: var(--green); color: #000; white-space: nowrap; }
+  .btn-toggle    { background: var(--card); color: var(--muted); border: 1px solid var(--border); white-space: nowrap; font-size: 12px; }
+  .btn-toggle.on { background: rgba(248,113,113,0.15); color: #f87171; border-color: rgba(248,113,113,0.35); }
+  #love-count-status { font-weight: 800; }
 
   /* ── Toast ─────────────────────────────────────── */
   #toast {
@@ -287,6 +290,7 @@
 
   <header>
     <h1>Green Neko <span>Admin</span></h1>
+    <button id="btn-love-count" class="btn btn-toggle" title="Show love count badge on menu cards">❤️ Love Badge: <span id="love-count-status">OFF</span></button>
     <button class="btn btn-new" id="btn-new">+ New Item</button>
   </header>
 
@@ -426,8 +430,40 @@ const SECTION_LABELS = {
   bobaTea:'Boba Tea', coffee:'Coffee'
 };
 
+/* ─── Love Count Toggle ─────────────────────────── */
+async function initLoveCountToggle() {
+  const btn    = document.getElementById('btn-love-count');
+  const status = document.getElementById('love-count-status');
+
+  // Read current setting
+  try {
+    const r = await fetch(`${API}/settings`, { headers: authHeaders() });
+    const s = await r.json();
+    setLoveBtn(!!s.showLoveCount);
+  } catch { setLoveBtn(false); }
+
+  btn.addEventListener('click', async () => {
+    const current = btn.classList.contains('on');
+    const next    = !current;
+    btn.disabled  = true;
+    try {
+      await fetch(`${API}/settings`, {
+        method: 'PUT', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ showLoveCount: next })
+      });
+      setLoveBtn(next);
+    } finally { btn.disabled = false; }
+  });
+
+  function setLoveBtn(on) {
+    btn.classList.toggle('on', on);
+    status.textContent = on ? 'ON' : 'OFF';
+  }
+}
+
 /* ─── Init ──────────────────────────────────────── */
 async function init() {
+  initLoveCountToggle();
   try {
     const r = await fetch(`${API}/menu`, { headers: authHeaders() });
     if (r.status === 401) { sessionStorage.removeItem('admin_token'); location.reload(); return; }

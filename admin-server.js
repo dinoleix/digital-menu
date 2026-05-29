@@ -139,6 +139,21 @@ const server = http.createServer(async (req, res) => {
     } catch(e) { return json(res, 400, { error: e.message }); }
   }
 
+  if (p === '/api/settings' && method === 'GET') {
+    const data = readMenu();
+    return json(res, 200, data.settings || {});
+  }
+
+  if (p === '/api/settings' && method === 'PUT') {
+    try {
+      const updates = await body(req);
+      const data    = readMenu();
+      data.settings = Object.assign(data.settings || {}, updates);
+      writeMenu(data);
+      return json(res, 200, { ok: true, settings: data.settings });
+    } catch(e) { return json(res, 400, { error: e.message }); }
+  }
+
   if (p.startsWith('/api/items/') && method === 'DELETE') {
     const id   = decodeURIComponent(p.slice('/api/items/'.length));
     const data = readMenu();
