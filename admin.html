@@ -436,23 +436,28 @@ async function initLoveCountToggle() {
   const btn    = document.getElementById('btn-love-count');
   const status = document.getElementById('love-count-status');
 
-  // Read current setting
   try {
     const r = await fetch(`${API}/settings`, { headers: authHeaders() });
+    if (!r.ok) throw new Error(`${r.status}`);
     const s = await r.json();
     setLoveBtn(!!s.showLoveCount);
   } catch { setLoveBtn(false); }
 
   btn.addEventListener('click', async () => {
-    const current = btn.classList.contains('on');
-    const next    = !current;
-    btn.disabled  = true;
+    const prev = btn.classList.contains('on');
+    const next = !prev;
+    btn.disabled = true;
     try {
-      await fetch(`${API}/settings`, {
-        method: 'PUT', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      const r = await fetch(`${API}/settings`, {
+        method: 'PUT', headers: authHeaders(),
         body: JSON.stringify({ showLoveCount: next })
       });
+      if (!r.ok) throw new Error(`Server returned ${r.status}`);
       setLoveBtn(next);
+      toast('Saved ✓', 'ok');
+    } catch(err) {
+      setLoveBtn(prev); // revert
+      toast('Save failed — ' + err.message, 'err');
     } finally { btn.disabled = false; }
   });
 
@@ -469,20 +474,26 @@ async function initMoodDeckToggle() {
 
   try {
     const r = await fetch(`${API}/settings`, { headers: authHeaders() });
+    if (!r.ok) throw new Error(`${r.status}`);
     const s = await r.json();
     setMoodBtn(!!s.showMoodDeck);
   } catch { setMoodBtn(false); }
 
   btn.addEventListener('click', async () => {
-    const cur  = btn.classList.contains('on');
-    const next = !cur;
+    const prev = btn.classList.contains('on');
+    const next = !prev;
     btn.disabled = true;
     try {
-      await fetch(`${API}/settings`, {
-        method: 'PUT', headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      const r = await fetch(`${API}/settings`, {
+        method: 'PUT', headers: authHeaders(),
         body: JSON.stringify({ showMoodDeck: next })
       });
+      if (!r.ok) throw new Error(`Server returned ${r.status}`);
       setMoodBtn(next);
+      toast('Saved ✓', 'ok');
+    } catch(err) {
+      setMoodBtn(prev); // revert
+      toast('Save failed — ' + err.message, 'err');
     } finally { btn.disabled = false; }
   });
 
