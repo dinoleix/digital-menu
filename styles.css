@@ -1368,6 +1368,86 @@ input  { font-family: inherit; }
   justify-content: center;
 }
 
+/* ─── Your Usual Sheet ───────────────────────────────────── */
+.usual-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.usual-sheet {
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 24px 24px 0 0;
+  padding: 12px 24px calc(var(--safe-bottom) + 28px);
+  animation: slideUp .35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.usual-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0 16px;
+}
+
+.usual-emoji { font-size: 36px; }
+
+.usual-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.usual-sub {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 2px;
+}
+
+.usual-summary {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.6;
+  margin-bottom: 6px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.usual-total {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+  margin: 10px 0 18px;
+}
+
+.usual-order-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--green);
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  transition: transform .15s, opacity .15s;
+}
+.usual-order-btn:active { transform: scale(0.98); opacity: 0.9; }
+
+.usual-skip-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
 /* ─── Size Picker Sheet ──────────────────────────────────── */
 .size-overlay {
   position: fixed;

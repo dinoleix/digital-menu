@@ -422,6 +422,36 @@ function bindModal() {
   document.getElementById('start-btn').addEventListener('click', launch);
 }
 
+/* ─── Your Usual ─────────────────────────────────────────── */
+function showUsualSheet() {
+  let lastOrder;
+  try { lastOrder = JSON.parse(localStorage.getItem('gn_last_order') || 'null'); } catch { return; }
+  if (!lastOrder || lastOrder.length === 0) return;
+
+  const overlay = document.getElementById('usual-overlay');
+  if (!overlay) return;
+
+  const total = lastOrder.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
+  const summary = lastOrder.map(c => `${c.quantity > 1 ? c.quantity + '× ' : ''}${c.name}`).join(' · ');
+
+  document.getElementById('usual-summary').textContent = summary;
+  document.getElementById('usual-total').textContent   = `₹${total.toFixed(2)}`;
+
+  overlay.classList.remove('hidden');
+
+  document.getElementById('usual-order-btn').onclick = () => {
+    lastOrder.forEach(c => {
+      state.cart.push({ id: c.id, name: c.name, price: c.price, image: c.image || '', quantity: c.quantity });
+    });
+    updateCartBadge();
+    playSound('add');
+    showToast(`💚 Last order added to cart`);
+    overlay.classList.add('hidden');
+  };
+
+  document.getElementById('usual-skip-btn').onclick = () => overlay.classList.add('hidden');
+}
+
 /* ─── Init App ───────────────────────────────────────────── */
 function initApp() {
   renderCategories();
@@ -430,6 +460,7 @@ function initApp() {
   bindCartUI();
   initCategoryDrag();
   initFilters();
+  showUsualSheet();
 }
 
 /* ─── Filters (Veg + Allergens) ──────────────────────────── */
@@ -1234,6 +1265,13 @@ function showCounterView() {
       <span class="counter-item-price">${c.price != null ? `₹${(c.price * c.quantity).toFixed(2)}` : 'See menu'}</span>
     </div>
   `).join('');
+
+  // Save this order as "your usual" for next visit
+  try {
+    localStorage.setItem('gn_last_order', JSON.stringify(
+      state.cart.map(c => ({ id: c.id, name: c.name, price: c.price, image: c.image, quantity: c.quantity }))
+    ));
+  } catch { /* storage full — ignore */ }
 
   document.getElementById('counter-overlay').classList.remove('hidden');
   closeCart();
