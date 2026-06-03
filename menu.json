@@ -2584,8 +2584,8 @@
           "pastry"
         ],
         "colorCode": "#4a2e0e",
-        "imageUrl": null,
-        "imageName": null,
+        "imageUrl": "Menuimages/maritozzo-cream-bun.jpg",
+        "imageName": "maritozzo-cream-bun.jpg",
         "addOnIds": [],
         "contains": "Eggs, Dairy, Gluten",
         "allergens": "gluten, dairy, eggs"
