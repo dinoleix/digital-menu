@@ -47,7 +47,11 @@
         "colorCode": "#F5DEB3",
         "imageUrl": "Menuimages/french-toast-cloud-fruits.jpg",
         "imageName": "french-toast-cloud-fruits.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "breakfast_003",
@@ -132,7 +136,11 @@
         "colorCode": "#4CAF50",
         "imageUrl": "Menuimages/matcha-souffle-pancake.jpg",
         "imageName": "matcha-souffle-pancake.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "breakfast_007",
@@ -153,7 +161,11 @@
         "colorCode": "#4A2C0A",
         "imageUrl": "Menuimages/chocolate-souffle-pancake.jpg",
         "imageName": "chocolate-souffle-pancake.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "breakfast_008",
@@ -173,7 +185,11 @@
         "colorCode": "#F5DEB3",
         "imageUrl": "Menuimages/french-toast-cloud-plain.jpg",
         "imageName": "french-toast-cloud-plain.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       }
     ],
     "ramen": [
@@ -354,7 +370,11 @@
           "addon_005",
           "addon_010",
           "addon_007"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       }
     ],
     "pokeBowls": [
@@ -597,14 +617,14 @@
         "category": "Appetizers",
         "price": 410,
         "description": "A savory Japanese street delight made with tender octopus pieces, crispy golden batter, a hint of dashi, and finished with light soy, spring onions, and crunchy crumbs — crispy outside, soft and flavorful inside.",
-        "calories": 420,
+        "calories": "420",
         "nutrition": {
-          "protein": 21,
-          "carbs": 37,
-          "fat": 20,
-          "fiber": 2,
-          "sodium": 620,
-          "cholesterol": 190
+          "protein": "21",
+          "carbs": "37",
+          "fat": "20",
+          "fiber": "2",
+          "sodium": "620",
+          "cholesterol": "190"
         },
         "spicy": false,
         "vegetarian": false,
@@ -617,7 +637,11 @@
         "colorCode": "#8B4513",
         "imageUrl": "Menuimages/takoyaki-japanese-octopus-balls.jpg",
         "imageName": "takoyaki-japanese-octopus-balls.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": true,
+        "placeholderImage": false
       },
       {
         "id": "appetizer_003",
@@ -674,14 +698,14 @@
         "category": "Appetizers",
         "price": 350,
         "description": "A Japanese classic — tender chicken marinated with soy, ginger, and garlic, lightly coated and fried to a perfect golden crisp. Juicy on the inside with an irresistibly crunchy exterior, served with Japanese mayo and a wedge of lemon. Simple, bold, and endlessly craveable.",
-        "calories": 520,
+        "calories": "520",
         "nutrition": {
-          "protein": 32,
-          "carbs": 12,
-          "fat": 38,
-          "sodium": 780,
-          "fiber": 1,
-          "cholesterol": 140
+          "protein": "32",
+          "carbs": "12",
+          "fat": "38",
+          "fiber": "1",
+          "sodium": "780",
+          "cholesterol": "140"
         },
         "spicy": true,
         "vegetarian": false,
@@ -694,7 +718,11 @@
         "colorCode": "#B8860B",
         "imageUrl": "Menuimages/chicken-karaage.jpg",
         "imageName": "chicken-karaage.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": true,
+        "placeholderImage": false
       },
       {
         "id": "appetizer_006",
@@ -885,7 +913,11 @@
         "colorCode": "#F5F5DC",
         "imageUrl": "Menuimages/chicken-onigiri.jpg",
         "imageName": "chicken-onigiri.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "appetizer_015",
@@ -908,7 +940,11 @@
         "imageName": "tamago-sando.jpg",
         "addOnIds": [
           "addon_005"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": true,
+        "placeholderImage": false
       },
       {
         "id": "appetizer_016",
@@ -950,7 +986,11 @@
         "colorCode": "#F5F5DC",
         "imageUrl": "Menuimages/paneer-onigiri.jpg",
         "imageName": "paneer-onigiri.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "appetizer_018",
@@ -1093,7 +1133,11 @@
         "addOnIds": [
           "addon_005",
           "addon_007"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       }
     ],
     "teaDesserts": [
@@ -1811,7 +1855,11 @@
           "addon_014",
           "addon_015"
         ],
-        "priceLarge": 330
+        "priceLarge": 330,
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "boba_019",
@@ -1837,7 +1885,11 @@
           "addon_014",
           "addon_015"
         ],
-        "priceLarge": 290
+        "priceLarge": 290,
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "boba_020",
@@ -1901,11 +1953,11 @@
         "category": "Coffee",
         "price": 140,
         "description": "A pure, concentrated single shot (40ml) of rich espresso pulled from premium coffee beans — bold, full-bodied, and intensely aromatic. The foundation of all great coffee.",
-        "calories": 5,
+        "calories": "5",
         "nutrition": {
-          "protein": 0.3,
-          "carbs": 0.5,
-          "fat": 0.1
+          "protein": "0.3",
+          "carbs": "0.5",
+          "fat": "0.1"
         },
         "spicy": false,
         "vegetarian": true,
@@ -1917,7 +1969,11 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/espresso.jpg",
         "imageName": "espresso.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_002",
@@ -1925,11 +1981,11 @@
         "category": "Coffee",
         "price": 170,
         "description": "A double shot (80ml) of premium espresso — twice the depth, twice the richness. Bold, full-bodied, and perfectly concentrated for those who take their coffee seriously.",
-        "calories": 10,
+        "calories": "10",
         "nutrition": {
-          "protein": 0.6,
-          "carbs": 1,
-          "fat": 0.2
+          "protein": "0.6",
+          "carbs": "1",
+          "fat": "0.2"
         },
         "spicy": false,
         "vegetarian": true,
@@ -1941,7 +1997,11 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/espresso.jpg",
         "imageName": "espresso.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_003",
@@ -1949,11 +2009,11 @@
         "category": "Coffee",
         "price": 180,
         "description": "Drip-brewed Robusta coffee mixed with sweetened condensed milk — rich, intensely bold, and deeply satisfying. A Vietnamese classic that's sweet, strong, and uniquely indulgent.",
-        "calories": 175,
+        "calories": "175",
         "nutrition": {
-          "protein": 3,
-          "carbs": 29,
-          "fat": 5
+          "protein": "3",
+          "carbs": "29",
+          "fat": "5"
         },
         "spicy": false,
         "vegetarian": true,
@@ -1969,7 +2029,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_004",
@@ -2058,11 +2122,11 @@
         "category": "Coffee",
         "price": 250,
         "description": "A decadent blend of espresso, rich chocolate sauce, and steamed milk — a perfect harmony of coffee and cocoa finished with a light foam. Indulgent, warming, and impossible to resist.",
-        "calories": 300,
+        "calories": "300",
         "nutrition": {
-          "protein": 10,
-          "carbs": 42,
-          "fat": 12
+          "protein": "10",
+          "carbs": "42",
+          "fat": "12"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2079,7 +2143,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_008",
@@ -2087,11 +2155,11 @@
         "category": "Coffee",
         "price": 160,
         "description": "A single shot (100ml) of premium espresso served over ice — bold, refreshing, and perfectly chilled. Pure coffee intensity with an icy edge.",
-        "calories": 5,
+        "calories": "5",
         "nutrition": {
-          "protein": 0.3,
-          "carbs": 0.5,
-          "fat": 0.1
+          "protein": "0.3",
+          "carbs": "0.5",
+          "fat": "0.1"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2103,7 +2171,11 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-espresso.jpg",
         "imageName": "iced-espresso.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_009",
@@ -2111,11 +2183,11 @@
         "category": "Coffee",
         "price": 190,
         "description": "A double shot (140ml) of premium espresso poured over ice — concentrated, bold, and ice-cold. For those who need their coffee strong and fast.",
-        "calories": 10,
+        "calories": "10",
         "nutrition": {
-          "protein": 0.6,
-          "carbs": 1,
-          "fat": 0.2
+          "protein": "0.6",
+          "carbs": "1",
+          "fat": "0.2"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2127,7 +2199,11 @@
         "colorCode": "#3B1D08",
         "imageUrl": "Menuimages/iced-espresso.jpg",
         "imageName": "iced-espresso.jpg",
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_010",
@@ -2135,11 +2211,11 @@
         "category": "Coffee",
         "price": 230,
         "description": "Chilled drip-brewed Robusta coffee with sweet condensed milk poured over ice — rich, bold, and deeply refreshing. The iconic Vietnamese cà phê sữa đá, served cold and perfect.",
-        "calories": 200,
+        "calories": "200",
         "nutrition": {
-          "protein": 3,
-          "carbs": 33,
-          "fat": 5
+          "protein": "3",
+          "carbs": "33",
+          "fat": "5"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2155,7 +2231,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_011",
@@ -2163,11 +2243,11 @@
         "category": "Coffee",
         "price": 230,
         "description": "Crisp, chilled espresso shots poured over ice with cold water — clean, bold, and endlessly refreshing. The perfect iced black coffee for a warm day.",
-        "calories": 10,
+        "calories": "10",
         "nutrition": {
-          "protein": 0.5,
-          "carbs": 1.5,
-          "fat": 0.1
+          "protein": "0.5",
+          "carbs": "1.5",
+          "fat": "0.1"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2180,7 +2260,11 @@
         "imageUrl": "Menuimages/iced-americano.jpg",
         "imageName": "iced-americano.jpg",
         "priceLarge": 290,
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_012",
@@ -2216,11 +2300,11 @@
         "category": "Coffee",
         "price": 260,
         "description": "Creamy espresso and cold milk poured over ice — smooth, mellow, and endlessly satisfying. A café staple that never disappoints.",
-        "calories": 180,
+        "calories": "180",
         "nutrition": {
-          "protein": 9,
-          "carbs": 17,
-          "fat": 6
+          "protein": "9",
+          "carbs": "17",
+          "fat": "6"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2236,7 +2320,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_014",
@@ -2299,11 +2387,11 @@
         "category": "Coffee",
         "price": 300,
         "description": "Freshly squeezed lime juice with espresso over ice — tangy, refreshing, and uniquely bold. A zesty coffee experience that wakes up your senses.",
-        "calories": 60,
+        "calories": "60",
         "nutrition": {
-          "protein": 1,
-          "carbs": 13,
-          "fat": 0.2
+          "protein": "1",
+          "carbs": "13",
+          "fat": "0.2"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2317,7 +2405,11 @@
         "imageUrl": "Menuimages/iced-lime-coffee.jpg",
         "imageName": "iced-lime-coffee.jpg",
         "priceLarge": 350,
-        "addOnIds": []
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_017",
@@ -2354,11 +2446,11 @@
         "category": "Coffee",
         "price": 300,
         "description": "Premium ceremonial grade matcha whisked to perfection with steamed milk — earthy, smooth, and vibrant. Available hot or iced, it's a nourishing and deeply satisfying alternative to coffee.",
-        "calories": 180,
+        "calories": "180",
         "nutrition": {
-          "protein": 7,
-          "carbs": 24,
-          "fat": 6
+          "protein": "7",
+          "carbs": "24",
+          "fat": "6"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2375,19 +2467,23 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_019",
         "name": "Matcha Iced Tea",
         "category": "Coffee",
-        "price": null,
+        "price": 0,
         "description": "Premium matcha dissolved in cold water and served over ice — clean, refreshing, and subtly earthy. A lighter, dairy-free way to enjoy the depth of ceremonial matcha.",
-        "calories": 40,
+        "calories": "40",
         "nutrition": {
-          "protein": 2,
-          "carbs": 7,
-          "fat": 0.5
+          "protein": "2",
+          "carbs": "7",
+          "fat": "0.5"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2404,7 +2500,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_020",
@@ -2412,11 +2512,11 @@
         "category": "Coffee",
         "price": 285,
         "description": "Premium matcha layered with fresh strawberry flavours and milk over ice — a beautiful sweet-earthy combination that's as stunning to look at as it is to drink.",
-        "calories": 230,
+        "calories": "230",
         "nutrition": {
-          "protein": 6,
-          "carbs": 38,
-          "fat": 6
+          "protein": "6",
+          "carbs": "38",
+          "fat": "6"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2433,7 +2533,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_021",
@@ -2441,11 +2545,11 @@
         "category": "Coffee",
         "price": 260,
         "description": "Premium matcha blended with tropical mango over ice — vibrant, fruity, and refreshingly unique. The perfect balance of earthy green tea and sweet mango.",
-        "calories": 160,
+        "calories": "160",
         "nutrition": {
-          "protein": 3,
-          "carbs": 32,
-          "fat": 1.5
+          "protein": "3",
+          "carbs": "32",
+          "fat": "1.5"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2462,7 +2566,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       },
       {
         "id": "coffee_022",
@@ -2470,11 +2578,11 @@
         "category": "Coffee",
         "price": 300,
         "description": "Aromatic Thai tea brewed with warming spices and blended with creamy milk — sweet, bold, and distinctively orange. Available hot or iced for the classic Thai tea experience.",
-        "calories": 270,
+        "calories": "270",
         "nutrition": {
-          "protein": 5,
-          "carbs": 42,
-          "fat": 9
+          "protein": "5",
+          "carbs": "42",
+          "fat": "9"
         },
         "spicy": false,
         "vegetarian": true,
@@ -2491,7 +2599,11 @@
         "addOnIds": [
           "addon_013",
           "addon_014"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": true
       }
     ],
     "desserts": [
@@ -2565,7 +2677,8 @@
         "imageName": null,
         "addOnIds": [],
         "contains": "Eggs, Dairy, Gluten",
-        "allergens": "gluten, dairy, eggs"
+        "allergens": "gluten, dairy, eggs",
+        "placeholderImage": true
       },
       {
         "id": "dessert_004",

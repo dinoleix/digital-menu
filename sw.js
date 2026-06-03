@@ -1,4 +1,4 @@
-const CACHE  = 'greenneko-v6';
+const CACHE  = 'greenneko-v7';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './data.js', './manifest.json'];
 
 // Option B — force new SW to activate immediately, no waiting for tab close
