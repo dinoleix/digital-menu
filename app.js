@@ -795,6 +795,12 @@ function buildCard(item, pos) {
   const popHtml   = item.tags?.includes('popular')        ? `<span class="badge badge-popular">⭐ Popular</span>` : '';
   const chefHtml  = item.tags?.includes("chef's special") ? `<span class="badge badge-popular">👨‍🍳 Chef's Pick</span>` : '';
   const sigHtml   = item.signature                        ? `<span class="badge badge-signature">✦ Signature</span>` : '';
+  const stampHtml = item.placeholderImage ? `
+    <div class="image-stamp">
+      <span class="image-stamp-icon">📷</span>
+      <span class="image-stamp-title">Placeholder Image</span>
+      <span class="image-stamp-sub">Actual photo coming soon</span>
+    </div>` : '';
   const calBtnHtml = hasNutrition
     ? `<button class="cal-toggle">🔥 <span class="cal-text">Calories</span></button>`
     : '';
@@ -803,6 +809,7 @@ function buildCard(item, pos) {
   card.innerHTML = `
     <div class="card-bg" style="background-color:${escAttr(color)}"></div>
     <div class="card-gradient"></div>
+    ${stampHtml}
 
     <div class="card-side-badges">${sigHtml}${popHtml}${newHtml}${chefHtml}</div>
 

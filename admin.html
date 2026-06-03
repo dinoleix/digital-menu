@@ -710,6 +710,7 @@ function renderDetail(item) {
         <h2>${escHtml(item.name)}</h2>
         <span class="dtag">${SECTION_LABELS[item._section]||item._section}</span>
         ${isNew ? '<span class="dtag" style="background:rgba(96,165,250,0.15);color:var(--blue);margin-left:6px">New</span>' : ''}
+        ${item.placeholderImage ? '<span class="dtag" style="background:rgba(251,191,36,0.15);color:var(--yellow);margin-left:6px">🚧 Placeholder image</span>' : ''}
       </div>
     </div>
 
@@ -830,7 +831,11 @@ function renderDetail(item) {
             <label class="toggle-label">
               <input type="checkbox" name="signature" ${item.signature?'checked':''}> ✦ Signature
             </label>
+            <label class="toggle-label">
+              <input type="checkbox" name="placeholderImage" ${item.placeholderImage?'checked':''}> 🚧 Placeholder image (not ours)
+            </label>
           </div>
+          <p style="margin:6px 0 0;font-size:12px;color:var(--muted)">Tick this if the photo isn't from our café. A "Placeholder image — actual photo coming soon" stamp will show over it on the live menu.</p>
         </div>
 
       </div>
@@ -877,6 +882,7 @@ async function saveItem(e) {
   updated.spicy       = form.querySelector('[name=spicy]').checked;
   updated.vegetarian  = form.querySelector('[name=vegetarian]').checked;
   updated.signature   = form.querySelector('[name=signature]').checked;
+  updated.placeholderImage = form.querySelector('[name=placeholderImage]').checked;
   updated.tags        = fd.get('tags').split(',').map(t=>t.trim()).filter(Boolean);
   if (isNew) updated.id = fd.get('id').trim() || slugId(updated.name, updated._section);
 
@@ -904,7 +910,7 @@ document.getElementById('btn-new').addEventListener('click', () => {
     id:'', name:'', _section:'breakfast', price:0,
     description:null, calories:null, imageUrl:null, imageName:null,
     contains:null, allergens:null, colorCode:null,
-    spicy:false, vegetarian:false, signature:false, tags:[], nutrition:null
+    spicy:false, vegetarian:false, signature:false, placeholderImage:false, tags:[], nutrition:null
   };
   document.getElementById('empty-state').style.display = 'none';
   document.getElementById('item-form').style.display   = '';
