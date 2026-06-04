@@ -1,5 +1,13 @@
 'use strict';
 
+/* ─── Analytics ─────────────────────────────────────────── */
+// Thin wrapper around GA4's gtag. Safe no-op if GA is blocked/offline.
+function track(event, params) {
+  try {
+    if (typeof gtag === 'function') gtag('event', event, params || {});
+  } catch (_) { /* never let analytics break the app */ }
+}
+
 /* ─── State ─────────────────────────────────────────────── */
 const state = {
   allItems:        [],
@@ -450,6 +458,7 @@ function showMoodPicker() {
 
   overlay.querySelectorAll('.mood-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      track('mood_selected', { mood: btn.dataset.mood });
       applyMoodSort(btn.dataset.mood);
       dismiss();
     }, { once: true });
@@ -1335,6 +1344,10 @@ function addToCart(item, qty) {
   }
   updateCartBadge();
   showToast(`💚 ${qty > 1 ? qty + '× ' : ''}${item.name} added`);
+
+  track('add_to_cart', {
+    items: [{ item_id: item.id, item_name: item.name, price: item.price, quantity: qty }]
+  });
 }
 
 function removeFromCart(itemId, qty) {
@@ -1466,6 +1479,12 @@ function showCounterView() {
 
   const total = state.cart.reduce((s, c) => s + (c.price != null ? c.price * c.quantity : 0), 0);
   const table = state.tableNumber ? `Table ${state.tableNumber}` : 'Walk-in';
+
+  track('show_to_counter', {
+    value: total,
+    currency: 'INR',
+    items: state.cart.map(c => ({ item_id: c.id, item_name: c.name, quantity: c.quantity }))
+  });
 
   document.getElementById('counter-table').textContent = table;
   document.getElementById('counter-total').textContent = `₹${total.toFixed(2)}`;
