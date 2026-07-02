@@ -51,7 +51,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "breakfast_003",
@@ -373,8 +373,8 @@
         ],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": true,
+        "placeholderImage": false
       }
     ],
     "pokeBowls": [
@@ -917,7 +917,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "appetizer_015",
