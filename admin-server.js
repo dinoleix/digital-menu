@@ -5,6 +5,7 @@ const http  = require('http');
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { execFile } = require('child_process');
 const ROOT  = __dirname;
 const MENU  = path.join(ROOT, 'menu.json');
 const PORT  = process.env.PORT || 3333;
@@ -53,6 +54,37 @@ function readMenu() {
 
 function writeMenu(data) {
   fs.writeFileSync(MENU, JSON.stringify(data, null, 2), 'utf8');
+  gitSync(); // auto-commit & push menu.json to GitHub after every save
+}
+
+/* ── Auto-push menu.json to GitHub ──
+   Runs `git add/commit/push` after each save. A single-slot queue makes sure
+   two quick saves never run git at the same time (the second waits, then runs
+   once more to capture the latest state). All non-blocking — the HTTP response
+   is sent immediately; the push happens in the background. */
+let syncRunning = false;
+let syncQueued  = false;
+
+function gitSync() {
+  if (syncRunning) { syncQueued = true; return; }
+  syncRunning = true;
+
+  const cmd = 'git add menu.json && ' +
+              'git commit -m "Update menu via admin panel" --no-verify && ' +
+              'git push';
+
+  execFile('/bin/sh', ['-c', cmd], { cwd: ROOT }, (err, stdout, stderr) => {
+    syncRunning = false;
+    const out = `${stdout}${stderr}`;
+    if (err && !/nothing to commit/i.test(out)) {
+      console.error('  Git sync failed:', (stderr || err.message).trim());
+    } else if (/nothing to commit/i.test(out)) {
+      console.log('  Git: no changes to push');
+    } else {
+      console.log('  Git: menu.json pushed to GitHub ✓');
+    }
+    if (syncQueued) { syncQueued = false; gitSync(); }
+  });
 }
 
 function json(res, code, body) {
