@@ -990,7 +990,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "appetizer_018",
@@ -2409,7 +2409,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "coffee_017",
