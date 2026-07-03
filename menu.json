@@ -1145,7 +1145,7 @@
         "id": "dessert_001",
         "name": "Bubble Waffle",
         "category": "Tea & Desserts",
-        "price": 280,
+        "price": 400,
         "description": "Made fresh to order with a light, airy batter that bakes into iconic golden bubbles — crispy on the outside and fluffy within. Choose your sauce (caramel or chocolate) and add an ice cream topping (vanilla, chocolate, or strawberry) for +₹70. A sweet treat as fun to eat as it is beautiful.",
         "calories": null,
         "nutrition": null,
@@ -1161,7 +1161,11 @@
         "imageName": "bubble-waffle.jpg",
         "addOnIds": [
           "addon_011"
-        ]
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": false
       },
       {
         "id": "dessert_002",
