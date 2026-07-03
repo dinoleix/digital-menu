@@ -2537,7 +2537,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "coffee_021",
@@ -2626,8 +2626,8 @@
           "inhouse"
         ],
         "colorCode": "#2a1506",
-        "imageUrl": null,
-        "imageName": null,
+        "imageUrl": "Menuimages/tiramisu.jpg",
+        "imageName": "tiramisu.jpg",
         "addOnIds": [],
         "contains": "Eggs, Dairy, Gluten",
         "allergens": "gluten, dairy, eggs"
@@ -2649,8 +2649,8 @@
           "pastry"
         ],
         "colorCode": "#3b2a10",
-        "imageUrl": null,
-        "imageName": null,
+        "imageUrl": "Menuimages/shucream.jpg",
+        "imageName": "shucream.jpg",
         "addOnIds": [],
         "contains": "Eggs, Dairy, Gluten",
         "allergens": "gluten, dairy, eggs"
