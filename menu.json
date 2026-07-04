@@ -2574,7 +2574,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "coffee_022",
