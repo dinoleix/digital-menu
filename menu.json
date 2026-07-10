@@ -164,8 +164,7 @@
         "addOnIds": [],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "breakfast_008",
@@ -188,8 +187,7 @@
         "addOnIds": [],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       }
     ],
     "ramen": [
