@@ -2145,8 +2145,7 @@
         ],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "coffee_008",
