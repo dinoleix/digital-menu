@@ -642,6 +642,38 @@
         "placeholderImage": false
       },
       {
+        "id": "appetizer_002",
+        "name": "Baked Sweet & Spicy Wings",
+        "category": "Appetizers",
+        "price": 340,
+        "description": "Oven-baked chicken wings glazed in a sweet and spicy sauce, finished with a sprinkle of sesame seeds — sticky, bold, and packed with flavor in every bite.",
+        "calories": "480",
+        "nutrition": {
+          "protein": "28",
+          "carbs": "18",
+          "fat": "32",
+          "fiber": "1",
+          "sodium": "740",
+          "cholesterol": "130"
+        },
+        "spicy": true,
+        "vegetarian": false,
+        "tags": [
+          "appetizer",
+          "chicken",
+          "wings",
+          "baked"
+        ],
+        "colorCode": "#B22222",
+        "imageUrl": "Menuimages/baked-sweet-spicy-wings.jpg",
+        "imageName": "baked-sweet-spicy-wings.jpg",
+        "addOnIds": [],
+        "contains": null,
+        "allergens": null,
+        "signature": false,
+        "placeholderImage": false
+      },
+      {
         "id": "appetizer_003",
         "name": "Chicken Katsu Finger",
         "category": "Appetizers",
@@ -1139,7 +1171,7 @@
     ],
     "teaDesserts": [
       {
-        "id": "dessert_001",
+        "id": "teaDessert_001",
         "name": "Bubble Waffle",
         "category": "Tea & Desserts",
         "price": 400,
@@ -1165,7 +1197,7 @@
         "placeholderImage": false
       },
       {
-        "id": "dessert_002",
+        "id": "teaDessert_002",
         "name": "Cookies",
         "category": "Tea & Desserts",
         "price": null,
@@ -1895,7 +1927,7 @@
       {
         "id": "boba_020",
         "name": "Peachy Fuzz",
-        "category": "Boba Tea",
+        "category": "Fruity Soda",
         "price": 199,
         "description": "A sparkling, fruit-forward soda bursting with vibrant peach flavour — light, effervescent, and refreshingly sweet. The perfect thirst-quencher served ice cold.",
         "calories": null,
@@ -1921,7 +1953,7 @@
       {
         "id": "boba_021",
         "name": "Blush Fuzz",
-        "category": "Boba Tea",
+        "category": "Fruity Soda",
         "price": 199,
         "description": "A sparkling blush-coloured fruity soda — light, effervescent, and beautifully refreshing. A delightful fizzy sipper served ice cold.",
         "calories": null,
