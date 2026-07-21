@@ -1134,8 +1134,7 @@
         ],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       }
     ],
     "teaDesserts": [
@@ -1974,8 +1973,7 @@
         "addOnIds": [],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "coffee_002",
@@ -2002,8 +2000,7 @@
         "addOnIds": [],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "coffee_003",
