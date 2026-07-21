@@ -1186,7 +1186,7 @@
       {
         "id": "coffee_025",
         "name": "Forbidden Rice Tea",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 180,
         "description": "A unique tea brewed with black glutinous rice — nutty, earthy, and packed with antioxidants. Subtly sweet with a distinctive deep purple hue. Served hot or iced.",
         "calories": "35",
@@ -1214,7 +1214,7 @@
       {
         "id": "coffee_023",
         "name": "Sumac Berry Tea",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 180,
         "description": "A warming herbal brew featuring sumac and berry — tangy, antioxidant-rich, and beautifully tart. A unique and healthful tea available hot or iced.",
         "calories": "20",
@@ -1242,7 +1242,7 @@
       {
         "id": "coffee_024",
         "name": "Fruity Roselle Tea",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 180,
         "description": "Hibiscus roselle tea — vibrant, tart, and naturally caffeine-free. Deeply ruby-red and packed with antioxidants, it's as beautiful as it is refreshing. Served hot or iced.",
         "calories": "15",
@@ -2441,7 +2441,7 @@
       {
         "id": "coffee_018",
         "name": "Matcha Latte",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 300,
         "description": "Premium ceremonial grade matcha whisked to perfection with steamed milk — earthy, smooth, and vibrant. Available hot or iced, it's a nourishing and deeply satisfying alternative to coffee.",
         "calories": "180",
@@ -2474,7 +2474,7 @@
       {
         "id": "coffee_019",
         "name": "Matcha Iced Tea",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 0,
         "description": "Premium matcha dissolved in cold water and served over ice — clean, refreshing, and subtly earthy. A lighter, dairy-free way to enjoy the depth of ceremonial matcha.",
         "calories": "40",
@@ -2507,7 +2507,7 @@
       {
         "id": "coffee_020",
         "name": "Strawberry Matcha Latte",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 285,
         "description": "Premium matcha layered with fresh strawberry flavours and milk over ice — a beautiful sweet-earthy combination that's as stunning to look at as it is to drink.",
         "calories": "230",
@@ -2540,7 +2540,7 @@
       {
         "id": "coffee_021",
         "name": "Mango Matcha",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 260,
         "description": "Premium matcha blended with tropical mango over ice — vibrant, fruity, and refreshingly unique. The perfect balance of earthy green tea and sweet mango.",
         "calories": "160",
@@ -2573,7 +2573,7 @@
       {
         "id": "coffee_022",
         "name": "Thai Tea Latte",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 300,
         "description": "Aromatic Thai tea brewed with warming spices and blended with creamy milk — sweet, bold, and distinctively orange. Available hot or iced for the classic Thai tea experience.",
         "calories": "270",
@@ -2606,7 +2606,7 @@
       {
         "id": "coffee_026",
         "name": "Iced Matcha Latte",
-        "category": "Coffee",
+        "category": "Matcha & Tea",
         "price": 300,
         "description": "Premium ceremonial grade matcha whisked with cold milk and poured over ice — smooth, earthy, and refreshingly vibrant.",
         "calories": "180",
