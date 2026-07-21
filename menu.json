@@ -2602,6 +2602,38 @@
         "allergens": null,
         "signature": false,
         "placeholderImage": true
+      },
+      {
+        "id": "coffee_026",
+        "name": "Iced Matcha Latte",
+        "category": "Coffee",
+        "price": 300,
+        "description": "Premium ceremonial grade matcha whisked with cold milk and poured over ice — smooth, earthy, and refreshingly vibrant.",
+        "calories": "180",
+        "nutrition": {
+          "protein": "7",
+          "carbs": "24",
+          "fat": "6"
+        },
+        "spicy": false,
+        "vegetarian": true,
+        "tags": [
+          "matcha",
+          "tea",
+          "iced",
+          "latte"
+        ],
+        "colorCode": "#228B22",
+        "imageUrl": "Menuimages/ice-matcha-latte.jpg",
+        "imageName": "ice-matcha-latte.jpg",
+        "priceLarge": 350,
+        "addOnIds": [
+          "addon_013",
+          "addon_014"
+        ],
+        "contains": null,
+        "allergens": null,
+        "signature": false
       }
     ],
     "desserts": [
