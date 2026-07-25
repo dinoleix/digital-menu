@@ -2500,7 +2500,7 @@
         "contains": null,
         "allergens": null,
         "signature": false,
-        "placeholderImage": true
+        "placeholderImage": false
       },
       {
         "id": "coffee_019",
@@ -2720,7 +2720,7 @@
         "id": "dessert_003",
         "name": "Choco Filled Éclair",
         "category": "Desserts",
-        "price": 0,
+        "price": 280,
         "description": "French-style choux pastry with a glossy dark chocolate glaze and a generous filling of smooth chocolate cream. Rich, elegant, and deeply satisfying.",
         "calories": null,
         "nutrition": null,
@@ -2734,18 +2734,17 @@
           "pastry"
         ],
         "colorCode": "#1e0f04",
-        "imageUrl": null,
-        "imageName": null,
+        "imageUrl": "Menuimages/choco-filled-eclair.jpg",
+        "imageName": "choco-filled-eclair.jpg",
         "addOnIds": [],
         "contains": "Eggs, Dairy, Gluten",
-        "allergens": "gluten, dairy, eggs",
-        "placeholderImage": true
+        "allergens": "gluten, dairy, eggs"
       },
       {
         "id": "dessert_004",
         "name": "Maritozzo Cream Bun",
         "category": "Desserts",
-        "price": 0,
+        "price": 260,
         "description": "A pillowy Roman-style brioche bun split and stuffed generously with fresh Chantilly cream. Soft, sweet, and impossibly fluffy — best enjoyed right away.",
         "calories": null,
         "nutrition": null,
