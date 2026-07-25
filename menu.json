@@ -2054,8 +2054,8 @@
           "vietnamese"
         ],
         "colorCode": "#6B3A2A",
-        "imageUrl": "Menuimages/vietnamese-coffee.jpg",
-        "imageName": "vietnamese-coffee.jpg",
+        "imageUrl": "Menuimages/hot-vietnamese-coffee.jpg",
+        "imageName": "hot-vietnamese-coffee.jpg",
         "priceLarge": 210,
         "addOnIds": [
           "addon_013",
@@ -2063,8 +2063,7 @@
         ],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "coffee_004",
