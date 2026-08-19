@@ -139,8 +139,7 @@
         "addOnIds": [],
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "breakfast_007",
