@@ -1890,8 +1890,7 @@
         "priceLarge": 330,
         "contains": null,
         "allergens": null,
-        "signature": false,
-        "placeholderImage": true
+        "signature": false
       },
       {
         "id": "boba_019",
