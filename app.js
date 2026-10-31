@@ -669,7 +669,7 @@ function scrollActiveTabIntoView(smooth = true) {
 function setCategory(cat) {
   if (cat === state.category) return;
   state.category = cat;
-  const categorySlug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 22) || 'other';
+  const categorySlug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 19) || 'other';
   track(`menu_category_select_${categorySlug}`, { menu_category: cat, menu_context: 'digital_tinder_menu' });
 
   document.querySelectorAll('.cat-tab').forEach(b =>
